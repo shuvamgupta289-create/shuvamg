@@ -9,9 +9,14 @@ BASE_DIR = Path(__file__).resolve().parent
 load_dotenv(BASE_DIR / ".env")
 
 
-def get_database_url():
+def get_database_url(*, require_database=False):
     database_url = os.getenv("DATABASE_URL")
     if not database_url:
+        if require_database:
+            raise RuntimeError(
+                "DATABASE_URL must be set in the production environment. "
+                "Configure it with the Supabase PostgreSQL connection string."
+            )
         return f"sqlite:///{BASE_DIR / 'stepzone.db'}"
 
     if database_url.startswith("postgres://"):

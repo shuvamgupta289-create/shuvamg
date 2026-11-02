@@ -2,7 +2,7 @@ import os
 
 from flask import Flask
 
-from config import config_by_name
+from config import config_by_name, get_database_url
 from .extensions import db, migrate
 from . import models
 from .routes.admin import admin_bp, register_admin_cli
@@ -16,8 +16,15 @@ from .routes.main import main_bp
 
 def create_app(config_name=None):
     app = Flask(__name__)
-    selected_config = config_name or os.getenv("FLASK_ENV", "development")
+    selected_config = config_name or os.getenv(
+        "FLASK_ENV", "production" if os.getenv("VERCEL") else "development"
+    )
     app.config.from_object(config_by_name.get(selected_config, config_by_name["development"]))
+
+    # Keep SQLite available for local development and tests, but never let a
+    # production/Vercel deployment silently create or use a local database.
+    if selected_config == "production" or os.getenv("VERCEL"):
+        app.config["SQLALCHEMY_DATABASE_URI"] = get_database_url(require_database=True)
 
     db.init_app(app)
     migrate.init_app(app, db)
