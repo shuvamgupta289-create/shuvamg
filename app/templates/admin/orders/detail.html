@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}{{ order.order_number }} | STEPZONE Admin{% endblock %}
+
+{% block content %}
+<main class="admin-dashboard-page"><div class="container content-shell admin-form-shell">
+  <a class="detail-breadcrumb" href="{{ url_for('admin_orders.listing') }}"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to orders</a>
+  <p class="eyebrow">STEPZONE / ORDER</p><h1 class="admin-form-title">{{ order.order_number }}</h1>
+  {% if error %}<p class="admin-error admin-error-light" role="alert">{{ error }}</p>{% endif %}
+  <div class="order-detail-grid"><section class="order-detail-panel"><h2>Customer</h2><p>{{ order.customer_name }}<br>{{ order.customer_email }}<br>{{ order.customer_phone }}</p><h2>Delivery</h2><p>{{ order.shipping_address }}<br>{{ order.shipping_city }}, {{ order.shipping_state }} {{ order.shipping_postal_code }}</p></section><section class="order-detail-panel"><h2>Status</h2><p>Payment: <strong>{{ order.payment_status|title }}</strong><br>Method: <strong>{{ order.payment_method|upper }}</strong><br>Total: <strong>₹{{ "{:,.2f}".format(order.total_amount) }}</strong></p><form method="post" action="{{ url_for('admin_orders.update_status', order_id=order.id) }}"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><label>Status<select name="status">{% for value in statuses %}<option value="{{ value }}"{% if value == order.status %} selected{% endif %}>{{ value|title }}</option>{% endfor %}</select></label><button class="button button-orange" type="submit">Update status</button></form></section></div>
+  <div class="admin-product-table-wrap order-items-table"><table class="admin-product-table"><thead><tr><th>Product</th><th>SKU</th><th>Size</th><th>Colour</th><th>Qty</th><th>Unit price</th><th>Total</th></tr></thead><tbody>{% for item in order.items %}<tr><td>{{ item.product_name }}</td><td>{{ item.sku }}</td><td>{{ item.size }}</td><td>{{ item.color or '—' }}</td><td>{{ item.quantity }}</td><td>₹{{ "{:,.2f}".format(item.unit_price) }}</td><td>₹{{ "{:,.2f}".format(item.line_total) }}</td></tr>{% endfor %}</tbody></table></div>
+</div></main>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard | STEPZONE{% endblock %}
+
+{% block content %}
+<main class="admin-dashboard-page"><div class="container-fluid content-shell">
+    <div class="admin-dashboard-header"><div><p class="eyebrow">STEPZONE / ADMIN</p><h1>Dashboard</h1></div><form method="post" action="{{ url_for('admin.logout') }}"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><button class="button button-dark" type="submit">Sign out</button></form></div>
+    <nav class="admin-dashboard-nav" aria-label="Admin sections"><a class="is-current" href="{{ url_for('admin.dashboard') }}">Dashboard</a><a href="{{ url_for('admin_products.listing') }}">Products</a><a href="{{ url_for('admin_inventory.listing') }}">Inventory</a><a href="{{ url_for('admin_orders.listing') }}">Orders</a></nav>
+    <section class="admin-stat-grid" aria-label="Store statistics">
+        <div class="admin-stat-card"><span>Total products</span><strong>{{ stats.products }}</strong><a href="{{ url_for('admin_products.listing') }}">View catalogue</a></div>
+        <div class="admin-stat-card"><span>Product variants</span><strong>{{ stats.variants }}</strong><a href="{{ url_for('admin_inventory.listing') }}">View inventory</a></div>
+        <div class="admin-stat-card"><span>Total orders</span><strong>{{ stats.orders }}</strong><a href="{{ url_for('admin_orders.listing') }}">View orders</a></div>
+        <div class="admin-stat-card"><span>Paid sales</span><strong>₹{{ "{:,.2f}".format(stats.sales) }}</strong><small>Verified payments only</small></div>
+        <div class="admin-stat-card"><span>Pending orders</span><strong>{{ stats.pending_orders }}</strong><a href="{{ url_for('admin_orders.listing', status='pending') }}">Review pending</a></div>
+        <div class="admin-stat-card"><span>Low stock</span><strong>{{ stats.low_stock }}</strong><a href="{{ url_for('admin_inventory.listing', stock_status='low') }}">Review stock</a></div>
+        <div class="admin-stat-card is-alert"><span>Out of stock</span><strong>{{ stats.out_of_stock }}</strong><a href="{{ url_for('admin_inventory.listing', stock_status='out') }}">Review stock</a></div>
+    </section>
+    <div class="admin-dashboard-columns">
+        <section class="admin-dashboard-panel"><div class="admin-panel-heading"><div><p class="eyebrow">LAST 7 DAYS</p><h2>Paid sales overview</h2></div></div><div class="sales-chart" aria-label="Paid sales for the last seven days">{% for day in sales_overview %}<div class="sales-chart-column"><div class="sales-chart-bar" style="height: {{ [day.width, 4]|max }}%" title="₹{{ "{:,.2f}".format(day.amount) }}"></div><span>{{ day.label }}</span></div>{% endfor %}</div></section>
+        <section class="admin-dashboard-panel"><div class="admin-panel-heading"><div><p class="eyebrow">ATTENTION NEEDED</p><h2>Low-stock alerts</h2></div><a class="admin-edit-link" href="{{ url_for('admin_inventory.listing', stock_status='low') }}">View all</a></div>{% for variant in low_stock_variants %}<a class="admin-alert-row" href="{{ url_for('admin_inventory.edit_variant', variant_id=variant.id) }}"><span>{{ variant.product.name }} · {{ variant.size }}</span><strong>{{ variant.stock_quantity }} left</strong></a>{% else %}<p class="admin-empty-copy">No low-stock active variants.</p>{% endfor %}</section>
+    </div>
+    <section class="admin-dashboard-panel admin-recent-orders"><div class="admin-panel-heading"><div><p class="eyebrow">LATEST ACTIVITY</p><h2>Recent orders</h2></div><a class="admin-edit-link" href="{{ url_for('admin_orders.listing') }}">View all</a></div><div class="admin-product-table-wrap"><table class="admin-product-table"><thead><tr><th>Order</th><th>Customer</th><th>Date</th><th>Total</th><th>Payment</th><th>Status</th></tr></thead><tbody>{% for order in recent_orders %}<tr><td><a class="admin-edit-link" href="{{ url_for('admin_orders.detail', order_id=order.id) }}">{{ order.order_number }}</a></td><td>{{ order.customer_name }}</td><td>{{ order.created_at.strftime('%d %b %Y') }}</td><td>₹{{ "{:,.2f}".format(order.total_amount) }}</td><td>{{ order.payment_status|title }}</td><td>{{ order.status|title }}</td></tr>{% else %}<tr><td class="admin-table-empty" colspan="6">No orders yet.</td></tr>{% endfor %}</tbody></table></div></section>
+</div></main>
+{% endblock %}

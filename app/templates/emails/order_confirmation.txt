@@ -1,0 +1,16 @@
+STEPZONE - ORDER CONFIRMED
+
+Thanks, {{ order.customer_name }}.
+
+Your order {{ order.order_number }} has been confirmed.
+
+{% for item in order.items %}- {{ item.product_name }} | Size {{ item.size }}{% if item.color %} | {{ item.color }}{% endif %} | Qty {{ item.quantity }} | INR {{ "{:,.2f}".format(item.line_total) }}
+{% endfor %}
+Total: INR {{ "{:,.2f}".format(order.total_amount) }}
+Payment method: {{ order.payment_method|upper }}
+
+Delivery address:
+{{ order.customer_name }}
+{{ order.shipping_address }}
+{{ order.shipping_city }}, {{ order.shipping_state }} {{ order.shipping_postal_code }}
+{{ order.customer_phone }}

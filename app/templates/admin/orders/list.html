@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Orders | STEPZONE Admin{% endblock %}
+
+{% block content %}
+<main class="admin-dashboard-page"><div class="container-fluid content-shell">
+  <div class="admin-dashboard-header"><div><p class="eyebrow">STEPZONE / ADMIN</p><h1>Orders</h1></div></div>
+  <form class="inventory-filters admin-order-filters" method="get">
+    <label>Search<input name="search" value="{{ search }}" placeholder="Order, name or email"></label>
+    <label>Order status<select name="status"><option value="">All statuses</option>{% for value in statuses %}<option value="{{ value }}"{% if status == value %} selected{% endif %}>{{ value|title }}</option>{% endfor %}</select></label>
+    <label>Payment status<input name="payment_status" value="{{ payment_status }}" placeholder="paid, pending"></label>
+    <label>From<input type="date" name="date_from" value="{{ date_from }}"></label><label>To<input type="date" name="date_to" value="{{ date_to }}"></label>
+    <button class="button button-dark" type="submit">Filter</button>
+  </form>
+  <div class="admin-product-table-wrap"><table class="admin-product-table"><thead><tr><th>Order</th><th>Customer</th><th>Date</th><th>Total</th><th>Payment</th><th>Status</th><th></th></tr></thead><tbody>
+  {% for order in orders %}<tr><td><strong>{{ order.order_number }}</strong></td><td>{{ order.customer_name }}<small class="admin-cell-muted">{{ order.customer_email }}</small></td><td>{{ order.created_at.strftime('%d %b %Y') }}</td><td>₹{{ "{:,.2f}".format(order.total_amount) }}</td><td>{{ order.payment_method|upper }}<small class="admin-cell-muted">{{ order.payment_status|title }}</small></td><td><span class="admin-status {% if order.status in ['confirmed','delivered'] %}is-active{% elif order.status == 'cancelled' %}is-inactive{% endif %}">{{ order.status|title }}</span></td><td><a class="admin-edit-link" href="{{ url_for('admin_orders.detail', order_id=order.id) }}">View</a></td></tr>{% else %}<tr><td class="admin-table-empty" colspan="7">No orders found.</td></tr>{% endfor %}
+  </tbody></table></div>
+</div></main>
+{% endblock %}

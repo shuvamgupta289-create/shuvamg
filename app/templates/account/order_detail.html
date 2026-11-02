@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block title %}{{ order.order_number }} | STEPZONE{% endblock %}
+
+{% block content %}
+<main class="account-page"><div class="container-fluid content-shell"><a class="detail-breadcrumb" href="{{ url_for('customer_auth.account') }}"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to account</a><p class="eyebrow">STEPZONE / ORDER</p><h1 class="account-order-title">{{ order.order_number }}</h1><div class="account-order-summary"><span>Status <strong>{{ order.status|title }}</strong></span><span>Payment <strong>{{ order.payment_status|title }}</strong></span><span>Total <strong>₹{{ "{:,.2f}".format(order.total_amount) }}</strong></span></div><section class="account-panel"><h2>Items</h2>{% for item in order.items %}<div class="account-item-row"><span><strong>{{ item.product_name }}</strong><small>SKU {{ item.sku }} · Size {{ item.size }}{% if item.color %} · {{ item.color }}{% endif %} · Qty {{ item.quantity }}</small></span><b>₹{{ "{:,.2f}".format(item.line_total) }}</b></div>{% endfor %}<h2 class="account-address-title">Delivery address</h2><p>{{ order.shipping_address }}<br>{{ order.shipping_city }}, {{ order.shipping_state }} {{ order.shipping_postal_code }}<br>{{ order.customer_phone }}</p></section></div></main>
+{% endblock %}

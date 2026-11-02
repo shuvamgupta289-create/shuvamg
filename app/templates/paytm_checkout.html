@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Paytm Checkout | STEPZONE{% endblock %}
+
+{% block content %}
+<main class="checkout-page">
+    <div class="container content-shell">
+        <section class="checkout-loading-panel">
+            <p class="eyebrow">SECURE STAGING CHECKOUT</p>
+            <h1 class="checkout-title">Opening <em>Paytm.</em></h1>
+            <p class="detail-muted">Your payment is being opened securely. Do not refresh this page.</p>
+            <p class="checkout-error" data-paytm-error hidden>Paytm checkout could not be opened.</p>
+        </section>
+    </div>
+</main>
+<script type="application/javascript" src="{{ checkout_js_url.replace('{mid}', merchant_id) }}"></script>
+<script>
+    window.addEventListener("load", function () {
+        var config = {
+            root: "",
+            flow: "DEFAULT",
+            data: {
+                orderId: {{ order_id|tojson }},
+                token: {{ txn_token|tojson }},
+                tokenType: "TXN_TOKEN",
+                amount: {{ "%.2f"|format(amount) }}
+            }
+        };
+        if (!window.Paytm || !Paytm.CheckoutJS) {
+            document.querySelector("[data-paytm-error]").hidden = false;
+            return;
+        }
+        Paytm.CheckoutJS.init(config).then(function () {
+            Paytm.CheckoutJS.invoke();
+        }).catch(function () {
+            document.querySelector("[data-paytm-error]").hidden = false;
+        });
+    });
+</script>
+{% endblock %}

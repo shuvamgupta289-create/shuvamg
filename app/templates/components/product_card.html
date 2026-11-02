@@ -1,0 +1,22 @@
+{% macro product_card(product) %}
+<article class="product-card">
+    <div class="product-image-wrap">
+        <button class="wishlist-button" type="button" aria-label="Add {{ product.name }} to wishlist" data-wishlist>
+            <i class="fa-regular fa-heart" aria-hidden="true"></i>
+        </button>
+        <a class="product-card-image-link" href="{{ url_for('main.product_detail', slug=product.slug) }}" aria-label="View {{ product.name }} details">
+            <div class="product-image-fallback" role="img" aria-label="Product image unavailable">
+                <i class="fa-solid fa-shoe-prints" aria-hidden="true"></i>
+                <span>STEPZONE</span>
+            </div>
+        </a>
+    </div>
+    <div class="product-info">
+        <div>
+            <p class="product-category">{{ product.brand.name }} · {{ product.category.name }}</p>
+            <h3><a href="{{ url_for('main.product_detail', slug=product.slug) }}">{{ product.name }}</a></h3>
+        </div>
+        <p class="product-price">₹{{ "{:,.0f}".format(product.base_price) }}</p>
+    </div>
+</article>
+{% endmacro %}

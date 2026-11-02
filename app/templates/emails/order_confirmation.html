@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<body style="margin:0;background:#f5f4f0;color:#101010;font-family:Arial,sans-serif;line-height:1.5">
+  <div style="max-width:640px;margin:0 auto;padding:32px 20px">
+    <div style="background:#101010;color:#fff;padding:22px 24px">
+      <strong style="letter-spacing:3px">STEPZONE</strong><br><span style="color:#ff5a1f">Step Into Your Style.</span>
+    </div>
+    <div style="background:#fff;padding:32px 24px">
+      <p style="color:#777771;font-size:12px;letter-spacing:2px">ORDER CONFIRMED</p>
+      <h1 style="font-size:30px;margin:0 0 16px">Thanks, {{ order.customer_name }}.</h1>
+      <p>Your order <strong>{{ order.order_number }}</strong> has been confirmed.</p>
+      <table role="presentation" style="border-collapse:collapse;width:100%;margin:24px 0">
+        {% for item in order.items %}<tr><td style="border-bottom:1px solid #d7d6d1;padding:12px 0"><strong>{{ item.product_name }}</strong><br><span style="color:#777771">Size {{ item.size }}{% if item.color %} · {{ item.color }}{% endif %} · Qty {{ item.quantity }}</span></td><td style="border-bottom:1px solid #d7d6d1;padding:12px 0;text-align:right">₹{{ "{:,.2f}".format(item.line_total) }}</td></tr>{% endfor %}
+      </table>
+      <p><strong>Total</strong><span style="float:right"><strong>₹{{ "{:,.2f}".format(order.total_amount) }}</strong></span></p>
+      <p>Payment method: <strong>{{ order.payment_method|upper }}</strong></p>
+      <h2 style="font-size:16px;margin-top:28px">Delivery address</h2>
+      <p>{{ order.customer_name }}<br>{{ order.shipping_address }}<br>{{ order.shipping_city }}, {{ order.shipping_state }} {{ order.shipping_postal_code }}<br>{{ order.customer_phone }}</p>
+    </div>
+    <p style="color:#777771;font-size:12px;padding:16px 0">STEPZONE · Made for the ones who move.</p>
+  </div>
+</body>
+</html>

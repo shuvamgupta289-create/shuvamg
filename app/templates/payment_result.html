@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }} | STEPZONE{% endblock %}
+
+{% block content %}
+<main class="not-found-page">
+    <div class="not-found-inner">
+        <p class="eyebrow">STEPZONE / PAYMENT</p>
+        <h1>{{ title }}</h1>
+        <p>{{ message }}</p>
+        {% if order %}<p class="detail-muted">Order reference: {{ order.order_number }}</p>{% endif %}
+        <a class="button button-orange" href="{{ url_for('main.home') }}">Back to home <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+    </div>
+</main>
+{% endblock %}

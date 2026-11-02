@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Product Not Found | STEPZONE{% endblock %}
+
+{% block content %}
+<main class="not-found-page">
+    <div class="not-found-inner">
+        <p class="eyebrow">404 / NOT FOUND</p>
+        <h1>That step<br><em>doesn't exist.</em></h1>
+        <p>We couldn't find an active product at that address.</p>
+        <a class="button button-orange" href="{{ url_for('main.home') }}">Back to home <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+    </div>
+</main>
+{% endblock %}

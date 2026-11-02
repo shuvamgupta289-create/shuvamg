@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+{% from "components/product_card.html" import product_card %}
+
+{% block content %}
+<header class="site-header">
+    <div class="top-strip">
+        <p>Free shipping on orders over ₹2,500 <span aria-hidden="true">•</span> Easy 7-day returns</p>
+    </div>
+    <nav class="navbar navbar-expand-lg site-nav" aria-label="Main navigation">
+        <div class="container-fluid nav-shell">
+            <a class="brand-mark" href="{{ url_for('main.home') }}" aria-label="STEPZONE home">
+                <span class="brand-symbol">SZ</span>
+                <span class="brand-name">STEPZONE</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav mx-auto nav-links">
+                    <li class="nav-item"><a class="nav-link" href="#new-arrivals">New arrivals</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#collections">Collections</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#trending">Trending</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#brands">Brands</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <a href="#newsletter" class="nav-icon-link" aria-label="Newsletter"><i class="fa-regular fa-envelope" aria-hidden="true"></i></a>
+                    <a href="#trending" class="nav-icon-link" aria-label="Browse sneakers"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></a>
+                    <a href="#trending" class="bag-link">Shop now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="hero-section" aria-labelledby="hero-title">
+        <div class="hero-copy">
+            <p class="eyebrow eyebrow-light">THE NEW STANDARD</p>
+            <h1 id="hero-title">Step into<br><em>your style.</em></h1>
+            <p class="hero-description">Curated sneakers for every version of you. Find the pair that moves with your world.</p>
+            <a class="button button-light" href="#trending">Shop the edit <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+        <div class="hero-meta" aria-label="Collection details">
+            <span>01</span>
+            <span class="hero-meta-line"></span>
+            <span>SS / 2025</span>
+        </div>
+        <div class="hero-scroll"><span>Scroll to explore</span><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+    </section>
+
+    <section class="intro-section section-space" aria-labelledby="intro-title">
+        <div class="container-fluid content-shell intro-grid">
+            <p class="eyebrow">WHY STEPZONE</p>
+            <div>
+                <h2 id="intro-title" class="display-heading">Good shoes take<br><em>you places.</em></h2>
+                <p class="intro-copy">We look for the pairs with the right mix of comfort, character and culture. No noise. Just sneakers worth stepping out in.</p>
+            </div>
+            <div class="intro-stamp" aria-hidden="true"><span>EST.</span><strong>25</strong><span>INDIA</span></div>
+        </div>
+    </section>
+
+    <section class="collection-section section-space" id="collections" aria-labelledby="collections-title">
+        <div class="container-fluid content-shell">
+            <div class="section-heading-row">
+                <div><p class="eyebrow">CURATED FOR YOU</p><h2 id="collections-title">Find your <em>frequency.</em></h2></div>
+                <a class="text-link" href="#trending">View all collections <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+            <div class="row g-3 collection-grid">
+                {% for collection in featured_collections %}
+                <div class="col-12 col-md-4">
+                    <a href="#trending" class="collection-card">
+                        <img src="{{ collection.image }}" alt="{{ collection.name }} collection" loading="lazy">
+                        <div class="collection-overlay"></div>
+                        <div class="collection-content">
+                            <p>{{ collection.eyebrow }}</p>
+                            <h3>{{ collection.name }}</h3>
+                            <span>{{ collection.description }}</span>
+                        </div>
+                        <span class="round-arrow"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></span>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="product-section section-space" id="trending" aria-labelledby="trending-title">
+        <div class="container-fluid content-shell">
+            <div class="section-heading-row">
+                <div><p class="eyebrow">THE WEEKLY ROTATION</p><h2 id="trending-title">Trending <em>now.</em></h2></div>
+                <a class="text-link" href="#newsletter">Get drop alerts <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+            <div class="row g-3 product-grid">
+                {% for product in products[:4] %}
+                <div class="col-12 col-sm-6 col-xl-3">{{ product_card(product) }}</div>
+                {% else %}
+                <div class="col-12"><p class="empty-products-message">Our next rotation is almost here. Check back soon.</p></div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="brand-section" id="brands" aria-labelledby="brands-title">
+        <div class="container-fluid content-shell">
+            <p class="eyebrow">THE NAMES YOU KNOW</p>
+            <h2 id="brands-title" class="visually-hidden">Popular brands</h2>
+            <div class="brand-list">
+                {% for brand in brands %}<a href="#trending" class="brand-wordmark">{{ brand }}</a>{% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="product-section section-space" id="new-arrivals" aria-labelledby="arrivals-title">
+        <div class="container-fluid content-shell">
+            <div class="section-heading-row">
+                <div><p class="eyebrow">FRESH ON THE FLOOR</p><h2 id="arrivals-title">New <em>arrivals.</em></h2></div>
+                <a class="text-link" href="#newsletter">Never miss a drop <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
+            <div class="row g-3 product-grid">
+                {% for product in products[:3] %}
+                <div class="col-12 col-sm-6 col-xl-4">{{ product_card(product) }}</div>
+                {% else %}
+                <div class="col-12"><p class="empty-products-message">New arrivals are landing soon. Check back soon.</p></div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter-section" id="newsletter" aria-labelledby="newsletter-title">
+        <div class="container-fluid content-shell newsletter-inner">
+            <div><p class="eyebrow eyebrow-light">STAY IN STEP</p><h2 id="newsletter-title">The good stuff,<br><em>straight to you.</em></h2></div>
+            <div class="newsletter-form-wrap">
+                <p>New drops, rare finds and a little inspiration. No spam, ever.</p>
+                <form class="newsletter-form" data-newsletter-form novalidate>
+                    <label class="visually-hidden" for="newsletter-email">Email address</label>
+                    <input id="newsletter-email" name="email" type="email" placeholder="Your email address" autocomplete="email" required>
+                    <button class="button button-orange" type="submit">Sign me up <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+                </form>
+                <p class="form-message" data-form-message role="status" aria-live="polite"></p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container-fluid content-shell">
+        <div class="footer-top">
+            <a class="brand-mark brand-mark-footer" href="{{ url_for('main.home') }}"><span class="brand-symbol">SZ</span><span class="brand-name">STEPZONE</span></a>
+            <p class="footer-tagline">Step Into Your Style.</p>
+            <div class="social-links"><a href="#newsletter" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="#newsletter" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p" aria-hidden="true"></i></a><a href="#newsletter" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></div>
+        </div>
+        <div class="footer-bottom"><span>© 2025 STEPZONE. All rights reserved.</span><span>Made for the ones who move.</span><a href="#hero-title">Back to top <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a></div>
+    </div>
+</footer>
+{% endblock %}

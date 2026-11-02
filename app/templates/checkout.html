@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Checkout | STEPZONE{% endblock %}
+
+{% block content %}
+<main class="checkout-page">
+    <div class="container content-shell">
+        <a class="detail-breadcrumb" href="{{ url_for('main.home') }}"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to STEPZONE</a>
+        <div class="checkout-layout">
+            <section>
+                <p class="eyebrow">SECURE CHECKOUT</p>
+                <h1 class="checkout-title">Almost <em>there.</em></h1>
+                {% if error %}<p class="checkout-error" role="alert">{{ error }}</p>{% endif %}
+                {% if product and variant %}
+                <div class="checkout-summary">
+                    <p class="eyebrow">YOUR SELECTION</p>
+                    <h2>{{ product.name }}</h2>
+                    <p>{{ product.brand.name }} · {{ product.category.name }}</p>
+                    <p>Size {{ variant.size }}{% if variant.color %} · {{ variant.color }}{% endif %} · ₹{{ "{:,.0f}".format(variant.effective_price) }}</p>
+                </div>
+                <form method="post" action="{{ url_for('checkout.start_paytm_payment') }}" class="checkout-form">
+                    <input type="hidden" name="product_id" value="{{ product.id }}"><input type="hidden" name="variant_id" value="{{ variant.id }}"><input type="hidden" name="quantity" value="{{ quantity }}"><input type="hidden" name="checkout_token" value="{{ checkout_token }}">
+                    <h2>Delivery details</h2>
+                    <label>Full name<input name="name" value="{{ user.first_name }} {{ user.last_name }}" required></label>
+                    <label>Email<input name="email" type="email" value="{{ user.email }}" required></label>
+                    <label>Phone<input name="phone" value="{{ user.phone or '' }}" required></label>
+                    <label>Address<textarea name="address" rows="3" required>{{ user.address or '' }}</textarea></label>
+                    <div class="checkout-fields-row"><label>City<input name="city" value="{{ user.city or '' }}" required></label><label>State<input name="state" value="{{ user.state or '' }}" required></label></div>
+                    <label>Postal code<input name="postal_code" value="{{ user.postal_code or '' }}" required></label>
+                    <div class="checkout-actions"><button class="button button-orange" type="submit">Pay with Paytm <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><button class="button button-dark" type="submit" formaction="{{ url_for('checkout.place_cod_order') }}">Place COD order</button></div>
+                </form>
+                {% endif %}
+            </section>
+        </div>
+    </div>
+</main>
+{% endblock %}
