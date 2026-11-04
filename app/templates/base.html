@@ -15,7 +15,25 @@
 </head>
 <body>
     {% if not request.path.startswith('/admin') %}
-    <div class="customer-utility-nav"><div class="customer-utility-inner"><span>STEPZONE</span><div>{% if session.get('customer_user_id') %}<a href="{{ url_for('customer_auth.account') }}">My account</a><form method="post" action="{{ url_for('customer_auth.logout') }}"><input type="hidden" name="csrf_token" value="{{ session.get('customer_csrf_token', '') }}"><button type="submit">Log out</button></form>{% else %}<a href="{{ url_for('customer_auth.login') }}">Log in</a><a href="{{ url_for('customer_auth.register') }}">Register</a>{% endif %}</div></div></div>
+    <div class="customer-utility-nav">
+        <div class="customer-utility-inner">
+            <a href="{{ url_for('main.home') }}">STEPZONE</a>
+            <div class="customer-utility-links">
+                <a href="{{ url_for('customer_shopping.cart') }}">Cart</a>
+                <a href="{{ url_for('customer_shopping.wishlist') }}">Wishlist</a>
+                {% if session.get('customer_user_id') %}
+                <a href="{{ url_for('customer_auth.account') }}">Hi, {{ session.get('customer_display_name', 'Customer') }}</a>
+                <form method="post" action="{{ url_for('customer_auth.logout') }}">
+                    <input type="hidden" name="csrf_token" value="{{ session.get('customer_csrf_token', '') }}">
+                    <button type="submit">Log out</button>
+                </form>
+                {% else %}
+                <a href="{{ url_for('customer_auth.login') }}">Log in</a>
+                <a href="{{ url_for('customer_auth.register') }}">Register</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
     {% endif %}
     {% block content %}{% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

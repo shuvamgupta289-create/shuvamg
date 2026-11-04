@@ -1,5 +1,6 @@
 from decimal import Decimal, InvalidOperation
 import re
+from urllib.parse import urlsplit
 
 from flask import Blueprint, redirect, render_template, request, url_for
 from sqlalchemy.orm import joinedload
@@ -7,6 +8,7 @@ from sqlalchemy.orm import joinedload
 from ..extensions import db
 from ..models import Brand, Category, OrderItem, Product
 from .admin import _csrf_token, _valid_csrf_token, admin_required
+
 
 admin_products_bp = Blueprint("admin_products", __name__, url_prefix="/admin/products")
 
@@ -21,10 +23,15 @@ def _product_form_values(form):
     name = form.get("name", "").strip()
     slug = form.get("slug", "").strip().lower()
     description = form.get("description", "").strip() or None
+    image_url = form.get("image_url", "").strip() or None
     if not name or len(name) > 180:
         raise ValueError("Product name is required and must be 180 characters or fewer.")
     if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", slug) or len(slug) > 200:
         raise ValueError("Slug must use lowercase letters, numbers, and single hyphens.")
+    if image_url:
+        parsed_image_url = urlsplit(image_url)
+        if len(image_url) > 1000 or parsed_image_url.scheme != "https" or not parsed_image_url.hostname or parsed_image_url.username or parsed_image_url.password:
+            raise ValueError("Product images must use a valid HTTPS image URL.")
     try:
         brand_id = int(form.get("brand_id", ""))
         category_id = int(form.get("category_id", ""))
@@ -39,6 +46,7 @@ def _product_form_values(form):
         "name": name,
         "slug": slug,
         "description": description,
+        "image_url": image_url,
         "brand_id": brand_id,
         "category_id": category_id,
         "base_price": base_price,

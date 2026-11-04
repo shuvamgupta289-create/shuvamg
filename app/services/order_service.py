@@ -5,7 +5,7 @@ from uuid import uuid4
 from sqlalchemy import select
 
 from ..extensions import db
-from ..models import Order, OrderItem, Payment, ProductVariant
+from ..models import Order, OrderItem, Payment, Product, ProductVariant
 
 
 class OrderValidationError(ValueError):
@@ -16,10 +16,15 @@ def get_available_variant(variant_id, product_id, quantity=1, lock=False):
     if quantity < 1:
         raise OrderValidationError("Quantity must be at least one.")
 
-    statement = select(ProductVariant).where(
-        ProductVariant.id == variant_id,
-        ProductVariant.product_id == product_id,
-        ProductVariant.is_active.is_(True),
+    statement = (
+        select(ProductVariant)
+        .join(Product, Product.id == ProductVariant.product_id)
+        .where(
+            ProductVariant.id == variant_id,
+            ProductVariant.product_id == product_id,
+            ProductVariant.is_active.is_(True),
+            Product.is_active.is_(True),
+        )
     )
     if lock:
         statement = statement.with_for_update()
@@ -31,7 +36,17 @@ def get_available_variant(variant_id, product_id, quantity=1, lock=False):
     return variant
 
 
-def create_pending_order(*, variant_id, product_id, quantity, payment_method, customer, checkout_token, user_id=None):
+def create_pending_order(
+    *,
+    payment_method,
+    customer,
+    checkout_token,
+    user_id=None,
+    items=None,
+    variant_id=None,
+    product_id=None,
+    quantity=1,
+):
     existing_order = db.session.execute(
         select(Order).where(Order.checkout_token == checkout_token).with_for_update()
     ).scalar_one_or_none()
@@ -40,11 +55,28 @@ def create_pending_order(*, variant_id, product_id, quantity, payment_method, cu
             raise OrderValidationError("This checkout token cannot be reused for another payment method.")
         return existing_order
 
-    variant = get_available_variant(variant_id, product_id, quantity, lock=True)
-    unit_price = variant.effective_price
-    subtotal = unit_price * quantity
-    order_number = f"SZ-{uuid4().hex[:16].upper()}"
+    requested_items = items
+    if requested_items is None:
+        requested_items = [{"variant_id": variant_id, "product_id": product_id, "quantity": quantity}]
+    if not requested_items:
+        raise OrderValidationError("Your cart is empty.")
 
+    validated = []
+    subtotal = Decimal("0.00")
+    for requested in requested_items:
+        try:
+            selected_quantity = int(requested["quantity"])
+            selected_variant_id = int(requested["variant_id"])
+            selected_product_id = int(requested["product_id"])
+        except (KeyError, TypeError, ValueError) as error:
+            raise OrderValidationError("A cart item is invalid.") from error
+        variant = get_available_variant(selected_variant_id, selected_product_id, selected_quantity, lock=True)
+        unit_price = variant.effective_price
+        line_total = unit_price * selected_quantity
+        subtotal += line_total
+        validated.append((variant, selected_quantity, unit_price, line_total))
+
+    order_number = f"SZ-{uuid4().hex[:16].upper()}"
     order = Order(
         order_number=order_number,
         checkout_token=checkout_token,
@@ -63,19 +95,20 @@ def create_pending_order(*, variant_id, product_id, quantity, payment_method, cu
         shipping_state=customer["state"],
         shipping_postal_code=customer["postal_code"],
     )
-    order.items.append(
-        OrderItem(
-            product_id=variant.product_id,
-            product_variant_id=variant.id,
-            product_name=variant.product.name,
-            sku=variant.sku,
-            size=variant.size,
-            color=variant.color,
-            unit_price=unit_price,
-            quantity=quantity,
-            line_total=subtotal,
+    for variant, selected_quantity, unit_price, line_total in validated:
+        order.items.append(
+            OrderItem(
+                product_id=variant.product_id,
+                product_variant_id=variant.id,
+                product_name=variant.product.name,
+                sku=variant.sku,
+                size=variant.size,
+                color=variant.color,
+                unit_price=unit_price,
+                quantity=selected_quantity,
+                line_total=line_total,
+            )
         )
-    )
     order.payment = Payment(
         provider="paytm" if payment_method == "paytm" else "cod",
         provider_order_id=order_number,

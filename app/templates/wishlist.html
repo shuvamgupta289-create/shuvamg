@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% from "components/product_card.html" import product_card %}
+
+{% block title %}Your Wishlist | STEPZONE{% endblock %}
+
+{% block content %}
+<main class="shopping-page">
+    <div class="container-fluid content-shell">
+        <p class="eyebrow">STEPZONE / SAVED PAIRS</p>
+        <div class="shopping-heading">
+            <div><h1>Your <em>wishlist.</em></h1><p>Good pairs are worth keeping close.</p></div>
+            <a class="text-link" href="{{ url_for('main.home') }}#trending">Continue shopping <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+        {% for category, message in get_flashed_messages(with_categories=true) %}
+        <p class="shopping-flash shopping-flash-{{ category }}" role="status">{{ message }}</p>
+        {% endfor %}
+        {% if products %}
+        <div class="row g-3 product-grid wishlist-grid">
+            {% for product in products %}
+            <div class="col-12 col-sm-6 col-xl-3">{{ product_card(product, wishlist_ids, csrf_token) }}</div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="shopping-empty">
+            <i class="fa-regular fa-heart" aria-hidden="true"></i>
+            <h2>No saved pairs yet.</h2>
+            <p>Tap a heart on any sneaker to add it to your wishlist.</p>
+            <a class="button button-orange" href="{{ url_for('main.home') }}#trending">Explore sneakers <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+        {% endif %}
+    </div>
+</main>
+{% endblock %}

@@ -1,6 +1,6 @@
 from datetime import datetime
+import secrets
 import json
-from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 from flask import current_app, render_template
@@ -35,6 +35,19 @@ def _send_brevo(*, recipient_email, recipient_name, subject, html_content, text_
     )
     with urlopen(request, timeout=15) as response:
         return json.loads(response.read().decode("utf-8"))
+
+
+def send_password_reset_email(user, reset_url):
+    recipient_name = f"{user.first_name} {user.last_name}".strip()
+    _send_brevo(
+        recipient_email=user.email,
+        recipient_name=recipient_name,
+        subject="Reset your STEPZONE password",
+        html_content=render_template("emails/password_reset.html", user=user, reset_url=reset_url),
+        text_content=render_template("emails/password_reset.txt", user=user, reset_url=reset_url),
+        message_id=f"stepzone-password-reset-{user.id}-{secrets.token_hex(8)}",
+    )
+    return True
 
 
 def send_order_confirmation(order_id):

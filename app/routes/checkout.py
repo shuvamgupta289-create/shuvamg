@@ -1,29 +1,37 @@
 from decimal import Decimal
+import re
 from secrets import token_urlsafe
-from urllib.parse import urlencode
 
 from flask import Blueprint, current_app, redirect, render_template, request, session, url_for
 from sqlalchemy.orm import joinedload
 
 from ..extensions import db
-from ..models import Product, ProductVariant
-from ..models import User
-from .customer_auth import customer_required
-from ..services.order_service import OrderValidationError, create_pending_order, get_available_variant, mark_order_cod, mark_order_paid
+from ..models import CartItem, Order, Product, ProductVariant, User
 from ..services.email_service import send_order_confirmation
+from ..services.order_service import OrderValidationError, create_pending_order, get_available_variant, mark_order_cod, mark_order_paid
 from ..services.paytm_service import PaytmConfigurationError, PaytmGatewayError, initiate_transaction, verify_callback, verify_payment
+from .customer_auth import customer_csrf_token, customer_csrf_valid, customer_required
+
 
 checkout_bp = Blueprint("checkout", __name__)
 
 
-def _checkout_error(message, status=400, product=None, variant=None, quantity=None, checkout_token=None):
+def _checkout_error(message, status=400, *, user=None, checkout_token=None):
+    items = []
+    subtotal = Decimal("0.00")
+    if user is not None:
+        try:
+            items, subtotal = _load_checkout_items(user, lock=False)
+        except OrderValidationError:
+            pass
     return render_template(
         "checkout.html",
         error=message,
-        product=product,
-        variant=variant,
-        quantity=quantity,
+        items=items,
+        subtotal=subtotal,
+        user=user,
         checkout_token=checkout_token,
+        csrf_token=customer_csrf_token(),
     ), status
 
 
@@ -41,69 +49,136 @@ def _customer_details(form, user):
     values = {field: form.get(field, defaults[field]).strip() for field in fields}
     if any(not value for value in values.values()):
         raise OrderValidationError("Please complete all delivery details.")
+    if len(values["name"]) > 160 or len(values["email"]) > 255 or len(values["phone"]) > 30:
+        raise OrderValidationError("Please enter valid delivery details.")
+    if not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", values["email"]):
+        raise OrderValidationError("Please enter a valid email address.")
+    if not re.fullmatch(r"[0-9+()\- ]{7,30}", values["phone"]):
+        raise OrderValidationError("Please enter a valid phone number.")
+    if len(values["address"]) > 2000 or len(values["city"]) > 100 or len(values["state"]) > 100 or len(values["postal_code"]) > 20:
+        raise OrderValidationError("Please enter valid delivery details.")
     return values
-
-
-def _selected_variant(form):
-    try:
-        product_id = int(form.get("product_id", ""))
-        variant_id = int(form.get("variant_id", ""))
-        quantity = int(form.get("quantity", "1"))
-    except (TypeError, ValueError) as error:
-        raise OrderValidationError("The selected product variant is invalid.") from error
-    product = Product.query.options(joinedload(Product.brand), joinedload(Product.category)).filter_by(id=product_id, is_active=True).first()
-    if product is None:
-        raise OrderValidationError("The selected product is not available.")
-    variant = get_available_variant(variant_id, product_id, quantity)
-    return product, variant, quantity
 
 
 def _checkout_token(form):
     token = form.get("checkout_token", "").strip()
-    if not token:
-        raise OrderValidationError("This checkout session is invalid. Please return to the product page.")
+    if not token or len(token) > 64:
+        raise OrderValidationError("This checkout session is invalid. Please return to your cart.")
     return token
+
+
+def _load_checkout_items(user, lock=False):
+    statement = (
+        CartItem.query.filter_by(user_id=user.id)
+        .options(
+            joinedload(CartItem.product_variant)
+            .joinedload(ProductVariant.product)
+            .joinedload(Product.brand),
+            joinedload(CartItem.product_variant)
+            .joinedload(ProductVariant.product)
+            .joinedload(Product.category),
+        )
+        .order_by(CartItem.created_at, CartItem.id)
+    )
+    if lock:
+        statement = statement.with_for_update()
+    cart_items = statement.all()
+    if not cart_items:
+        return [], Decimal("0.00")
+
+    subtotal = Decimal("0.00")
+    order_items = []
+    for cart_item in cart_items:
+        variant = get_available_variant(
+            cart_item.product_variant_id,
+            cart_item.product_variant.product_id,
+            cart_item.quantity,
+            lock=lock,
+        )
+        line_total = variant.effective_price * cart_item.quantity
+        subtotal += line_total
+        order_items.append(
+            {
+                "variant_id": variant.id,
+                "product_id": variant.product_id,
+                "quantity": cart_item.quantity,
+                "variant": variant,
+                "product": variant.product,
+                "line_total": line_total,
+            }
+        )
+    return order_items, subtotal
+
+
+def _order_lines(items):
+    return [
+        {
+            "variant_id": item["variant_id"],
+            "product_id": item["product_id"],
+            "quantity": item["quantity"],
+        }
+        for item in items
+    ]
+
+
+def _clear_ordered_cart_quantities(user_id, order):
+    ordered = {(item.product_variant_id, item.quantity) for item in order.items}
+    for cart_item in CartItem.query.filter_by(user_id=user_id).all():
+        if (cart_item.product_variant_id, cart_item.quantity) in ordered:
+            db.session.delete(cart_item)
 
 
 @checkout_bp.get("/checkout")
 @customer_required
 def checkout_page(user):
-    if not request.args.get("product_id"):
-        return render_template("checkout.html", error="Select a product and size before continuing.", user=user)
     try:
-        product, variant, quantity = _selected_variant(request.args)
+        items, subtotal = _load_checkout_items(user)
     except OrderValidationError as error:
-        return _checkout_error(str(error))
-    return render_template("checkout.html", product=product, variant=variant, quantity=quantity, user=user, checkout_token=token_urlsafe(32))
+        return _checkout_error(str(error), user=user), 400
+    if not items:
+        return _checkout_error("Your cart is empty. Add a product before checking out.", 200, user=user)
+    return render_template(
+        "checkout.html",
+        items=items,
+        subtotal=subtotal,
+        user=user,
+        checkout_token=token_urlsafe(32),
+        csrf_token=customer_csrf_token(),
+    )
 
 
 @checkout_bp.post("/checkout")
 def checkout():
-    user = db.session.get(User, session.get("customer_user_id")) if session.get("customer_user_id") else None
+    user_id = session.get("customer_user_id")
+    user = db.session.get(User, user_id) if user_id else None
     if user is None or user.role != "customer" or not user.is_active:
-        params = {key: request.form.get(key, "") for key in ("product_id", "variant_id", "quantity")}
-        next_url = f"/checkout?{urlencode(params)}"
+        try:
+            product_id = int(request.form.get("product_id", ""))
+            variant_id = int(request.form.get("variant_id", ""))
+            product = Product.query.filter_by(id=product_id, is_active=True).first()
+        except (TypeError, ValueError):
+            product = None
+            variant_id = None
+        if product is not None:
+            next_url = url_for("main.product_detail", slug=product.slug, variant_id=variant_id)
+        else:
+            next_url = url_for("customer_shopping.cart")
         return redirect(url_for("customer_auth.login", next=next_url))
-    try:
-        product, variant, quantity = _selected_variant(request.form)
-    except OrderValidationError as error:
-        return _checkout_error(str(error))
-    return render_template("checkout.html", product=product, variant=variant, quantity=quantity, user=user, checkout_token=token_urlsafe(32))
+    return redirect(url_for("customer_shopping.cart"))
 
 
 @checkout_bp.post("/checkout/paytm")
 @customer_required
 def start_paytm_payment(user):
-    product = variant = quantity = None
     checkout_token = request.form.get("checkout_token", "").strip()
     try:
-        product, variant, quantity = _selected_variant(request.form)
+        if not customer_csrf_valid():
+            raise OrderValidationError("Your form session expired. Please refresh checkout and try again.")
         checkout_token = _checkout_token(request.form)
         customer = _customer_details(request.form, user)
+        items, _ = _load_checkout_items(user, lock=True)
         order = create_pending_order(
-            variant_id=variant.id,
-            product_id=product.id,
-            quantity=quantity,
+            items=_order_lines(items),
             payment_method="paytm",
             customer=customer,
             checkout_token=checkout_token,
@@ -113,10 +188,10 @@ def start_paytm_payment(user):
         db.session.commit()
     except (OrderValidationError, PaytmConfigurationError, PaytmGatewayError, ValueError) as error:
         db.session.rollback()
-        return _checkout_error(str(error), product=product, variant=variant, quantity=quantity, checkout_token=checkout_token)
+        return _checkout_error(str(error), user=user, checkout_token=checkout_token)
     except Exception:
         db.session.rollback()
-        return _checkout_error("Paytm staging is temporarily unavailable.", 503, product, variant, quantity, checkout_token)
+        return _checkout_error("Paytm staging is temporarily unavailable.", 503, user=user, checkout_token=checkout_token)
 
     return render_template(
         "paytm_checkout.html",
@@ -131,16 +206,15 @@ def start_paytm_payment(user):
 @checkout_bp.post("/checkout/cod")
 @customer_required
 def place_cod_order(user):
-    product = variant = quantity = None
     checkout_token = request.form.get("checkout_token", "").strip()
     try:
-        product, variant, quantity = _selected_variant(request.form)
+        if not customer_csrf_valid():
+            raise OrderValidationError("Your form session expired. Please refresh checkout and try again.")
         checkout_token = _checkout_token(request.form)
         customer = _customer_details(request.form, user)
+        items, _ = _load_checkout_items(user, lock=True)
         order = create_pending_order(
-            variant_id=variant.id,
-            product_id=product.id,
-            quantity=quantity,
+            items=_order_lines(items),
             payment_method="cod",
             customer=customer,
             checkout_token=checkout_token,
@@ -149,14 +223,15 @@ def place_cod_order(user):
         if order.payment_status == "pending_cod":
             return render_template("payment_result.html", order=order, title="Order confirmed", message="Your Cash on Delivery order has already been placed.")
         mark_order_cod(order)
+        _clear_ordered_cart_quantities(user.id, order)
         db.session.commit()
         send_order_confirmation(order.id)
     except OrderValidationError as error:
         db.session.rollback()
-        return _checkout_error(str(error), product=product, variant=variant, quantity=quantity, checkout_token=checkout_token)
+        return _checkout_error(str(error), user=user, checkout_token=checkout_token)
     except Exception:
         db.session.rollback()
-        return _checkout_error("Unable to place the COD order.", 500, product, variant, quantity, checkout_token)
+        return _checkout_error("Unable to place the COD order.", 500, user=user, checkout_token=checkout_token)
 
     return render_template("payment_result.html", order=order, title="Order confirmed", message="Your Cash on Delivery order has been placed.")
 
@@ -167,8 +242,6 @@ def paytm_callback():
     order_number = callback_data.get("ORDERID")
     if not order_number:
         return render_template("payment_result.html", title="Payment failed", message="Paytm returned an invalid order reference."), 400
-
-    from ..models import Order
 
     order = Order.query.filter_by(order_number=order_number).with_for_update().first()
     if order is None:
@@ -192,6 +265,8 @@ def paytm_callback():
             response_code=result_info.get("resultCode"),
             response_message=result_info.get("resultMsg"),
         )
+        if order.user_id is not None:
+            _clear_ordered_cart_quantities(order.user_id, order)
         db.session.commit()
         send_order_confirmation(order.id)
     except PaytmGatewayError as error:

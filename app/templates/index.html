@@ -91,8 +91,8 @@
                 <a class="text-link" href="#newsletter">Get drop alerts <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </div>
             <div class="row g-3 product-grid">
-                {% for product in products[:4] %}
-                <div class="col-12 col-sm-6 col-xl-3">{{ product_card(product) }}</div>
+                {% for product in trending_products %}
+                <div class="col-12 col-sm-6 col-xl-3">{{ product_card(product, wishlist_ids, csrf_token) }}</div>
                 {% else %}
                 <div class="col-12"><p class="empty-products-message">Our next rotation is almost here. Check back soon.</p></div>
                 {% endfor %}
@@ -117,8 +117,8 @@
                 <a class="text-link" href="#newsletter">Never miss a drop <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </div>
             <div class="row g-3 product-grid">
-                {% for product in products[:3] %}
-                <div class="col-12 col-sm-6 col-xl-4">{{ product_card(product) }}</div>
+                {% for product in new_arrivals %}
+                <div class="col-12 col-sm-6 col-xl-4">{{ product_card(product, wishlist_ids, csrf_token) }}</div>
                 {% else %}
                 <div class="col-12"><p class="empty-products-message">New arrivals are landing soon. Check back soon.</p></div>
                 {% endfor %}

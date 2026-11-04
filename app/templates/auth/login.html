@@ -3,5 +3,30 @@
 {% block title %}Customer Login | STEPZONE{% endblock %}
 
 {% block content %}
-<main class="admin-auth-page customer-auth-page"><section class="admin-auth-panel" aria-labelledby="customer-login-title"><p class="eyebrow">STEPZONE / ACCOUNT</p><h1 id="customer-login-title">Welcome<br><em>back.</em></h1>{% if request.args.get('registered') %}<p class="auth-success" role="status">Account created. Sign in to continue.</p>{% endif %}{% if error %}<p class="admin-error" role="alert">{{ error }}</p>{% endif %}<form method="post" class="admin-auth-form"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><input type="hidden" name="next" value="{{ next_url }}"><label>Email address<input name="email" type="email" autocomplete="username" required></label><label>Password<input name="password" type="password" autocomplete="current-password" required></label><button class="button button-orange" type="submit">Sign in <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></form><p class="auth-switch">New to STEPZONE? <a href="{{ url_for('customer_auth.register') }}">Create an account</a></p></section></main>
+<main class="admin-auth-page customer-auth-page">
+    <section class="admin-auth-panel" aria-labelledby="customer-login-title">
+        <p class="eyebrow">STEPZONE / ACCOUNT</p>
+        <h1 id="customer-login-title">Welcome<br><em>back.</em></h1>
+        {% if request.args.get('registered') %}<p class="auth-success" role="status">Account created. Sign in to continue.</p>{% endif %}
+        {% if request.args.get('password_reset') %}<p class="auth-success" role="status">Password updated. Sign in with your new password.</p>{% endif %}
+        {% if error %}<p class="admin-error" role="alert">{{ error }}</p>{% endif %}
+        <form method="post" class="admin-auth-form">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+            <input type="hidden" name="next" value="{{ next_url }}">
+            <label>Email address<input name="email" type="email" autocomplete="username" maxlength="255" required></label>
+            <label>Password
+                <span class="auth-password-control">
+                    <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+                    <button type="button" class="password-toggle" data-password-toggle aria-controls="login-password" aria-pressed="false">Show</button>
+                </span>
+            </label>
+            <div class="auth-options-row">
+                <label class="auth-remember"><input name="remember_me" type="checkbox"> Remember me</label>
+                <a href="{{ url_for('customer_auth.forgot_password', next=next_url) }}">Forgot password?</a>
+            </div>
+            <button class="button button-orange" type="submit">Sign in <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+        </form>
+        <p class="auth-switch">New to STEPZONE? <a href="{{ url_for('customer_auth.register', next=next_url) }}">Create an account</a></p>
+    </section>
+</main>
 {% endblock %}

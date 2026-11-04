@@ -1,12 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll("[data-wishlist]").forEach((button) => {
+    document.querySelectorAll("[data-product-image]").forEach((image) => {
+        image.addEventListener("error", () => {
+            console.warn("STEPZONE product image could not be loaded:", image.currentSrc || image.src);
+            image.hidden = true;
+            const fallback = image.parentElement.querySelector("[data-image-fallback]");
+            if (fallback) fallback.hidden = false;
+        }, { once: true });
+    });
+
+    document.querySelectorAll("[data-password-toggle]").forEach((button) => {
         button.addEventListener("click", () => {
-            const icon = button.querySelector("i");
-            const isSaved = button.classList.toggle("is-saved");
-            button.setAttribute("aria-label", isSaved ? "Remove from wishlist" : button.getAttribute("aria-label").replace("Remove from wishlist", "Add to wishlist"));
-            icon.classList.toggle("fa-regular", !isSaved);
-            icon.classList.toggle("fa-solid", isSaved);
+            const input = document.getElementById(button.getAttribute("aria-controls"));
+            if (!input) return;
+            const reveal = input.type === "password";
+            input.type = reveal ? "text" : "password";
+            button.textContent = reveal ? "Hide" : "Show";
+            button.setAttribute("aria-pressed", reveal ? "true" : "false");
         });
+    });
+
+    document.querySelectorAll("[data-password-form]").forEach((form) => {
+        const password = form.querySelector('input[name="password"]');
+        const confirmation = form.querySelector("[data-password-confirm]");
+        const message = form.querySelector("[data-password-message]");
+        if (!password || !confirmation) return;
+        const validate = () => {
+            const matches = password.value === confirmation.value;
+            confirmation.setCustomValidity(matches ? "" : "Passwords do not match.");
+            if (message) {
+                message.textContent = matches || !confirmation.value ? "" : "Passwords do not match.";
+                message.classList.toggle("is-error", !matches && Boolean(confirmation.value));
+            }
+        };
+        password.addEventListener("input", validate);
+        confirmation.addEventListener("input", validate);
+        form.addEventListener("submit", validate);
     });
 
     const newsletterForm = document.querySelector("[data-newsletter-form]");
@@ -29,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".nav-link, .navbar-collapse a").forEach((link) => {
         link.addEventListener("click", () => {
             const menu = document.querySelector("#mainNav");
-            if (menu.classList.contains("show")) {
+            if (menu && menu.classList.contains("show")) {
                 bootstrap.Collapse.getOrCreateInstance(menu).hide();
             }
         });
@@ -41,11 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const selectionMessage = variantSelector.querySelector("[data-selection-message]");
         const selectionError = variantSelector.querySelector("[data-selection-error]");
         const selectionConfirmation = variantSelector.querySelector("[data-selection-confirmation]");
-        const confirmationTitle = variantSelector.querySelector("[data-confirmation-title]");
-        const confirmationSize = variantSelector.querySelector("[data-confirmation-size]");
-        const confirmationColor = variantSelector.querySelector("[data-confirmation-color]");
-        const confirmationPrice = variantSelector.querySelector("[data-confirmation-price]");
-        const confirmationVariantId = variantSelector.querySelector("[data-confirmation-variant-id]");
         const sizeOptions = [...variantSelector.querySelectorAll("[data-size-option]")];
         const colorOptions = [...variantSelector.querySelectorAll("[data-color-option]")];
         const stockRows = [...variantSelector.querySelectorAll("[data-stock-row]")];
@@ -71,11 +94,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 colorOptions.forEach((colorOption) => colorOption.classList.toggle("is-selected", colorOption === option));
                 applyColorFilter();
                 const selectedSize = sizeOptions.find((sizeOption) => sizeOption.classList.contains("is-selected"));
-                if (selectedSize && selectedSize.dataset.color !== selectedColor) {
-                    clearSizeSelection();
-                }
+                if (selectedSize && selectedSize.dataset.color !== selectedColor) clearSizeSelection();
                 selectionError.textContent = "";
-                selectionConfirmation.hidden = true;
+                if (selectionConfirmation) selectionConfirmation.hidden = true;
             });
         });
 
@@ -85,32 +106,29 @@ document.addEventListener("DOMContentLoaded", () => {
                 sizeOptions.forEach((sizeOption) => sizeOption.classList.toggle("is-selected", sizeOption === option));
                 selectedVariantInput.value = option.dataset.variantId;
                 stockRows.forEach((row) => row.classList.toggle("is-selected", row.dataset.variantId === option.dataset.variantId));
-                selectionMessage.textContent = `${option.dataset.size}${option.dataset.color ? ` · ${option.dataset.color}` : ""} selected · ${option.dataset.stock} available`;
+                selectionMessage.textContent = option.dataset.size + (option.dataset.color ? " · " + option.dataset.color : "") + " selected · " + option.dataset.stock + " available";
                 selectionError.textContent = "";
-                selectionConfirmation.hidden = true;
+                if (selectionConfirmation) selectionConfirmation.hidden = true;
             });
         });
 
         variantSelector.addEventListener("submit", (event) => {
-            event.preventDefault();
             const selectedOption = sizeOptions.find((option) => option.dataset.variantId === selectedVariantInput.value);
             const validSelection = selectedOption
                 && selectedOption.dataset.productId === variantSelector.dataset.productId
                 && !selectedOption.disabled
                 && Number(selectedOption.dataset.stock) > 0;
             if (!validSelection) {
+                event.preventDefault();
                 selectionError.textContent = "Please select your shoe size.";
-                selectionConfirmation.hidden = true;
+                if (selectionConfirmation) selectionConfirmation.hidden = true;
                 const firstAvailable = sizeOptions.find((option) => !option.disabled && !option.hidden);
                 if (firstAvailable) firstAvailable.focus();
-                return;
             }
-            selectionError.textContent = "";
-            variantSelector.method = "post";
-            variantSelector.action = variantSelector.dataset.checkoutAction || "/checkout";
-            HTMLFormElement.prototype.submit.call(variantSelector);
         });
 
         applyColorFilter();
+        const requestedVariant = sizeOptions.find((option) => option.dataset.requested === "true");
+        if (requestedVariant) requestedVariant.click();
     }
 });

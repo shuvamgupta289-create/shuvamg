@@ -1,0 +1,15 @@
+# Python runtime and local secrets
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.env.*
+
+# Local tests and data
+tests/
+*.db
+*.sqlite
+*.sqlite3

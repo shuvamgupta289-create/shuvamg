@@ -45,6 +45,7 @@ class Product(db.Model):
     name = db.Column(db.String(180), nullable=False)
     slug = db.Column(db.String(200), nullable=False, index=True)
     description = db.Column(db.Text)
+    image_url = db.Column(db.String(1000))
     base_price = db.Column(db.Numeric(12, 2), nullable=False)
     is_active = db.Column(db.Boolean, nullable=False, default=True, server_default=db.true())
     created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.utcnow)

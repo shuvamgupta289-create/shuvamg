@@ -1,7 +1,7 @@
 import re
 import unittest
 from decimal import Decimal
-from urllib.parse import unquote
+from urllib.parse import parse_qs, urlsplit
 
 from werkzeug.security import generate_password_hash
 
@@ -74,12 +74,12 @@ class CustomerAuthTests(unittest.TestCase):
         self.assertEqual(logout.status_code, 302)
         self.assertEqual(client.get("/admin/").status_code, 302)
 
-    def test_checkout_requires_login_and_preserves_selection(self):
+    def test_checkout_requires_login_and_returns_guest_to_cart(self):
         client = self.app.test_client()
         response = client.post("/checkout", data={"product_id": "42", "variant_id": "9", "quantity": "1"})
         self.assertEqual(response.status_code, 302)
         self.assertIn("/login", response.location)
-        self.assertIn("product_id%3D42", response.location)
+        self.assertEqual(parse_qs(urlsplit(response.location).query)["next"], ["/cart"])
 
     def test_order_ownership(self):
         first_client = self.app.test_client()

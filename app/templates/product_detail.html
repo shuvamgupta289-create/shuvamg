@@ -4,18 +4,11 @@
 
 {% block content %}
 <header class="site-header">
-    <div class="top-strip">
-        <p>Free shipping on orders over ₹2,500 <span aria-hidden="true">•</span> Easy 7-day returns</p>
-    </div>
+    <div class="top-strip"><p>Free shipping on orders over ₹2,500 <span aria-hidden="true">•</span> Easy 7-day returns</p></div>
     <nav class="navbar navbar-expand-lg site-nav" aria-label="Main navigation">
         <div class="container-fluid nav-shell">
-            <a class="brand-mark" href="{{ url_for('main.home') }}" aria-label="STEPZONE home">
-                <span class="brand-symbol">SZ</span>
-                <span class="brand-name">STEPZONE</span>
-            </a>
-            <div class="nav-actions ms-auto">
-                <a href="{{ url_for('main.home') }}#trending" class="bag-link">Shop sneakers <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-            </div>
+            <a class="brand-mark" href="{{ url_for('main.home') }}" aria-label="STEPZONE home"><span class="brand-symbol">SZ</span><span class="brand-name">STEPZONE</span></a>
+            <div class="nav-actions ms-auto"><a href="{{ url_for('main.home') }}#trending" class="bag-link">Shop sneakers <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
         </div>
     </nav>
 </header>
@@ -23,84 +16,74 @@
 <main class="product-detail-page">
     <div class="container-fluid content-shell">
         <nav class="detail-breadcrumb" aria-label="Breadcrumb">
-            <a href="{{ url_for('main.home') }}">Home</a>
-            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-            <span>{{ product.name }}</span>
+            <a href="{{ url_for('main.home') }}">Home</a><i class="fa-solid fa-chevron-right" aria-hidden="true"></i><span>{{ product.name }}</span>
         </nav>
-
         <section class="product-detail-grid" aria-labelledby="product-title">
             <div class="detail-image-panel">
-                <div class="product-image-fallback detail-image" role="img" aria-label="Product image unavailable">
-                    <i class="fa-solid fa-shoe-prints" aria-hidden="true"></i>
-                    <span>STEPZONE</span>
-                </div>
+                {% set is_saved = product.id in wishlist_ids %}
+                <form class="wishlist-form" method="post" action="{{ url_for('customer_shopping.toggle_wishlist', product_id=product.id) }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <input type="hidden" name="next" value="{{ request.full_path.rstrip('?') }}">
+                    <button class="wishlist-button{% if is_saved %} is-saved{% endif %}" type="submit" aria-label="{{ 'Remove' if is_saved else 'Add' }} {{ product.name }} {{ 'from' if is_saved else 'to' }} wishlist" aria-pressed="{{ 'true' if is_saved else 'false' }}"><i class="{{ 'fa-solid' if is_saved else 'fa-regular' }} fa-heart" aria-hidden="true"></i></button>
+                </form>
+                {% if product.image_url %}
+                <img class="product-detail-image" src="{{ product.image_url }}" alt="{{ product.brand.name }} {{ product.name }}" loading="eager" decoding="async" data-product-image>
+                <div class="product-image-fallback detail-image" data-image-fallback role="img" aria-label="{{ product.brand.name }} {{ product.name }} image unavailable" hidden><i class="fa-solid fa-shoe-prints" aria-hidden="true"></i><span>Image unavailable</span></div>
+                {% else %}
+                <div class="product-image-fallback detail-image" data-image-fallback role="img" aria-label="{{ product.brand.name }} {{ product.name }} image unavailable"><i class="fa-solid fa-shoe-prints" aria-hidden="true"></i><span>Image unavailable</span></div>
+                {% endif %}
             </div>
             <div class="product-detail-copy">
                 <p class="eyebrow">{{ product.brand.name }} / {{ product.category.name }}</p>
                 <h1 id="product-title">{{ product.name }}</h1>
                 <p class="detail-price">₹{{ "{:,.0f}".format(product.base_price) }}</p>
                 <p class="detail-description">{{ product.description or "A considered STEPZONE selection, ready for your everyday rotation." }}</p>
-
                 <div class="detail-divider"></div>
-                <form class="variant-selector" data-variant-selector data-checkout-action="{{ url_for('checkout.checkout') }}" data-product-id="{{ product.id }}" data-product-name="{{ product.name }}" method="post" action="{{ url_for('checkout.checkout') }}" novalidate>
+                <form class="variant-selector" data-variant-selector data-product-id="{{ product.id }}" method="post" action="{{ url_for('customer_shopping.add_to_cart') }}" novalidate>
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
                     <input type="hidden" name="variant_id" data-selected-variant>
                     <input type="hidden" name="product_id" value="{{ product.id }}">
                     <input type="hidden" name="quantity" value="1">
-                <div class="detail-option-block">
-                    <div class="detail-heading-with-note"><h2>Choose your size</h2><span>Required</span></div>
-                    {% if variants %}
-                    <div class="detail-chip-list" data-size-options>
-                        {% for variant in variants|sort(attribute="size") %}
-                        <button class="detail-chip size-chip{% if variant.stock_quantity <= 0 %} is-out-of-stock{% endif %}" type="button" data-size-option data-variant-id="{{ variant.id }}" data-product-id="{{ product.id }}" data-size="{{ variant.size }}" data-color="{{ variant.color or '' }}" data-stock="{{ variant.stock_quantity }}" data-price="{{ variant.effective_price }}"{% if variant.stock_quantity <= 0 %} disabled{% endif %}>
-                            <span>{{ variant.size }}</span>
-                            {% if variant.stock_quantity <= 0 %}<small>Out of stock</small>{% endif %}
-                        </button>
-                        {% endfor %}
+                    <div class="detail-option-block">
+                        <div class="detail-heading-with-note"><h2>Choose your size</h2><span>Required</span></div>
+                        {% if variants %}
+                        <div class="detail-chip-list" data-size-options>
+                            {% for variant in variants|sort(attribute="size") %}
+                            <button class="detail-chip size-chip{% if variant.stock_quantity <= 0 %} is-out-of-stock{% endif %}" type="button" data-size-option data-variant-id="{{ variant.id }}" data-product-id="{{ product.id }}" data-size="{{ variant.size }}" data-color="{{ variant.color or '' }}" data-stock="{{ variant.stock_quantity }}"{% if request.args.get('variant_id')|int == variant.id %} data-requested="true"{% endif %}{% if variant.stock_quantity <= 0 %} disabled{% endif %}>
+                                <span>{{ variant.size }}</span>{% if variant.stock_quantity <= 0 %}<small>Out of stock</small>{% endif %}
+                            </button>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        <p class="detail-muted">Size information unavailable.</p>
+                        {% endif %}
                     </div>
-                    {% else %}
-                    <p class="detail-muted">Size information unavailable.</p>
-                    {% endif %}
-                </div>
-
-                <div class="detail-option-block">
-                    <h2>Available colors</h2>
-                    {% set colors = variants|map(attribute="color")|select|list|unique|list %}
-                    {% if colors %}
-                    <div class="detail-chip-list" data-color-options>
-                        {% for color in colors %}<button class="detail-chip color-chip" type="button" data-color-option data-color="{{ color }}">{{ color }}</button>{% endfor %}
+                    <div class="detail-option-block">
+                        <h2>Available colors</h2>
+                        {% set colors = variants|map(attribute="color")|select|list|unique|list %}
+                        {% if colors %}
+                        <div class="detail-chip-list" data-color-options>
+                            {% for color in colors %}<button class="detail-chip color-chip" type="button" data-color-option data-color="{{ color }}">{{ color }}</button>{% endfor %}
+                        </div>
+                        {% else %}
+                        <p class="detail-muted">Color information unavailable.</p>
+                        {% endif %}
                     </div>
-                    {% else %}
-                    <p class="detail-muted">Color information unavailable.</p>
-                    {% endif %}
-                </div>
-
-                <div class="selected-variant-panel" data-selection-message role="status" aria-live="polite">Choose a size to see its stock availability.</div>
-                <div class="detail-option-block stock-availability-block">
-                    <h2>Stock availability</h2>
-                    <div class="stock-list" data-stock-list>
-                        {% for variant in variants|sort(attribute="size") %}
-                        <div class="stock-row{% if variant.stock_quantity <= 0 %} is-out-of-stock{% endif %}" data-stock-row data-variant-id="{{ variant.id }}"><span>Size {{ variant.size }}{% if variant.color %} · {{ variant.color }}{% endif %}</span><strong>{% if variant.stock_quantity > 0 %}{{ variant.stock_quantity }} available{% else %}Out of stock{% endif %}</strong></div>
-                        {% endfor %}
+                    <div class="selected-variant-panel" data-selection-message role="status" aria-live="polite">Choose a size to see its stock availability.</div>
+                    <div class="detail-option-block stock-availability-block">
+                        <h2>Stock availability</h2>
+                        <div class="stock-list" data-stock-list>
+                            {% for variant in variants|sort(attribute="size") %}
+                            <div class="stock-row{% if variant.stock_quantity <= 0 %} is-out-of-stock{% endif %}" data-stock-row data-variant-id="{{ variant.id }}"><span>Size {{ variant.size }}{% if variant.color %} · {{ variant.color }}{% endif %}</span><strong>{% if variant.stock_quantity > 0 %}{{ variant.stock_quantity }} available{% else %}Out of stock{% endif %}</strong></div>
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
-                <button class="button button-orange detail-continue-button" type="submit">Continue <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
-                <p class="selection-error" data-selection-error role="alert" aria-live="assertive"></p>
-                <div class="selection-confirmation" data-selection-confirmation role="status" aria-live="polite" hidden>
-                    <p class="eyebrow">SELECTION CONFIRMED</p>
-                    <h2 data-confirmation-title></h2>
-                    <p>Size <strong data-confirmation-size></strong><span data-confirmation-color></span></p>
-                    <p>Price <strong data-confirmation-price></strong></p>
-                    <p>Variant ID <strong data-confirmation-variant-id></strong></p>
-                </div>
+                    <button class="button button-orange detail-continue-button" type="submit">Add to cart <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+                    <p class="selection-error" data-selection-error role="alert" aria-live="assertive"></p>
                 </form>
             </div>
         </section>
     </div>
 </main>
-
-<footer class="site-footer detail-footer">
-    <div class="container-fluid content-shell">
-        <div class="footer-bottom"><span>© 2025 STEPZONE. All rights reserved.</span><a href="{{ url_for('main.home') }}">Back to home <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a></div>
-    </div>
-</footer>
+<footer class="site-footer detail-footer"><div class="container-fluid content-shell"><div class="footer-bottom"><span>© 2025 STEPZONE. All rights reserved.</span><a href="{{ url_for('main.home') }}">Back to home <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a></div></div></footer>
 {% endblock %}
