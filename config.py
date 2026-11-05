@@ -93,7 +93,9 @@ class BaseConfig:
     SESSION_COOKIE_SAMESITE = "Lax"
     SESSION_COOKIE_SECURE = False
     PUBLIC_BASE_URL = os.getenv("PUBLIC_BASE_URL")
-    PERMANENT_SESSION_LIFETIME = timedelta(days=30)
+    # Keep the application's existing two-hour default. Customer Remember Me
+    # sessions receive their 30-day expiry through StepzoneSessionInterface.
+    PERMANENT_SESSION_LIFETIME = timedelta(hours=2)
     PAYTM_MID = os.getenv("PAYTM_MID")
     PAYTM_MERCHANT_KEY = os.getenv("PAYTM_MERCHANT_KEY")
     PAYTM_WEBSITE = os.getenv("PAYTM_WEBSITE")

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Edit' if brand else 'New' }} Brand | STEPZONE Admin{% endblock %}
+{% block content %}
+<main class="admin-dashboard-page"><div class="container content-shell admin-form-shell">
+    <a class="detail-breadcrumb" href="{{ url_for('admin_brands.listing') }}"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to brands</a>
+    <p class="eyebrow">STEPZONE / ADMIN</p><h1 class="admin-form-title">{{ 'Edit' if brand else 'New' }} <em>brand.</em></h1>
+    {% if error %}<p class="admin-error admin-error-light" role="alert">{{ error }}</p>{% endif %}
+    <form method="post" class="admin-product-form"><input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        <div class="admin-form-grid"><label>Brand name<input name="name" maxlength="120" required value="{{ brand.name if brand else '' }}"></label><label>Slug<input name="slug" maxlength="140" pattern="[a-z0-9]+(?:-[a-z0-9]+)*" required value="{{ brand.slug if brand else '' }}" placeholder="new-balance"></label></div>
+        <label>Logo URL (HTTPS)<input name="logo_url" type="url" maxlength="500" value="{{ brand.logo_url if brand and brand.logo_url else '' }}" placeholder="https://"></label>
+        <label>Description<textarea name="description" rows="5">{{ brand.description if brand and brand.description else '' }}</textarea></label>
+        <label class="admin-checkbox-label"><input name="is_active" type="checkbox"{% if not brand or brand.is_active %} checked{% endif %}> Active brand</label>
+        <div class="admin-form-actions"><button class="button button-orange" type="submit">Save brand <i class="fa-solid fa-check" aria-hidden="true"></i></button><a class="button button-dark" href="{{ url_for('admin_brands.listing') }}">Cancel</a></div>
+    </form>
+</div></main>
+{% endblock %}

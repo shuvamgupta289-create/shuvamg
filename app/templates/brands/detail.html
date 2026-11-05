@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% from "components/brand_product_card.html" import brand_product_card %}
+
+{% block title %}{{ brand.name }} Sneakers | STEPZONE{% endblock %}
+
+{% block content %}
+<main class="brand-page">
+    <section class="brand-hero">
+        <div class="container-fluid content-shell">
+            <nav class="brand-breadcrumb" aria-label="Breadcrumb"><a href="{{ url_for('main.home') }}">Home</a><span>/</span><a href="{{ url_for('main.home') }}#brands">Brands</a><span>/</span><span aria-current="page">{{ brand.name }}</span></nav>
+            <div class="brand-hero-content">
+                {% if brand.logo_url %}<img class="brand-hero-logo" src="{{ brand.logo_url }}" alt="{{ brand.name }} logo">{% endif %}
+                <p class="eyebrow">STEPZONE BRAND EDIT</p>
+                <h1>{{ brand.name }}<em>.</em></h1>
+                {% if brand.description %}<p>{{ brand.description }}</p>{% endif %}
+                <span class="brand-product-count">{{ pagination.total }} available product{% if pagination.total != 1 %}s{% endif %}</span>
+            </div>
+        </div>
+    </section>
+    <section class="brand-products-section section-space" aria-labelledby="brand-products-title">
+        <div class="container-fluid content-shell">
+            <div class="section-heading-row brand-products-heading"><div><p class="eyebrow">THE {{ brand.name|upper }} ROTATION</p><h2 id="brand-products-title">Find your <em>pair.</em></h2></div></div>
+            <form class="brand-filters" method="get" action="{{ url_for('main.brand_detail', slug=brand.slug) }}">
+                <label class="brand-filter-search"><span class="visually-hidden">Search {{ brand.name }} products</span><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><input type="search" name="q" value="{{ filters.q }}" placeholder="Search this brand"></label>
+                <label><span class="visually-hidden">Filter by size</span><select name="size"><option value="">All sizes</option>{% for available_size in available_sizes %}<option value="{{ available_size }}" {% if filters.size == available_size %}selected{% endif %}>Size {{ available_size }}</option>{% endfor %}</select></label>
+                <label><span class="visually-hidden">Sort products</span><select name="sort"><option value="newest" {% if filters.sort == 'newest' %}selected{% endif %}>Newest</option><option value="price_asc" {% if filters.sort == 'price_asc' %}selected{% endif %}>Price: low to high</option><option value="price_desc" {% if filters.sort == 'price_desc' %}selected{% endif %}>Price: high to low</option></select></label>
+                <label class="brand-price-filter"><span class="visually-hidden">Minimum price</span><input type="number" name="min_price" min="0" step="0.01" value="{{ filters.min_price }}" placeholder="Min ₹"><span aria-hidden="true">–</span><span class="visually-hidden">Maximum price</span><input type="number" name="max_price" min="0" step="0.01" value="{{ filters.max_price }}" placeholder="Max ₹"></label>
+                <button class="button button-dark" type="submit">Filter <i class="fa-solid fa-sliders" aria-hidden="true"></i></button>
+            </form>
+            {% if products %}
+            <div class="row g-3 product-grid brand-product-grid">
+                {% for product in products %}<div class="col-12 col-sm-6 col-lg-4">{{ brand_product_card(product, wishlist_ids, csrf_token) }}</div>{% endfor %}
+            </div>
+            {% else %}
+            <div class="brand-empty-state"><i class="fa-solid fa-shoe-prints" aria-hidden="true"></i><p>No products available from this brand yet. Check back soon!</p><a href="{{ url_for('main.home') }}#brands">Explore other brands <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+            {% endif %}
+            {% if pagination.pages > 1 %}
+            <nav class="brand-pagination" aria-label="Product pages">
+                {% if pagination.has_prev %}<a href="{{ url_for('main.brand_detail', slug=brand.slug, page=pagination.prev_num, q=filters.q, size=filters.size, sort=filters.sort, min_price=filters.min_price, max_price=filters.max_price) }}" aria-label="Previous page"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>{% endif %}
+                {% for page_number in pagination.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=1) %}{% if page_number %}<a href="{{ url_for('main.brand_detail', slug=brand.slug, page=page_number, q=filters.q, size=filters.size, sort=filters.sort, min_price=filters.min_price, max_price=filters.max_price) }}" {% if page_number == pagination.page %}aria-current="page" class="is-current"{% endif %}>{{ page_number }}</a>{% else %}<span aria-hidden="true">…</span>{% endif %}{% endfor %}
+                {% if pagination.has_next %}<a href="{{ url_for('main.brand_detail', slug=brand.slug, page=pagination.next_num, q=filters.q, size=filters.size, sort=filters.sort, min_price=filters.min_price, max_price=filters.max_price) }}" aria-label="Next page"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>{% endif %}
+            </nav>
+            {% endif %}
+        </div>
+    </section>
+    <section class="brand-related-links"><div class="container-fluid content-shell"><a href="{{ url_for('main.home') }}#brands">Explore all brands <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a><a href="{{ url_for('customer_shopping.cart') }}">View your cart <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div></section>
+</main>
+{% endblock %}

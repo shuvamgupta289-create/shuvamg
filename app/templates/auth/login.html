@@ -3,30 +3,61 @@
 {% block title %}Customer Login | STEPZONE{% endblock %}
 
 {% block content %}
-<main class="admin-auth-page customer-auth-page">
-    <section class="admin-auth-panel" aria-labelledby="customer-login-title">
-        <p class="eyebrow">STEPZONE / ACCOUNT</p>
-        <h1 id="customer-login-title">Welcome<br><em>back.</em></h1>
-        {% if request.args.get('registered') %}<p class="auth-success" role="status">Account created. Sign in to continue.</p>{% endif %}
-        {% if request.args.get('password_reset') %}<p class="auth-success" role="status">Password updated. Sign in with your new password.</p>{% endif %}
-        {% if error %}<p class="admin-error" role="alert">{{ error }}</p>{% endif %}
-        <form method="post" class="admin-auth-form">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
-            <input type="hidden" name="next" value="{{ next_url }}">
-            <label>Email address<input name="email" type="email" autocomplete="username" maxlength="255" required></label>
-            <label>Password
-                <span class="auth-password-control">
-                    <input id="login-password" name="password" type="password" autocomplete="current-password" required>
-                    <button type="button" class="password-toggle" data-password-toggle aria-controls="login-password" aria-pressed="false">Show</button>
-                </span>
-            </label>
-            <div class="auth-options-row">
-                <label class="auth-remember"><input name="remember_me" type="checkbox"> Remember me</label>
-                <a href="{{ url_for('customer_auth.forgot_password', next=next_url) }}">Forgot password?</a>
+<main class="customer-login-page" aria-label="Customer sign in">
+    <div class="customer-login-layout">
+        <section class="customer-login-brand" aria-labelledby="login-brand-title">
+            <a class="customer-login-wordmark" href="{{ url_for('main.home') }}" aria-label="STEPZONE home">STEPZONE<span>.</span></a>
+            <div class="customer-login-brand-copy">
+                <p class="customer-login-kicker">YOUR NEXT FAVORITE PAIR</p>
+                <h1 id="login-brand-title">Step into<br><em>your style.</em></h1>
+                <p>Good shoes. Great energy. Your next step starts here.</p>
             </div>
-            <button class="button button-orange" type="submit">Sign in <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
-        </form>
-        <p class="auth-switch">New to STEPZONE? <a href="{{ url_for('customer_auth.register', next=next_url) }}">Create an account</a></p>
-    </section>
+            <div class="customer-login-art" aria-hidden="true">
+                <span class="customer-login-art-ring"></span>
+                <i class="fa-solid fa-shoe-prints"></i>
+                <span class="customer-login-art-caption">MOVE YOUR WAY&nbsp; / &nbsp;STEPZONE</span>
+            </div>
+            <p class="customer-login-brand-foot">FIND YOUR PACE. MAKE YOUR MARK.</p>
+        </section>
+
+        <section class="customer-login-form-panel" aria-labelledby="customer-login-title">
+            <a class="customer-login-mobile-wordmark" href="{{ url_for('main.home') }}">STEPZONE<span>.</span></a>
+            <div class="customer-login-card">
+                <p class="customer-login-kicker">STEPZONE / ACCOUNT</p>
+                <h2 id="customer-login-title">Welcome back.</h2>
+                <p class="customer-login-intro">Sign in to pick up where you left off.</p>
+                {% if request.args.get('registered') %}<p class="customer-login-success" role="status">Welcome to STEPZONE! Your account has been created successfully.</p>{% endif %}
+                {% if request.args.get('password_reset') %}<p class="customer-login-success" role="status">Password updated. Sign in with your new password.</p>{% endif %}
+                <form method="post" class="customer-login-form" data-customer-login-form novalidate>
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                    <input type="hidden" name="next" value="{{ next_url }}">
+                    <input type="hidden" name="register_next" value="{{ register_next_url }}">
+                    <div class="customer-login-field">
+                        <label for="login-email">Email address</label>
+                        <input id="login-email" name="email" type="email" autocomplete="email" maxlength="255" required aria-describedby="login-error">
+                    </div>
+                    <div class="customer-login-field">
+                        <label for="login-password">Password</label>
+                        <span class="customer-login-password-control">
+                            <input id="login-password" name="password" type="password" autocomplete="current-password" required aria-describedby="login-error">
+                            <button type="button" class="customer-login-toggle" data-password-toggle aria-controls="login-password" aria-pressed="false" aria-label="Show password">Show</button>
+                        </span>
+                    </div>
+                    <p id="login-error" class="customer-login-error" aria-live="polite" role="{% if error %}alert{% else %}status{% endif %}">{% if error %}{{ error }}{% endif %}</p>
+                    <div class="customer-login-options">
+                        <label class="customer-login-remember"><input name="remember_me" type="checkbox"> <span>Remember me</span></label>
+                        <a href="{{ url_for('customer_auth.forgot_password', next=next_url) }}">Forgot password?</a>
+                    </div>
+                    <button class="customer-login-submit" type="submit">
+                        <span data-login-submit-label>Sign in</span>
+                        <span class="customer-login-spinner" data-login-spinner aria-hidden="true" hidden></span>
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+                </form>
+                <p class="customer-login-create">New to STEPZONE? <a href="{{ url_for('customer_auth.register', next=register_next_url) }}">Create an account</a></p>
+            </div>
+            <p class="customer-login-privacy">A better fit for wherever you’re headed.</p>
+        </section>
+    </div>
 </main>
 {% endblock %}

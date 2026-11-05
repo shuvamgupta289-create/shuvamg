@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Brands | STEPZONE Admin{% endblock %}
+{% block content %}
+<main class="admin-dashboard-page"><div class="container-fluid content-shell">
+    <div class="admin-dashboard-header"><div><p class="eyebrow">STEPZONE / ADMIN</p><h1>Brands</h1></div><a class="button button-orange" href="{{ url_for('admin_brands.create') }}">New brand <i class="fa-solid fa-plus" aria-hidden="true"></i></a></div>
+    <div class="admin-product-table-wrap"><table class="admin-product-table"><thead><tr><th>Brand</th><th>Slug</th><th>Products</th><th>Status</th><th>Actions</th></tr></thead><tbody>
+        {% for brand in brands %}<tr><td><div class="admin-product-name"><div class="admin-product-thumb">{% if brand.logo_url %}<img src="{{ brand.logo_url }}" alt="">{% else %}<i class="fa-solid fa-tag" aria-hidden="true"></i>{% endif %}</div><div><strong>{{ brand.name }}</strong><small>{{ brand.description or 'No description' }}</small></div></div></td><td>{{ brand.slug }}</td><td>{{ brand.products|length }}</td><td><span class="admin-status {% if brand.is_active %}is-active{% else %}is-inactive{% endif %}">{{ 'Active' if brand.is_active else 'Inactive' }}</span></td><td><div class="admin-row-actions"><a href="{{ url_for('admin_brands.edit', brand_id=brand.id) }}">Edit</a><form method="post" action="{{ url_for('admin_brands.toggle', brand_id=brand.id) }}"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><button type="submit">{{ 'Deactivate' if brand.is_active else 'Activate' }}</button></form></div></td></tr>
+        {% else %}<tr><td class="admin-table-empty" colspan="5">No brands found.</td></tr>{% endfor %}
+    </tbody></table></div>
+</div></main>
+{% endblock %}

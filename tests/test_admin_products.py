@@ -115,6 +115,29 @@ class AdminProductTests(unittest.TestCase):
         db.session.refresh(self.product)
         self.assertFalse(self.product.is_active)
 
+    def test_admin_can_create_edit_and_deactivate_brand(self):
+        created = self.client.post(
+            "/admin/brands/new",
+            data={"csrf_token": self.csrf, "name": "New Balance", "slug": "new-balance", "description": "Independent test brand", "logo_url": "https://example.com/logo.svg", "is_active": "on"},
+        )
+        self.assertEqual(created.status_code, 302)
+        brand = Brand.query.filter_by(slug="new-balance").one()
+        self.assertEqual(self.client.get("/").status_code, 200)
+        self.assertIn("/brands/new-balance", self.client.get("/").get_data(as_text=True))
+        updated = self.client.post(
+            f"/admin/brands/{brand.id}/edit",
+            data={"csrf_token": self.csrf, "name": "NB", "slug": "nb", "description": "Updated description", "is_active": "on"},
+        )
+        self.assertEqual(updated.status_code, 302)
+        self.assertEqual(self.client.post(f"/admin/brands/{brand.id}/toggle", data={"csrf_token": self.csrf}).status_code, 302)
+        self.assertEqual(self.client.get("/").get_data(as_text=True).count(f"/brands/{brand.slug}"), 0)
+
+    def test_brand_admin_rejects_invalid_slug_and_csrf(self):
+        invalid = self.client.post("/admin/brands/new", data={"csrf_token": self.csrf, "name": "Bad", "slug": "Bad Slug"})
+        self.assertEqual(invalid.status_code, 400)
+        missing_csrf = self.client.post("/admin/brands/new", data={"name": "No CSRF", "slug": "no-csrf"})
+        self.assertEqual(missing_csrf.status_code, 400)
+
     def test_csrf_and_order_referenced_delete_protection(self):
         missing_csrf = self.client.post(f"/admin/products/{self.product.id}/toggle")
         self.assertEqual(missing_csrf.status_code, 400)

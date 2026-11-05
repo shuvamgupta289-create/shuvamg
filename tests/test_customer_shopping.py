@@ -1,5 +1,6 @@
 import re
 import unittest
+from datetime import datetime, timedelta, timezone
 from decimal import Decimal
 from urllib.parse import parse_qs, unquote, urlsplit
 from unittest.mock import patch
@@ -23,6 +24,7 @@ ShoppingTestingConfig = type(
         "SESSION_COOKIE_HTTPONLY": True,
         "SESSION_COOKIE_SAMESITE": "Lax",
         "SESSION_COOKIE_SECURE": False,
+        "PERMANENT_SESSION_LIFETIME": timedelta(hours=2),
         "PUBLIC_BASE_URL": "https://stepzone.example",
         "DEBUG": True,
     },
@@ -96,6 +98,8 @@ class CustomerShoppingTests(unittest.TestCase):
         WishlistItem.query.delete()
         self.first_variant.stock_quantity = 5
         self.second_variant.stock_quantity = 4
+        self.first_product.is_active = True
+        self.second_product.is_active = True
         self.first.first_name = "First"
         self.first.last_name = "Shopper"
         self.first.phone = None
@@ -180,15 +184,30 @@ class CustomerShoppingTests(unittest.TestCase):
 
     def test_remember_me_controls_persistent_session(self):
         ordinary = self.app.test_client()
-        self.assertEqual(self.login(ordinary).status_code, 302)
+        ordinary_response = self.login(ordinary)
+        self.assertEqual(ordinary_response.status_code, 302)
         with ordinary.session_transaction() as flask_session:
             self.assertFalse(flask_session.permanent)
+        ordinary_cookie = next((cookie for cookie in ordinary_response.headers.getlist("Set-Cookie") if cookie.startswith("session=")), "")
+        self.assertTrue(ordinary_cookie)
+        self.assertFalse(any(part.strip().lower().startswith(("expires=", "max-age=")) for part in ordinary_cookie.split(";")[1:]))
 
         remembered = self.app.test_client()
-        self.assertEqual(self.login(remembered, remember=True).status_code, 302)
+        remembered_response = self.login(remembered, remember=True)
+        self.assertEqual(remembered_response.status_code, 302)
         with remembered.session_transaction() as flask_session:
             self.assertTrue(flask_session.permanent)
             self.assertEqual(flask_session["customer_user_id"], self.first.id)
+            self.assertTrue(flask_session["customer_remember_me"])
+        remembered_cookie = next((cookie for cookie in remembered_response.headers.getlist("Set-Cookie") if cookie.startswith("session=")), "")
+        expires_text = next((part.split("=", 1)[1].strip() for part in remembered_cookie.split(";")[1:] if part.strip().lower().startswith("expires=")), "")
+        self.assertTrue(expires_text)
+        from email.utils import parsedate_to_datetime
+
+        remaining = parsedate_to_datetime(expires_text) - datetime.now(timezone.utc)
+        self.assertGreaterEqual(remaining, timedelta(days=29))
+        self.assertLessEqual(remaining, timedelta(days=30, minutes=1))
+        self.assertEqual(self.app.permanent_session_lifetime, timedelta(hours=2))
 
     def test_registration_accepts_optional_phone_and_hashes_password(self):
         client = self.app.test_client()
@@ -268,6 +287,55 @@ class CustomerShoppingTests(unittest.TestCase):
         self.assertEqual(self.first_variant.stock_quantity, 3)
         self.assertEqual(self.second_variant.stock_quantity, 3)
         send_confirmation.assert_called_once_with(order.id)
+
+    def test_homepage_brands_are_dynamic_and_inactive_brands_are_hidden(self):
+        dynamic = Brand(name="Dynamic Label", slug="dynamic-label")
+        hidden = Brand(name="Hidden Label", slug="hidden-label", is_active=False)
+        db.session.add_all([dynamic, hidden])
+        db.session.commit()
+
+        response = self.app.test_client().get("/")
+        body = response.get_data(as_text=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('/brands/test-brand', body)
+        self.assertIn('/brands/dynamic-label', body)
+        self.assertNotIn('/brands/hidden-label', body)
+
+    def test_brand_page_filters_products_by_brand_and_stocked_size(self):
+        other_brand = Brand(name="Other Brand", slug="other-brand")
+        db.session.add(other_brand)
+        db.session.flush()
+        other_product = Product(
+            name="Other Runner",
+            slug="other-runner",
+            brand_id=other_brand.id,
+            category_id=self.category.id,
+            base_price=Decimal("330.00"),
+        )
+        db.session.add(other_product)
+        db.session.flush()
+        db.session.add(ProductVariant(product_id=other_product.id, sku="OTHER-RUNNER-10", size="10", price=Decimal("330.00"), stock_quantity=3))
+        db.session.commit()
+
+        client = self.app.test_client()
+        response = client.get("/brands/test-brand?size=8&sort=price_asc")
+        body = response.get_data(as_text=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("Test Runner", body)
+        self.assertNotIn("Test Court", body)
+        self.assertNotIn("Other Runner", body)
+        self.assertIn("125.00", body)
+        self.assertEqual(client.get("/brands/other-brand").status_code, 200)
+        self.assertEqual(client.get("/brands/missing-brand").status_code, 404)
+
+    def test_empty_brand_shows_friendly_message_and_inactive_products_are_hidden(self):
+        empty_brand = Brand(name="Empty Brand", slug="empty-brand")
+        self.first_product.is_active = False
+        db.session.add(empty_brand)
+        db.session.commit()
+        response = self.app.test_client().get("/brands/empty-brand")
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("No products available from this brand yet", response.get_data(as_text=True))
 
     def test_protected_routes_and_wishlist_are_customer_scoped(self):
         guest = self.app.test_client()

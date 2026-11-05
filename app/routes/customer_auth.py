@@ -16,9 +16,9 @@ from ..models import Order, User
 customer_auth_bp = Blueprint("customer_auth", __name__)
 
 
-def customer_csrf_token():
+def customer_csrf_token(*, force_new=False):
     token = session.get("customer_csrf_token")
-    if token is None:
+    if token is None or force_new:
         token = secrets.token_urlsafe(32)
         session["customer_csrf_token"] = token
     return token
@@ -47,11 +47,15 @@ def customer_required(view):
     return wrapped
 
 
-def safe_next_url(value):
+def safe_next_url(value, *, default=None):
+    fallback = default or url_for("customer_auth.account")
     if not value:
-        return url_for("customer_auth.account")
+        return fallback
     decoded = unquote(value)
-    parsed = urlsplit(value)
+    try:
+        parsed = urlsplit(value)
+    except ValueError:
+        return fallback
     if (
         parsed.scheme
         or parsed.netloc
@@ -60,18 +64,25 @@ def safe_next_url(value):
         or "\\" in decoded
         or any(ord(character) < 32 or ord(character) == 127 for character in decoded)
     ):
-        return url_for("customer_auth.account")
+        return fallback
     return value
 
 
 def _profile_values(form):
+    first_name = form.get("first_name", "").strip()
+    last_name = form.get("last_name", "").strip()
     full_name = form.get("full_name", "").strip()
     email = form.get("email", "").strip().lower()
     phone = form.get("phone", "").strip()
     password = form.get("password", "")
     confirmation = form.get("confirm_password", "")
-    if len(full_name.split()) < 2 or len(full_name) > 160:
-        raise ValueError("Enter your first and last name.")
+    if first_name or last_name:
+        if not first_name or not last_name or len(first_name) > 80 or len(last_name) > 80:
+            raise ValueError("Enter your first and last name.")
+    else:
+        if len(full_name.split()) < 2 or len(full_name) > 160:
+            raise ValueError("Enter your first and last name.")
+        first_name, last_name = full_name.split(maxsplit=1)
     if len(email) > 255 or not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", email):
         raise ValueError("Enter a valid email address.")
     if phone and not re.fullmatch(r"[0-9+()\- ]{7,30}", phone):
@@ -80,7 +91,6 @@ def _profile_values(form):
         raise ValueError("Password must be at least 12 characters.")
     if password != confirmation:
         raise ValueError("Passwords do not match.")
-    first_name, last_name = full_name.split(maxsplit=1)
     return first_name, last_name, email, phone or None, password
 
 
@@ -96,18 +106,25 @@ def _safe_profile_name(user):
 def register():
     if session.get("customer_user_id"):
         return redirect(url_for("customer_auth.account"))
+    requested_next = request.args.get("next")
     return render_template(
         "auth/register.html",
         csrf_token=customer_csrf_token(),
-        next_url=safe_next_url(request.args.get("next")),
+        next_url=safe_next_url(requested_next, default=url_for("main.home")),
     )
 
 
 @customer_auth_bp.post("/register")
 def register_submit():
-    next_url = safe_next_url(request.form.get("next"))
+    requested_next = request.form.get("next")
+    next_url = safe_next_url(requested_next, default=url_for("main.home"))
     if not customer_csrf_valid():
-        return render_template("auth/register.html", error="Your form session expired. Please try again.", csrf_token=customer_csrf_token(), next_url=next_url), 400
+        return render_template(
+            "auth/register.html",
+            error="Your form session expired. Please try again.",
+            csrf_token=customer_csrf_token(force_new=True),
+            next_url=next_url,
+        ), 400
     try:
         first_name, last_name, email, phone, password = _profile_values(request.form)
         if User.query.filter_by(email=email).first() is not None:
@@ -129,32 +146,68 @@ def register_submit():
     except ValueError as error:
         db.session.rollback()
         return render_template("auth/register.html", error=str(error), csrf_token=customer_csrf_token(), next_url=next_url), 400
-    return redirect(url_for("customer_auth.login", registered="1", next=next_url))
+    session.clear()
+    session.permanent = False
+    session["customer_user_id"] = user.id
+    session["customer_display_name"] = user.first_name
+    session["customer_csrf_token"] = secrets.token_urlsafe(32)
+    flash("Welcome to STEPZONE! Your account has been created successfully.", "success")
+    return redirect(next_url)
+
+
+@customer_auth_bp.after_request
+def prevent_login_page_caching(response):
+    if request.endpoint in {"customer_auth.login", "customer_auth.login_submit"}:
+        response.headers["Cache-Control"] = "no-store"
+    return response
 
 
 @customer_auth_bp.get("/login")
 def login():
     if session.get("customer_user_id"):
         return redirect(url_for("customer_auth.account"))
-    return render_template("auth/login.html", csrf_token=customer_csrf_token(), next_url=safe_next_url(request.args.get("next")))
+    requested_next = request.args.get("next")
+    return render_template(
+        "auth/login.html",
+        csrf_token=customer_csrf_token(),
+        next_url=safe_next_url(requested_next),
+        register_next_url=safe_next_url(requested_next, default=url_for("main.home")),
+    )
 
 
 @customer_auth_bp.post("/login")
 def login_submit():
     next_url = safe_next_url(request.form.get("next"))
+    register_next_url = safe_next_url(
+        request.form.get("register_next"), default=url_for("main.home")
+    )
     if not customer_csrf_valid():
-        return render_template("auth/login.html", error="Your form session expired. Please try again.", csrf_token=customer_csrf_token(), next_url=next_url), 400
+        return render_template(
+            "auth/login.html",
+            error="Your form session expired. Please try again.",
+            csrf_token=customer_csrf_token(force_new=True),
+            next_url=next_url,
+            register_next_url=register_next_url,
+        ), 400
     email = request.form.get("email", "").strip().lower()
     password = request.form.get("password", "")
     user = User.query.filter_by(email=email, role="customer", is_active=True).first()
     if user is None or not check_password_hash(user.password_hash, password):
-        return render_template("auth/login.html", error="Invalid email or password.", csrf_token=customer_csrf_token(), next_url=next_url), 401
+        return render_template(
+            "auth/login.html",
+            error="Invalid email or password.",
+            csrf_token=customer_csrf_token(),
+            next_url=next_url,
+            register_next_url=register_next_url,
+        ), 401
 
     remember_me = request.form.get("remember_me") == "on"
     session.clear()
     session.permanent = remember_me
     session["customer_user_id"] = user.id
     session["customer_display_name"] = user.first_name
+    if remember_me:
+        session["customer_remember_me"] = True
     session["customer_csrf_token"] = secrets.token_urlsafe(32)
     return redirect(next_url)
 
@@ -163,7 +216,13 @@ def login_submit():
 @customer_required
 def logout(user):
     if not customer_csrf_valid():
-        return render_template("auth/login.html", error="Your form session expired. Please try again.", csrf_token=customer_csrf_token(), next_url=url_for("customer_auth.account")), 400
+        return render_template(
+            "auth/login.html",
+            error="Your form session expired. Please try again.",
+            csrf_token=customer_csrf_token(force_new=True),
+            next_url=url_for("customer_auth.account"),
+            register_next_url=url_for("main.home"),
+        ), 400
     session.clear()
     return redirect(url_for("main.home"))
 

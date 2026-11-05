@@ -24,7 +24,7 @@
                 </ul>
                 <div class="nav-actions">
                     <a href="#newsletter" class="nav-icon-link" aria-label="Newsletter"><i class="fa-regular fa-envelope" aria-hidden="true"></i></a>
-                    <a href="#trending" class="nav-icon-link" aria-label="Browse sneakers"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></a>
+                    <a href="{{ url_for('main.product_search') }}" class="nav-icon-link" aria-label="Search sneakers"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></a>
                     <a href="#trending" class="bag-link">Shop now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
             </div>
@@ -102,10 +102,16 @@
 
     <section class="brand-section" id="brands" aria-labelledby="brands-title">
         <div class="container-fluid content-shell">
-            <p class="eyebrow">THE NAMES YOU KNOW</p>
-            <h2 id="brands-title" class="visually-hidden">Popular brands</h2>
+            <div class="section-heading-row brand-section-heading"><div><p class="eyebrow">THE NAMES YOU KNOW</p><h2 id="brands-title">Shop by <em>brands.</em></h2></div></div>
             <div class="brand-list">
-                {% for brand in brands %}<a href="#trending" class="brand-wordmark">{{ brand }}</a>{% endfor %}
+                {% for brand in brands %}
+                <a href="{{ url_for('main.brand_detail', slug=brand.slug) }}" class="brand-wordmark" aria-label="Shop {{ brand.name }}">
+                    {% set logo_path = brand_logos.get(brand.slug) %}
+                    {% if logo_path %}<img class="brand-logo-image" src="{{ logo_path }}" alt="{{ brand.name }} logo" loading="lazy" decoding="async" data-brand-logo><span class="brand-logo-fallback" data-brand-logo-fallback hidden>{{ brand.name }}</span>
+                    {% elif brand.logo_url and brand.logo_url.startswith('/static/images/brands/') and brand.logo_url.endswith(('.svg', '.png')) %}<img class="brand-logo-image" src="{{ brand.logo_url }}" alt="{{ brand.name }} logo" loading="lazy" decoding="async" data-brand-logo><span class="brand-logo-fallback" data-brand-logo-fallback hidden>{{ brand.name }}</span>
+                    {% else %}<span class="brand-logo-fallback">{{ brand.name }}</span>{% endif %}
+                </a>
+                {% else %}<p class="empty-products-message">New brands are on the way. Check back soon.</p>{% endfor %}
             </div>
         </div>
     </section>

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     {% block head %}{% endblock %}
 </head>
-<body>
+<body{% if request.endpoint in ['customer_auth.login', 'customer_auth.login_submit', 'customer_auth.logout'] %} class="customer-login-body"{% endif %}>
     {% if not request.path.startswith('/admin') %}
     <div class="customer-utility-nav">
         <div class="customer-utility-inner">
@@ -34,6 +34,11 @@
             </div>
         </div>
     </div>
+    {% endif %}
+    {% if request.endpoint in ['main.home', 'main.product_detail', 'checkout.checkout_page'] %}
+        {% for category, message in get_flashed_messages(with_categories=true) %}
+        <p class="site-registration-flash" role="status" aria-live="polite">{{ message }}</p>
+        {% endfor %}
     {% endif %}
     {% block content %}{% endblock %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

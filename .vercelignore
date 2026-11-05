@@ -13,3 +13,6 @@ tests/
 *.db
 *.sqlite
 *.sqlite3
+.pytest_cache/
+local_test_data/
+scripts/run_local_preview.py

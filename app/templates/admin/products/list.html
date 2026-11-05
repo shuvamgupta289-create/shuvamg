@@ -7,7 +7,7 @@
     <div class="container-fluid content-shell">
         <div class="admin-dashboard-header">
             <div><p class="eyebrow">STEPZONE / ADMIN</p><h1>Products</h1></div>
-            <a class="button button-orange" href="{{ url_for('admin_products.new_product') }}">New product <i class="fa-solid fa-plus" aria-hidden="true"></i></a>
+            <div class="admin-dashboard-actions"><a class="button button-dark" href="{{ url_for('admin_brands.listing') }}">Manage brands</a><a class="button button-orange" href="{{ url_for('admin_products.new_product') }}">New product <i class="fa-solid fa-plus" aria-hidden="true"></i></a></div>
         </div>
         {% if request.args.get('error') %}<p class="admin-error admin-error-light" role="alert">{{ request.args.get('error') }}</p>{% endif %}
         <div class="admin-product-table-wrap">

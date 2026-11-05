@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% from "components/brand_product_card.html" import brand_product_card %}
+
+{% block title %}Search Sneakers | STEPZONE{% endblock %}
+{% block content %}
+<main class="brand-page search-page">
+    <section class="brand-hero"><div class="container-fluid content-shell"><nav class="brand-breadcrumb" aria-label="Breadcrumb"><a href="{{ url_for('main.home') }}">Home</a><span>/</span><span aria-current="page">Search</span></nav><div class="brand-hero-content"><p class="eyebrow">FIND YOUR NEXT PAIR</p><h1>Search<em>.</em></h1><p>Explore sneakers across STEPZONE brands.</p></div></div></section>
+    <section class="brand-products-section section-space"><div class="container-fluid content-shell">
+        <form class="brand-filters" method="get" action="{{ url_for('main.product_search') }}"><label class="brand-filter-search"><span class="visually-hidden">Search sneakers</span><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><input type="search" name="q" value="{{ search }}" placeholder="Search products or brands" required></label><button class="button button-dark" type="submit">Search <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></form>
+        {% if search %}<p class="eyebrow">{{ pagination.total }} result{% if pagination.total != 1 %}s{% endif %} for “{{ search }}”</p>{% endif %}
+        {% if products %}<div class="row g-3 product-grid brand-product-grid">{% for product in products %}<div class="col-12 col-sm-6 col-lg-4">{{ brand_product_card(product, wishlist_ids, csrf_token) }}</div>{% endfor %}</div>
+        {% elif search %}<div class="brand-empty-state"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><p>No sneakers matched your search. Try another brand or model.</p><a href="{{ url_for('main.home') }}#brands">Browse brands <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></div>
+        {% else %}<div class="brand-empty-state"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><p>Search by sneaker model or brand to explore the catalogue.</p></div>{% endif %}
+        {% if pagination.pages > 1 %}<nav class="brand-pagination" aria-label="Search result pages">{% if pagination.has_prev %}<a href="{{ url_for('main.product_search', q=search, page=pagination.prev_num) }}" aria-label="Previous page"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>{% endif %}{% for page_number in pagination.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=1) %}{% if page_number %}<a href="{{ url_for('main.product_search', q=search, page=page_number) }}" {% if page_number == pagination.page %}aria-current="page" class="is-current"{% endif %}>{{ page_number }}</a>{% else %}<span aria-hidden="true">…</span>{% endif %}{% endfor %}{% if pagination.has_next %}<a href="{{ url_for('main.product_search', q=search, page=pagination.next_num) }}" aria-label="Next page"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>{% endif %}</nav>{% endif %}
+    </div></section>
+</main>
+{% endblock %}

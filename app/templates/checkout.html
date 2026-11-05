@@ -4,39 +4,73 @@
 
 {% block content %}
 <main class="checkout-page">
-    <div class="container content-shell">
-        <a class="detail-breadcrumb" href="{{ url_for('customer_shopping.cart') }}"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to cart</a>
+    <div class="container checkout-shell">
+        <a class="checkout-back" href="{{ url_for('customer_shopping.cart') }}"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to cart</a>
+        <nav class="checkout-progress" aria-label="Checkout progress">
+            <span class="is-complete"><i class="fa-solid fa-check" aria-hidden="true"></i> Cart</span><span class="checkout-progress-line"></span><span class="is-current" aria-current="step"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Delivery</span><span class="checkout-progress-line"></span><span><i class="fa-regular fa-credit-card" aria-hidden="true"></i> Payment</span>
+        </nav>
+
+        {% if error %}<p class="checkout-error" role="alert">{{ error }}</p>{% endif %}
+        {% if items %}
+        <header class="checkout-heading">
+            <p class="checkout-kicker">STEPZONE / CHECKOUT</p>
+            <h1>Almost <em>there.</em></h1>
+            <p>Complete your details and get your sneakers delivered.</p>
+        </header>
+
         <div class="checkout-layout">
-            <section>
-                <p class="eyebrow">SECURE CHECKOUT</p>
-                <h1 class="checkout-title">Almost <em>there.</em></h1>
-                {% if error %}<p class="checkout-error" role="alert">{{ error }}</p>{% endif %}
-                {% if items %}
-                <div class="checkout-summary">
-                    <p class="eyebrow">YOUR SELECTION</p>
-                    {% for item in items %}
-                    <div class="checkout-line">
-                        <div><h2>{{ item.product.name }}</h2><p>{{ item.product.brand.name }} · Size {{ item.variant.size }}{% if item.variant.color %} · {{ item.variant.color }}{% endif %} · Qty {{ item.quantity }}</p></div>
-                        <strong>₹{{ "{:,.2f}".format(item.line_total) }}</strong>
+            <form method="post" action="{{ url_for('checkout.start_paytm_payment') }}" class="checkout-form" data-checkout-form>
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                <input type="hidden" name="checkout_token" value="{{ checkout_token }}">
+                <section class="checkout-card checkout-delivery" aria-labelledby="checkout-delivery-title">
+                    <div class="checkout-section-heading"><span>01</span><div><h2 id="checkout-delivery-title">Delivery details</h2><p>Where should we send your order?</p></div></div>
+                    <div class="checkout-fields">
+                        <label class="checkout-field checkout-field-full"><span>Full name <b>*</b></span><input name="name" autocomplete="name" maxlength="160" value="{{ user.first_name }} {{ user.last_name }}" required></label>
+                        <label class="checkout-field"><span>Email address <b>*</b></span><input name="email" type="email" autocomplete="email" maxlength="255" value="{{ user.email }}" required></label>
+                        <label class="checkout-field"><span>Phone number <b>*</b></span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" pattern="[0-9+() -]{7,30}" value="{{ user.phone or '' }}" required></label>
+                        <label class="checkout-field checkout-field-full"><span>Street address <b>*</b></span><textarea name="address" autocomplete="street-address" rows="3" maxlength="2000" required>{{ user.address or '' }}</textarea></label>
+                        <label class="checkout-field"><span>City <b>*</b></span><input name="city" autocomplete="address-level2" maxlength="100" value="{{ user.city or '' }}" required></label>
+                        <label class="checkout-field"><span>State <b>*</b></span><input name="state" autocomplete="address-level1" maxlength="100" value="{{ user.state or '' }}" required></label>
+                        <label class="checkout-field checkout-field-postal"><span>Postal code <b>*</b></span><input name="postal_code" autocomplete="postal-code" inputmode="numeric" maxlength="20" value="{{ user.postal_code or '' }}" required></label>
                     </div>
+                </section>
+
+                <section class="checkout-card checkout-payment" aria-labelledby="checkout-payment-title">
+                    <div class="checkout-section-heading"><span>02</span><div><h2 id="checkout-payment-title">Payment method</h2><p>Choose how you would like to pay.</p></div></div>
+                    <div class="checkout-payment-options">
+                        <button class="checkout-payment-option is-selected" type="submit" name="payment-choice" value="paytm" formaction="{{ url_for('checkout.start_paytm_payment') }}">
+                            <span class="checkout-payment-icon"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></span><span><strong>Pay with Paytm</strong><small>Secure online payment · Staging</small></span><i class="fa-regular fa-circle-check checkout-payment-check" aria-hidden="true"></i>
+                        </button>
+                        <button class="checkout-payment-option" type="submit" name="payment-choice" value="cod" formaction="{{ url_for('checkout.place_cod_order') }}">
+                            <span class="checkout-payment-icon"><i class="fa-solid fa-box" aria-hidden="true"></i></span><span><strong>Cash on Delivery</strong><small>Pay when your order arrives</small></span><i class="fa-regular fa-circle checkout-payment-check" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <p class="checkout-secure-note"><i class="fa-solid fa-lock" aria-hidden="true"></i> Your details are protected and used only to fulfill this order.</p>
+                </section>
+            </form>
+
+            <aside class="checkout-summary" aria-labelledby="checkout-summary-title">
+                <div class="checkout-summary-heading"><div><p class="checkout-kicker">YOUR SELECTION</p><h2 id="checkout-summary-title">Order summary</h2></div><span>{{ items|length }} item{% if items|length != 1 %}s{% endif %}</span></div>
+                <div class="checkout-summary-items">
+                    {% for item in items %}
+                    <article class="checkout-product">
+                        <div class="checkout-product-image">
+                            {% if item.product.image_url %}<img src="{{ item.product.image_url }}" alt="{{ item.product.name }}" data-product-image>{% endif %}
+                            <span class="checkout-product-fallback" data-image-fallback {% if item.product.image_url %}hidden{% endif %}><i class="fa-solid fa-shoe-prints" aria-hidden="true"></i></span>
+                        </div>
+                        <div class="checkout-product-copy"><h3>{{ item.product.name }}</h3><p>{{ item.product.brand.name }}</p><p>Size {{ item.variant.size }}{% if item.variant.color %} · {{ item.variant.color }}{% endif %}</p><p>Qty {{ item.quantity }}</p></div>
+                        <strong class="checkout-product-price">₹{{ "{:,.2f}".format(item.line_total) }}</strong>
+                    </article>
                     {% endfor %}
-                    <div class="checkout-total"><span>Order total</span><strong>₹{{ "{:,.2f}".format(subtotal) }}</strong></div>
                 </div>
-                <form method="post" action="{{ url_for('checkout.start_paytm_payment') }}" class="checkout-form">
-                    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
-                    <input type="hidden" name="checkout_token" value="{{ checkout_token }}">
-                    <h2>Delivery details</h2>
-                    <label>Full name<input name="name" maxlength="160" value="{{ user.first_name }} {{ user.last_name }}" required></label>
-                    <label>Email<input name="email" type="email" maxlength="255" value="{{ user.email }}" required></label>
-                    <label>Phone<input name="phone" maxlength="30" pattern="[0-9+() -]{7,30}" value="{{ user.phone or '' }}" required></label>
-                    <label>Address<textarea name="address" rows="3" maxlength="2000" required>{{ user.address or '' }}</textarea></label>
-                    <div class="checkout-fields-row"><label>City<input name="city" maxlength="100" value="{{ user.city or '' }}" required></label><label>State<input name="state" maxlength="100" value="{{ user.state or '' }}" required></label></div>
-                    <label>Postal code<input name="postal_code" maxlength="20" value="{{ user.postal_code or '' }}" required></label>
-                    <div class="checkout-actions"><button class="button button-orange" type="submit">Pay with Paytm <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><button class="button button-dark" type="submit" formaction="{{ url_for('checkout.place_cod_order') }}">Place COD order</button></div>
-                </form>
-                {% endif %}
-            </section>
+                <div class="checkout-totals"><div><span>Subtotal</span><strong>₹{{ "{:,.2f}".format(subtotal) }}</strong></div><div><span>Delivery</span><strong class="checkout-free">Free</strong></div></div>
+                <div class="checkout-grand-total"><span>Total payable</span><strong>₹{{ "{:,.2f}".format(subtotal) }}</strong></div>
+                <p class="checkout-summary-note"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Price and availability confirmed at checkout.</p>
+            </aside>
         </div>
+        {% else %}
+        <section class="checkout-card checkout-empty"><span><i class="fa-solid fa-bag-shopping" aria-hidden="true"></i></span><h1>Nothing to check out yet.</h1><p>Your cart is empty. Find your next favorite pair and come back when you’re ready.</p><a class="button button-orange" href="{{ url_for('main.home') }}">Explore sneakers <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></section>
+        {% endif %}
     </div>
 </main>
 {% endblock %}

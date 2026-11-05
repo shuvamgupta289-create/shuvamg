@@ -8,6 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }, { once: true });
     });
 
+    document.querySelectorAll("[data-brand-logo]").forEach((image) => {
+        image.addEventListener("error", () => {
+            image.hidden = true;
+            const fallback = image.parentElement.querySelector("[data-brand-logo-fallback]");
+            if (fallback) fallback.hidden = false;
+        }, { once: true });
+    });
+
     document.querySelectorAll("[data-password-toggle]").forEach((button) => {
         button.addEventListener("click", () => {
             const input = document.getElementById(button.getAttribute("aria-controls"));
@@ -16,8 +24,52 @@ document.addEventListener("DOMContentLoaded", () => {
             input.type = reveal ? "text" : "password";
             button.textContent = reveal ? "Hide" : "Show";
             button.setAttribute("aria-pressed", reveal ? "true" : "false");
+            button.setAttribute("aria-label", reveal ? "Hide password" : "Show password");
         });
     });
+
+    const customerLoginForm = document.querySelector("[data-customer-login-form]");
+    if (customerLoginForm) {
+        const email = customerLoginForm.querySelector('input[name="email"]');
+        const password = customerLoginForm.querySelector('input[name="password"]');
+        const message = customerLoginForm.querySelector("#login-error");
+        const submit = customerLoginForm.querySelector('button[type="submit"]');
+        const submitLabel = customerLoginForm.querySelector("[data-login-submit-label]");
+        const spinner = customerLoginForm.querySelector("[data-login-spinner]");
+
+        customerLoginForm.addEventListener("submit", (event) => {
+            const invalidField = !email.value.trim() || !email.checkValidity()
+                ? email
+                : (!password.value ? password : null);
+            if (invalidField) {
+                event.preventDefault();
+                const text = invalidField === email
+                    ? (!email.value.trim() ? "Enter your email address." : "Enter a valid email address.")
+                    : "Enter your password.";
+                message.textContent = text;
+                invalidField.setAttribute("aria-invalid", "true");
+                invalidField.focus();
+                return;
+            }
+
+            message.textContent = "";
+            submit.disabled = true;
+            customerLoginForm.setAttribute("aria-busy", "true");
+            submitLabel.textContent = "Signing in…";
+            spinner.hidden = false;
+        });
+
+        [email, password].forEach((field) => {
+            field.addEventListener("input", () => {
+                field.removeAttribute("aria-invalid");
+                if (message.textContent === "Enter your email address."
+                    || message.textContent === "Enter a valid email address."
+                    || message.textContent === "Enter your password.") {
+                    message.textContent = "";
+                }
+            });
+        });
+    }
 
     document.querySelectorAll("[data-password-form]").forEach((form) => {
         const password = form.querySelector('input[name="password"]');
@@ -35,6 +87,29 @@ document.addEventListener("DOMContentLoaded", () => {
         password.addEventListener("input", validate);
         confirmation.addEventListener("input", validate);
         form.addEventListener("submit", validate);
+    });
+
+    document.querySelectorAll("[data-checkout-form]").forEach((form) => {
+        let submitting = false;
+        form.addEventListener("submit", (event) => {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                form.reportValidity();
+                return;
+            }
+            if (submitting) {
+                event.preventDefault();
+                return;
+            }
+            submitting = true;
+            form.setAttribute("aria-busy", "true");
+            form.querySelectorAll('button[type="submit"]').forEach((button) => {
+                button.disabled = true;
+                const label = button.querySelector("strong");
+                if (label) label.textContent = button.value === "cod" ? "Placing order…" : "Connecting to Paytm…";
+                else button.textContent = button.value === "cod" ? "Placing COD order…" : "Connecting to Paytm…";
+            });
+        });
     });
 
     const newsletterForm = document.querySelector("[data-newsletter-form]");

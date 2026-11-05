@@ -1,21 +1,33 @@
 import logging
 import os
 import sys
+from datetime import datetime, timedelta, timezone
 
 from flask import Flask, render_template
 from flask.logging import default_handler
+from flask.sessions import SecureCookieSessionInterface
 
 from config import config_by_name, get_database_url, _engine_options_for_url
 from .extensions import db, migrate
 from . import models
 from .routes.admin import admin_bp, register_admin_cli
 from .routes.admin_products import admin_products_bp
+from .routes.admin_brands import admin_brands_bp
 from .routes.admin_inventory import admin_inventory_bp
 from .routes.admin_orders import admin_orders_bp
 from .routes.checkout import checkout_bp
 from .routes.customer_auth import customer_auth_bp
 from .routes.customer_shopping import customer_shopping_bp
 from .routes.main import main_bp
+
+
+class StepzoneSessionInterface(SecureCookieSessionInterface):
+    """Apply Remember Me expiry only to opted-in customer sessions."""
+
+    def get_expiration_time(self, app, session):
+        if session.permanent and session.get("customer_remember_me"):
+            return datetime.now(timezone.utc) + timedelta(days=30)
+        return super().get_expiration_time(app, session)
 
 
 def _configure_logging(app):
@@ -45,6 +57,7 @@ def _selected_config_name(config_name):
 
 def create_app(config_name=None):
     app = Flask(__name__)
+    app.session_interface = StepzoneSessionInterface()
     _configure_logging(app)
 
     selected_config = _selected_config_name(config_name)
@@ -80,6 +93,7 @@ def create_app(config_name=None):
     app.register_blueprint(customer_shopping_bp)
     app.register_blueprint(admin_bp)
     app.register_blueprint(admin_products_bp)
+    app.register_blueprint(admin_brands_bp)
     app.register_blueprint(admin_inventory_bp)
     app.register_blueprint(admin_orders_bp)
     register_admin_cli(app)

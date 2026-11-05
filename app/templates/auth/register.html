@@ -11,7 +11,8 @@
         <form method="post" class="admin-auth-form" data-password-form>
             <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
             <input type="hidden" name="next" value="{{ next_url }}">
-            <label>Full name<input name="full_name" autocomplete="name" minlength="3" maxlength="160" required></label>
+            <label>First name<input name="first_name" autocomplete="given-name" maxlength="80" required></label>
+            <label>Last name<input name="last_name" autocomplete="family-name" maxlength="80" required></label>
             <label>Email address<input name="email" type="email" autocomplete="email" maxlength="255" required></label>
             <label>Mobile number (optional)<input name="phone" type="tel" autocomplete="tel" maxlength="30" pattern="[0-9+() -]{7,30}"></label>
             <label>Password<input name="password" type="password" autocomplete="new-password" minlength="12" required></label>

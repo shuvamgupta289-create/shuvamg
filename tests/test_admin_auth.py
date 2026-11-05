@@ -1,5 +1,7 @@
 import re
 import unittest
+from datetime import datetime, timedelta, timezone
+from email.utils import parsedate_to_datetime
 
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -19,6 +21,7 @@ TestingConfig = type(
         "SESSION_COOKIE_HTTPONLY": True,
         "SESSION_COOKIE_SAMESITE": "Lax",
         "SESSION_COOKIE_SECURE": False,
+        "PERMANENT_SESSION_LIFETIME": timedelta(hours=2),
     },
 )
 config_by_name["testing"] = TestingConfig
@@ -83,6 +86,12 @@ class AdminAuthenticationTests(unittest.TestCase):
             },
         )
         self.assertEqual(response.status_code, 302)
+        cookie = next((item for item in response.headers.getlist("Set-Cookie") if item.startswith("session=")), "")
+        expires_text = next((part.split("=", 1)[1].strip() for part in cookie.split(";")[1:] if part.strip().lower().startswith("expires=")), "")
+        self.assertTrue(expires_text)
+        remaining = parsedate_to_datetime(expires_text) - datetime.now(timezone.utc)
+        self.assertGreaterEqual(remaining, timedelta(hours=1, minutes=59))
+        self.assertLessEqual(remaining, timedelta(hours=2, minutes=1))
         dashboard = client.get("/admin/")
         self.assertEqual(dashboard.status_code, 200)
         dashboard_token = re.search(r'name="csrf_token" value="([^"]+)"', dashboard.get_data(as_text=True)).group(1)
