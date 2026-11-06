@@ -219,6 +219,7 @@ class CustomerAuthTests(unittest.TestCase):
             "postal_code": "123456",
         })
         self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.headers["Location"], "/")
         db.session.expire_all()
         updated = db.session.get(User, self.first.id)
         self.assertEqual((updated.first_name, updated.last_name), ("Updated", "Customer"))
@@ -227,12 +228,28 @@ class CustomerAuthTests(unittest.TestCase):
     def test_profile_update_rejects_bad_csrf_and_invalid_input(self):
         client = self.app.test_client()
         self.login(client)
-        missing_csrf = client.post("/account/profile", data={"full_name": "Bad", "email": "bad@example.com", "phone": "1"}, follow_redirects=True)
-        self.assertEqual(missing_csrf.status_code, 200)
-        self.assertIn("form session expired", missing_csrf.get_data(as_text=True))
-        invalid = client.post("/account/profile", data={"csrf_token": self.csrf(client, "/account"), "full_name": "Bad", "email": "bad@example.com", "phone": "1"}, follow_redirects=True)
-        self.assertEqual(invalid.status_code, 200)
-        self.assertIn("valid name", invalid.get_data(as_text=True))
+        missing_csrf = client.post(
+            "/account/profile",
+            data={"full_name": "Bad", "email": "bad@example.com", "phone": "1"},
+        )
+        self.assertEqual(missing_csrf.status_code, 302)
+        self.assertEqual(missing_csrf.headers["Location"], "/account")
+        csrf_error_page = client.get(missing_csrf.headers["Location"])
+        self.assertIn("form session expired", csrf_error_page.get_data(as_text=True))
+
+        invalid = client.post(
+            "/account/profile",
+            data={
+                "csrf_token": self.csrf(client, "/account"),
+                "full_name": "Bad",
+                "email": "bad@example.com",
+                "phone": "1",
+            },
+        )
+        self.assertEqual(invalid.status_code, 302)
+        self.assertEqual(invalid.headers["Location"], "/account")
+        invalid_error_page = client.get(invalid.headers["Location"])
+        self.assertIn("valid name", invalid_error_page.get_data(as_text=True))
 
 
 if __name__ == "__main__":

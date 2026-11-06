@@ -371,7 +371,7 @@ def update_profile(user):
         flash(str(error), "error")
         return redirect(url_for("customer_auth.account"))
     flash("Your profile details were saved.", "success")
-    return redirect(url_for("customer_auth.account"))
+    return redirect(url_for("main.home"))
 
 
 @customer_auth_bp.get("/account/orders/<int:order_id>")

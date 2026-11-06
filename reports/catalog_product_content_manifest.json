@@ -1,0 +1,5084 @@
+{
+  "title": "STEPZONE product content preparation manifest",
+  "generated_on": "2026-11-05",
+  "source_data": "Dedicated local SQLite catalogue; category correction to GEL-Quantum 360 VIII was user-approved and applied locally; Reebok Zig Kinetica 2.5 remains held.",
+  "production_accessed": false,
+  "production_modified": false,
+  "seed_or_migration_run": false,
+  "protected_existing_products": [
+    "574-core-trainer",
+    "air-max-dn8",
+    "club-c-revenge",
+    "forum-low-classic",
+    "old-skool-classic",
+    "rs-x-heritage"
+  ],
+  "covered_product_count": 64,
+  "verified_image_count": 0,
+  "image_review_required_count": 64,
+  "description_drafts_count": 64,
+  "descriptions_needing_verification_count": 64,
+  "products_with_missing_specifications_count": 64,
+  "asset_downloads_performed": 0,
+  "records": [
+    {
+      "product_id": 18,
+      "name": "Adizero SL2",
+      "slug": "adizero-sl2",
+      "brand": "Adidas",
+      "brand_slug": "adidas",
+      "category": "Performance Sneakers",
+      "category_slug": "performance-sneakers",
+      "base_price_inr": "11999",
+      "local_variants": [
+        {
+          "sku": "SZ-ADIZEROSL2-10",
+          "size": "10",
+          "color": "White/Blue",
+          "price": "11999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-ADIZEROSL2-11",
+          "size": "11",
+          "color": "White/Blue",
+          "price": "11999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-ADIZEROSL2-6",
+          "size": "6",
+          "color": "White/Blue",
+          "price": "11999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-ADIZEROSL2-7",
+          "size": "7",
+          "color": "White/Blue",
+          "price": "11999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-ADIZEROSL2-8",
+          "size": "8",
+          "color": "White/Blue",
+          "price": "11999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-ADIZEROSL2-9",
+          "size": "9",
+          "color": "White/Blue",
+          "price": "11999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Adizero SL2 by Adidas in STEPZONE's Performance Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "adidas/adizero-sl2.webp",
+      "image_source_url": null,
+      "source_page_url": "https://brand.assets.adidas.com/image/upload/v1764275037/TYC_BLACK_FRIDAY_CL_d392b78d7e.pdf",
+      "source_scope": "OFFICIAL_MODEL_OR_MODEL_FAMILY_SOURCE; exact local colorway remains unverified",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 16,
+      "name": "Campus 00s",
+      "slug": "campus-00s",
+      "brand": "Adidas",
+      "brand_slug": "adidas",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "9999",
+      "local_variants": [
+        {
+          "sku": "SZ-CAMPUS00S-10",
+          "size": "10",
+          "color": "Grey/White",
+          "price": "9999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-CAMPUS00S-11",
+          "size": "11",
+          "color": "Grey/White",
+          "price": "9999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-CAMPUS00S-6",
+          "size": "6",
+          "color": "Grey/White",
+          "price": "9999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-CAMPUS00S-7",
+          "size": "7",
+          "color": "Grey/White",
+          "price": "9999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-CAMPUS00S-8",
+          "size": "8",
+          "color": "Grey/White",
+          "price": "9999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-CAMPUS00S-9",
+          "size": "9",
+          "color": "Grey/White",
+          "price": "9999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Campus 00s by Adidas in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "adidas/campus-00s.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.adidas.com.sg/unisex-sneakers",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 15,
+      "name": "Gazelle Indoor",
+      "slug": "gazelle-indoor",
+      "brand": "Adidas",
+      "brand_slug": "adidas",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "10999",
+      "local_variants": [
+        {
+          "sku": "SZ-GAZELLEINDOOR-10",
+          "size": "10",
+          "color": "Green/White",
+          "price": "10999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-GAZELLEINDOOR-11",
+          "size": "11",
+          "color": "Green/White",
+          "price": "10999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-GAZELLEINDOOR-6",
+          "size": "6",
+          "color": "Green/White",
+          "price": "10999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-GAZELLEINDOOR-7",
+          "size": "7",
+          "color": "Green/White",
+          "price": "10999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-GAZELLEINDOOR-8",
+          "size": "8",
+          "color": "Green/White",
+          "price": "10999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-GAZELLEINDOOR-9",
+          "size": "9",
+          "color": "Green/White",
+          "price": "10999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Gazelle Indoor by Adidas in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "adidas/gazelle-indoor.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.adidas.com.sg/unisex-sneakers",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 20,
+      "name": "Handball Spezial",
+      "slug": "handball-spezial",
+      "brand": "Adidas",
+      "brand_slug": "adidas",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "9999",
+      "local_variants": [
+        {
+          "sku": "SZ-HANDBALLSPEZIAL-10",
+          "size": "10",
+          "color": "Navy/White",
+          "price": "9999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-HANDBALLSPEZIAL-11",
+          "size": "11",
+          "color": "Navy/White",
+          "price": "9999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-HANDBALLSPEZIAL-6",
+          "size": "6",
+          "color": "Navy/White",
+          "price": "9999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-HANDBALLSPEZIAL-7",
+          "size": "7",
+          "color": "Navy/White",
+          "price": "9999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-HANDBALLSPEZIAL-8",
+          "size": "8",
+          "color": "Navy/White",
+          "price": "9999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-HANDBALLSPEZIAL-9",
+          "size": "9",
+          "color": "Navy/White",
+          "price": "9999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Handball Spezial by Adidas in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "adidas/handball-spezial.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.adidas.com.sg/unisex-sneakers",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 19,
+      "name": "Response CL",
+      "slug": "response-cl",
+      "brand": "Adidas",
+      "brand_slug": "adidas",
+      "category": "Men's Sneakers",
+      "category_slug": "mens-sneakers",
+      "base_price_inr": "9999",
+      "local_variants": [
+        {
+          "sku": "SZ-RESPONSECL-10",
+          "size": "10",
+          "color": "White/Grey",
+          "price": "9999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-RESPONSECL-11",
+          "size": "11",
+          "color": "White/Grey",
+          "price": "9999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-RESPONSECL-6",
+          "size": "6",
+          "color": "White/Grey",
+          "price": "9999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-RESPONSECL-7",
+          "size": "7",
+          "color": "White/Grey",
+          "price": "9999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-RESPONSECL-8",
+          "size": "8",
+          "color": "White/Grey",
+          "price": "9999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-RESPONSECL-9",
+          "size": "9",
+          "color": "White/Grey",
+          "price": "9999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Response CL by Adidas in STEPZONE's Men's Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "adidas/response-cl.webp",
+      "image_source_url": null,
+      "source_page_url": "https://brand.assets.adidas.com/image/upload/v1764275037/TYC_BLACK_FRIDAY_CL_d392b78d7e.pdf",
+      "source_scope": "OFFICIAL_MODEL_OR_MODEL_FAMILY_SOURCE; exact local colorway remains unverified",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 13,
+      "name": "Samba OG",
+      "slug": "samba-og",
+      "brand": "Adidas",
+      "brand_slug": "adidas",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "10999",
+      "local_variants": [
+        {
+          "sku": "SZ-SAMBAOG-10",
+          "size": "10",
+          "color": "White/Black",
+          "price": "10999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-SAMBAOG-11",
+          "size": "11",
+          "color": "White/Black",
+          "price": "10999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-SAMBAOG-6",
+          "size": "6",
+          "color": "White/Black",
+          "price": "10999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-SAMBAOG-7",
+          "size": "7",
+          "color": "White/Black",
+          "price": "10999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-SAMBAOG-8",
+          "size": "8",
+          "color": "White/Black",
+          "price": "10999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-SAMBAOG-9",
+          "size": "9",
+          "color": "White/Black",
+          "price": "10999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Samba OG by Adidas in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "adidas/samba-og.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.adidas.com.sg/unisex-sneakers",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 17,
+      "name": "Stan Smith",
+      "slug": "stan-smith",
+      "brand": "Adidas",
+      "brand_slug": "adidas",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "8999",
+      "local_variants": [
+        {
+          "sku": "SZ-STANSMITH-10",
+          "size": "10",
+          "color": "White/Green",
+          "price": "8999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-STANSMITH-11",
+          "size": "11",
+          "color": "White/Green",
+          "price": "8999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-STANSMITH-6",
+          "size": "6",
+          "color": "White/Green",
+          "price": "8999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-STANSMITH-7",
+          "size": "7",
+          "color": "White/Green",
+          "price": "8999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-STANSMITH-8",
+          "size": "8",
+          "color": "White/Green",
+          "price": "8999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-STANSMITH-9",
+          "size": "9",
+          "color": "White/Green",
+          "price": "8999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Stan Smith by Adidas in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "adidas/stan-smith.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.adidas.com.sg/unisex-sneakers",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 12,
+      "name": "Superstar II",
+      "slug": "superstar-ii",
+      "brand": "Adidas",
+      "brand_slug": "adidas",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "8999",
+      "local_variants": [
+        {
+          "sku": "SZ-SUPERSTARII-10",
+          "size": "10",
+          "color": "White/Black",
+          "price": "8999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-SUPERSTARII-11",
+          "size": "11",
+          "color": "White/Black",
+          "price": "8999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-SUPERSTARII-6",
+          "size": "6",
+          "color": "White/Black",
+          "price": "8999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-SUPERSTARII-7",
+          "size": "7",
+          "color": "White/Black",
+          "price": "8999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-SUPERSTARII-8",
+          "size": "8",
+          "color": "White/Black",
+          "price": "8999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-SUPERSTARII-9",
+          "size": "9",
+          "color": "White/Black",
+          "price": "8999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Superstar II by Adidas in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "adidas/superstar-ii.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.adidas.com.sg/unisex-sneakers",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 14,
+      "name": "Ultraboost 5",
+      "slug": "ultraboost-5",
+      "brand": "Adidas",
+      "brand_slug": "adidas",
+      "category": "Performance Sneakers",
+      "category_slug": "performance-sneakers",
+      "base_price_inr": "15999",
+      "local_variants": [
+        {
+          "sku": "SZ-ULTRABOOST5-10",
+          "size": "10",
+          "color": "Black",
+          "price": "15999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-ULTRABOOST5-11",
+          "size": "11",
+          "color": "Black",
+          "price": "15999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-ULTRABOOST5-6",
+          "size": "6",
+          "color": "Black",
+          "price": "15999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-ULTRABOOST5-7",
+          "size": "7",
+          "color": "Black",
+          "price": "15999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-ULTRABOOST5-8",
+          "size": "8",
+          "color": "Black",
+          "price": "15999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-ULTRABOOST5-9",
+          "size": "9",
+          "color": "Black",
+          "price": "15999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Ultraboost 5 by Adidas in STEPZONE's Performance Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "adidas/ultraboost-5.webp",
+      "image_source_url": null,
+      "source_page_url": "https://brand.assets.adidas.com/image/upload/v1764275037/TYC_BLACK_FRIDAY_CL_d392b78d7e.pdf",
+      "source_scope": "OFFICIAL_MODEL_OR_MODEL_FAMILY_SOURCE; exact local colorway remains unverified",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 63,
+      "name": "GEL-1130",
+      "slug": "gel-1130",
+      "brand": "ASICS",
+      "brand_slug": "asics",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "9999",
+      "local_variants": [
+        {
+          "sku": "SZ-GEL1130-10",
+          "size": "10",
+          "color": "White/Silver",
+          "price": "9999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-GEL1130-11",
+          "size": "11",
+          "color": "White/Silver",
+          "price": "9999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-GEL1130-6",
+          "size": "6",
+          "color": "White/Silver",
+          "price": "9999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-GEL1130-7",
+          "size": "7",
+          "color": "White/Silver",
+          "price": "9999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-GEL1130-8",
+          "size": "8",
+          "color": "White/Silver",
+          "price": "9999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-GEL1130-9",
+          "size": "9",
+          "color": "White/Silver",
+          "price": "9999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the GEL-1130 by ASICS in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "asics/gel-1130.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.asics.co.in/1201a906-001-gel-1130.html",
+      "source_scope": "OFFICIAL_MODEL_OR_MODEL_FAMILY_SOURCE; exact local colorway remains unverified",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 69,
+      "name": "GEL-Cumulus 26",
+      "slug": "gel-cumulus-26",
+      "brand": "ASICS",
+      "brand_slug": "asics",
+      "category": "Performance Sneakers",
+      "category_slug": "performance-sneakers",
+      "base_price_inr": "12999",
+      "local_variants": [
+        {
+          "sku": "SZ-GELCUMULUS26-10",
+          "size": "10",
+          "color": "White/Blue",
+          "price": "12999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-GELCUMULUS26-11",
+          "size": "11",
+          "color": "White/Blue",
+          "price": "12999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-GELCUMULUS26-6",
+          "size": "6",
+          "color": "White/Blue",
+          "price": "12999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-GELCUMULUS26-7",
+          "size": "7",
+          "color": "White/Blue",
+          "price": "12999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-GELCUMULUS26-8",
+          "size": "8",
+          "color": "White/Blue",
+          "price": "12999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-GELCUMULUS26-9",
+          "size": "9",
+          "color": "White/Blue",
+          "price": "12999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the GEL-Cumulus 26 by ASICS in STEPZONE's Performance Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "asics/gel-cumulus-26.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.asics.com/us/en-us/collections-sps/",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 61,
+      "name": "GEL-Kayano 31",
+      "slug": "gel-kayano-31",
+      "brand": "ASICS",
+      "brand_slug": "asics",
+      "category": "Performance Sneakers",
+      "category_slug": "performance-sneakers",
+      "base_price_inr": "15999",
+      "local_variants": [
+        {
+          "sku": "SZ-GELKAYANO31-10",
+          "size": "10",
+          "color": "Black/White",
+          "price": "15999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-GELKAYANO31-11",
+          "size": "11",
+          "color": "Black/White",
+          "price": "15999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-GELKAYANO31-6",
+          "size": "6",
+          "color": "Black/White",
+          "price": "15999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-GELKAYANO31-7",
+          "size": "7",
+          "color": "Black/White",
+          "price": "15999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-GELKAYANO31-8",
+          "size": "8",
+          "color": "Black/White",
+          "price": "15999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-GELKAYANO31-9",
+          "size": "9",
+          "color": "Black/White",
+          "price": "15999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the GEL-Kayano 31 by ASICS in STEPZONE's Performance Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "asics/gel-kayano-31.webp",
+      "image_source_url": null,
+      "source_page_url": "https://explore.asics.com/en/comparison.html",
+      "source_scope": "OFFICIAL_MODEL_OR_MODEL_FAMILY_SOURCE; exact local colorway remains unverified",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 62,
+      "name": "GEL-Nimbus 27",
+      "slug": "gel-nimbus-27",
+      "brand": "ASICS",
+      "brand_slug": "asics",
+      "category": "Performance Sneakers",
+      "category_slug": "performance-sneakers",
+      "base_price_inr": "16999",
+      "local_variants": [
+        {
+          "sku": "SZ-GELNIMBUS27-10",
+          "size": "10",
+          "color": "White/Blue",
+          "price": "16999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-GELNIMBUS27-11",
+          "size": "11",
+          "color": "White/Blue",
+          "price": "16999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-GELNIMBUS27-6",
+          "size": "6",
+          "color": "White/Blue",
+          "price": "16999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-GELNIMBUS27-7",
+          "size": "7",
+          "color": "White/Blue",
+          "price": "16999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-GELNIMBUS27-8",
+          "size": "8",
+          "color": "White/Blue",
+          "price": "16999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-GELNIMBUS27-9",
+          "size": "9",
+          "color": "White/Blue",
+          "price": "16999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the GEL-Nimbus 27 by ASICS in STEPZONE's Performance Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "asics/gel-nimbus-27.webp",
+      "image_source_url": null,
+      "source_page_url": "https://explore.asics.com/en/comparison.html",
+      "source_scope": "OFFICIAL_MODEL_OR_MODEL_FAMILY_SOURCE; exact local colorway remains unverified",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 65,
+      "name": "GEL-NYC",
+      "slug": "gel-nyc",
+      "brand": "ASICS",
+      "brand_slug": "asics",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "13999",
+      "local_variants": [
+        {
+          "sku": "SZ-GELNYC-10",
+          "size": "10",
+          "color": "White/Grey",
+          "price": "13999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-GELNYC-11",
+          "size": "11",
+          "color": "White/Grey",
+          "price": "13999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-GELNYC-6",
+          "size": "6",
+          "color": "White/Grey",
+          "price": "13999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-GELNYC-7",
+          "size": "7",
+          "color": "White/Grey",
+          "price": "13999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-GELNYC-8",
+          "size": "8",
+          "color": "White/Grey",
+          "price": "13999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-GELNYC-9",
+          "size": "9",
+          "color": "White/Grey",
+          "price": "13999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the GEL-NYC by ASICS in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "asics/gel-nyc.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.asics.com/us/en-us/collections-sps/",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 68,
+      "name": "GEL-Quantum 360 VIII",
+      "slug": "gel-quantum-360-viii",
+      "brand": "ASICS",
+      "brand_slug": "asics",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "15999",
+      "local_variants": [
+        {
+          "sku": "SZ-GELQUANTUM360VIII-10",
+          "size": "10",
+          "color": "Black/Silver",
+          "price": "15999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-GELQUANTUM360VIII-11",
+          "size": "11",
+          "color": "Black/Silver",
+          "price": "15999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-GELQUANTUM360VIII-6",
+          "size": "6",
+          "color": "Black/Silver",
+          "price": "15999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-GELQUANTUM360VIII-7",
+          "size": "7",
+          "color": "Black/Silver",
+          "price": "15999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-GELQUANTUM360VIII-8",
+          "size": "8",
+          "color": "Black/Silver",
+          "price": "15999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-GELQUANTUM360VIII-9",
+          "size": "9",
+          "color": "Black/Silver",
+          "price": "15999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the GEL-Quantum 360 VIII by ASICS in STEPZONE's Men's Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "asics/gel-quantum-360-viii.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.asics.com/us/en-us/collections-sps/",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false,
+      "approval_status": "CATEGORY_CORRECTION_APPLIED_LOCALLY"
+    },
+    {
+      "product_id": 67,
+      "name": "GEL-Venture 6",
+      "slug": "gel-venture-6",
+      "brand": "ASICS",
+      "brand_slug": "asics",
+      "category": "Men's Sneakers",
+      "category_slug": "mens-sneakers",
+      "base_price_inr": "7999",
+      "local_variants": [
+        {
+          "sku": "SZ-GELVENTURE6-10",
+          "size": "10",
+          "color": "Black/Grey",
+          "price": "7999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-GELVENTURE6-11",
+          "size": "11",
+          "color": "Black/Grey",
+          "price": "7999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-GELVENTURE6-6",
+          "size": "6",
+          "color": "Black/Grey",
+          "price": "7999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-GELVENTURE6-7",
+          "size": "7",
+          "color": "Black/Grey",
+          "price": "7999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-GELVENTURE6-8",
+          "size": "8",
+          "color": "Black/Grey",
+          "price": "7999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-GELVENTURE6-9",
+          "size": "9",
+          "color": "Black/Grey",
+          "price": "7999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the GEL-Venture 6 by ASICS in STEPZONE's Men's Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "asics/gel-venture-6.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.asics.com/us/en-us/collections-sps/",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 70,
+      "name": "GT-2000 13",
+      "slug": "gt-2000-13",
+      "brand": "ASICS",
+      "brand_slug": "asics",
+      "category": "Performance Sneakers",
+      "category_slug": "performance-sneakers",
+      "base_price_inr": "11999",
+      "local_variants": [
+        {
+          "sku": "SZ-GT200013-10",
+          "size": "10",
+          "color": "Black/Blue",
+          "price": "11999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-GT200013-11",
+          "size": "11",
+          "color": "Black/Blue",
+          "price": "11999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-GT200013-6",
+          "size": "6",
+          "color": "Black/Blue",
+          "price": "11999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-GT200013-7",
+          "size": "7",
+          "color": "Black/Blue",
+          "price": "11999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-GT200013-8",
+          "size": "8",
+          "color": "Black/Blue",
+          "price": "11999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-GT200013-9",
+          "size": "9",
+          "color": "Black/Blue",
+          "price": "11999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the GT-2000 13 by ASICS in STEPZONE's Performance Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "asics/gt-2000-13.webp",
+      "image_source_url": null,
+      "source_page_url": "https://explore.asics.com/en/comparison.html",
+      "source_scope": "OFFICIAL_MODEL_OR_MODEL_FAMILY_SOURCE; exact local colorway remains unverified",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 64,
+      "name": "GT-2160",
+      "slug": "gt-2160",
+      "brand": "ASICS",
+      "brand_slug": "asics",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "11999",
+      "local_variants": [
+        {
+          "sku": "SZ-GT2160-10",
+          "size": "10",
+          "color": "White/Grey",
+          "price": "11999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-GT2160-11",
+          "size": "11",
+          "color": "White/Grey",
+          "price": "11999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-GT2160-6",
+          "size": "6",
+          "color": "White/Grey",
+          "price": "11999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-GT2160-7",
+          "size": "7",
+          "color": "White/Grey",
+          "price": "11999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-GT2160-8",
+          "size": "8",
+          "color": "White/Grey",
+          "price": "11999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-GT2160-9",
+          "size": "9",
+          "color": "White/Grey",
+          "price": "11999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the GT-2160 by ASICS in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "asics/gt-2160.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.asics.com/us/en-us/collections-sps/",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 66,
+      "name": "Novablast 5",
+      "slug": "novablast-5",
+      "brand": "ASICS",
+      "brand_slug": "asics",
+      "category": "Performance Sneakers",
+      "category_slug": "performance-sneakers",
+      "base_price_inr": "13999",
+      "local_variants": [
+        {
+          "sku": "SZ-NOVABLAST5-10",
+          "size": "10",
+          "color": "Black/Orange",
+          "price": "13999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-NOVABLAST5-11",
+          "size": "11",
+          "color": "Black/Orange",
+          "price": "13999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-NOVABLAST5-6",
+          "size": "6",
+          "color": "Black/Orange",
+          "price": "13999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-NOVABLAST5-7",
+          "size": "7",
+          "color": "Black/Orange",
+          "price": "13999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-NOVABLAST5-8",
+          "size": "8",
+          "color": "Black/Orange",
+          "price": "13999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-NOVABLAST5-9",
+          "size": "9",
+          "color": "Black/Orange",
+          "price": "13999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Novablast 5 by ASICS in STEPZONE's Performance Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "asics/novablast-5.webp",
+      "image_source_url": null,
+      "source_page_url": "https://explore.asics.com/en/comparison.html",
+      "source_scope": "OFFICIAL_MODEL_OR_MODEL_FAMILY_SOURCE; exact local colorway remains unverified",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 39,
+      "name": "1906R",
+      "slug": "1906r",
+      "brand": "New Balance",
+      "brand_slug": "new-balance",
+      "category": "Men's Sneakers",
+      "category_slug": "mens-sneakers",
+      "base_price_inr": "15999",
+      "local_variants": [
+        {
+          "sku": "SZ-1906R-10",
+          "size": "10",
+          "color": "White/Silver",
+          "price": "15999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-1906R-11",
+          "size": "11",
+          "color": "White/Silver",
+          "price": "15999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-1906R-6",
+          "size": "6",
+          "color": "White/Silver",
+          "price": "15999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-1906R-7",
+          "size": "7",
+          "color": "White/Silver",
+          "price": "15999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-1906R-8",
+          "size": "8",
+          "color": "White/Silver",
+          "price": "15999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-1906R-9",
+          "size": "9",
+          "color": "White/Silver",
+          "price": "15999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the 1906R by New Balance in STEPZONE's Men's Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "new-balance/1906r.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.newbalance.com/2000s-running/",
+      "source_scope": "OFFICIAL_MODEL_OR_MODEL_FAMILY_SOURCE; exact local colorway remains unverified",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 35,
+      "name": "2002R",
+      "slug": "2002r",
+      "brand": "New Balance",
+      "brand_slug": "new-balance",
+      "category": "Men's Sneakers",
+      "category_slug": "mens-sneakers",
+      "base_price_inr": "14999",
+      "local_variants": [
+        {
+          "sku": "SZ-2002R-10",
+          "size": "10",
+          "color": "Grey/Blue",
+          "price": "14999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-2002R-11",
+          "size": "11",
+          "color": "Grey/Blue",
+          "price": "14999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-2002R-6",
+          "size": "6",
+          "color": "Grey/Blue",
+          "price": "14999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-2002R-7",
+          "size": "7",
+          "color": "Grey/Blue",
+          "price": "14999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-2002R-8",
+          "size": "8",
+          "color": "Grey/Blue",
+          "price": "14999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-2002R-9",
+          "size": "9",
+          "color": "Grey/Blue",
+          "price": "14999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the 2002R by New Balance in STEPZONE's Men's Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "new-balance/2002r.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.newbalance.com/2000s-running/",
+      "source_scope": "OFFICIAL_MODEL_OR_MODEL_FAMILY_SOURCE; exact local colorway remains unverified",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 33,
+      "name": "327",
+      "slug": "327",
+      "brand": "New Balance",
+      "brand_slug": "new-balance",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "10999",
+      "local_variants": [
+        {
+          "sku": "SZ-327-10",
+          "size": "10",
+          "color": "White/Blue",
+          "price": "10999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-327-11",
+          "size": "11",
+          "color": "White/Blue",
+          "price": "10999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-327-6",
+          "size": "6",
+          "color": "White/Blue",
+          "price": "10999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-327-7",
+          "size": "7",
+          "color": "White/Blue",
+          "price": "10999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-327-8",
+          "size": "8",
+          "color": "White/Blue",
+          "price": "10999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-327-9",
+          "size": "9",
+          "color": "White/Blue",
+          "price": "10999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the 327 by New Balance in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "new-balance/327.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.newbalance.com/shoes/",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 38,
+      "name": "530",
+      "slug": "530",
+      "brand": "New Balance",
+      "brand_slug": "new-balance",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "9999",
+      "local_variants": [
+        {
+          "sku": "SZ-530-10",
+          "size": "10",
+          "color": "White/Silver",
+          "price": "9999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-530-11",
+          "size": "11",
+          "color": "White/Silver",
+          "price": "9999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-530-6",
+          "size": "6",
+          "color": "White/Silver",
+          "price": "9999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-530-7",
+          "size": "7",
+          "color": "White/Silver",
+          "price": "9999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-530-8",
+          "size": "8",
+          "color": "White/Silver",
+          "price": "9999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-530-9",
+          "size": "9",
+          "color": "White/Silver",
+          "price": "9999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the 530 by New Balance in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "new-balance/530.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.newbalance.com/shoes/",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 32,
+      "name": "550",
+      "slug": "550",
+      "brand": "New Balance",
+      "brand_slug": "new-balance",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "11999",
+      "local_variants": [
+        {
+          "sku": "SZ-550-10",
+          "size": "10",
+          "color": "White/Green",
+          "price": "11999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-550-11",
+          "size": "11",
+          "color": "White/Green",
+          "price": "11999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-550-6",
+          "size": "6",
+          "color": "White/Green",
+          "price": "11999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-550-7",
+          "size": "7",
+          "color": "White/Green",
+          "price": "11999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-550-8",
+          "size": "8",
+          "color": "White/Green",
+          "price": "11999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-550-9",
+          "size": "9",
+          "color": "White/Green",
+          "price": "11999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the 550 by New Balance in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "new-balance/550.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.newbalance.com/shoes/",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 40,
+      "name": "574 Legacy",
+      "slug": "574-legacy",
+      "brand": "New Balance",
+      "brand_slug": "new-balance",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "10999",
+      "local_variants": [
+        {
+          "sku": "SZ-574LEGACY-10",
+          "size": "10",
+          "color": "Navy/Grey",
+          "price": "10999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-574LEGACY-11",
+          "size": "11",
+          "color": "Navy/Grey",
+          "price": "10999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-574LEGACY-6",
+          "size": "6",
+          "color": "Navy/Grey",
+          "price": "10999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-574LEGACY-7",
+          "size": "7",
+          "color": "Navy/Grey",
+          "price": "10999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-574LEGACY-8",
+          "size": "8",
+          "color": "Navy/Grey",
+          "price": "10999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-574LEGACY-9",
+          "size": "9",
+          "color": "Navy/Grey",
+          "price": "10999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the 574 Legacy by New Balance in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "new-balance/574-legacy.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.newbalance.com/shoes/",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 34,
+      "name": "9060",
+      "slug": "9060",
+      "brand": "New Balance",
+      "brand_slug": "new-balance",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "17999",
+      "local_variants": [
+        {
+          "sku": "SZ-9060-10",
+          "size": "10",
+          "color": "Grey",
+          "price": "17999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-9060-11",
+          "size": "11",
+          "color": "Grey",
+          "price": "17999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-9060-6",
+          "size": "6",
+          "color": "Grey",
+          "price": "17999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-9060-7",
+          "size": "7",
+          "color": "Grey",
+          "price": "17999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-9060-8",
+          "size": "8",
+          "color": "Grey",
+          "price": "17999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-9060-9",
+          "size": "9",
+          "color": "Grey",
+          "price": "17999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the 9060 by New Balance in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "new-balance/9060.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.newbalance.com/9060/",
+      "source_scope": "OFFICIAL_MODEL_OR_MODEL_FAMILY_SOURCE; exact local colorway remains unverified",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 36,
+      "name": "990v6",
+      "slug": "990v6",
+      "brand": "New Balance",
+      "brand_slug": "new-balance",
+      "category": "Men's Sneakers",
+      "category_slug": "mens-sneakers",
+      "base_price_inr": "22999",
+      "local_variants": [
+        {
+          "sku": "SZ-990V6-10",
+          "size": "10",
+          "color": "Grey",
+          "price": "22999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-990V6-11",
+          "size": "11",
+          "color": "Grey",
+          "price": "22999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-990V6-6",
+          "size": "6",
+          "color": "Grey",
+          "price": "22999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-990V6-7",
+          "size": "7",
+          "color": "Grey",
+          "price": "22999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-990V6-8",
+          "size": "8",
+          "color": "Grey",
+          "price": "22999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-990V6-9",
+          "size": "9",
+          "color": "Grey",
+          "price": "22999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the 990v6 by New Balance in STEPZONE's Men's Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "new-balance/990v6.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.newbalance.com/shoes/",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 37,
+      "name": "Fresh Foam X 1080v14",
+      "slug": "fresh-foam-x-1080v14",
+      "brand": "New Balance",
+      "brand_slug": "new-balance",
+      "category": "Performance Sneakers",
+      "category_slug": "performance-sneakers",
+      "base_price_inr": "16999",
+      "local_variants": [
+        {
+          "sku": "SZ-FRESHFOAMX1080V14-10",
+          "size": "10",
+          "color": "Black/White",
+          "price": "16999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-FRESHFOAMX1080V14-11",
+          "size": "11",
+          "color": "Black/White",
+          "price": "16999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-FRESHFOAMX1080V14-6",
+          "size": "6",
+          "color": "Black/White",
+          "price": "16999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-FRESHFOAMX1080V14-7",
+          "size": "7",
+          "color": "Black/White",
+          "price": "16999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-FRESHFOAMX1080V14-8",
+          "size": "8",
+          "color": "Black/White",
+          "price": "16999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-FRESHFOAMX1080V14-9",
+          "size": "9",
+          "color": "Black/White",
+          "price": "16999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Fresh Foam X 1080v14 by New Balance in STEPZONE's Performance Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "new-balance/fresh-foam-x-1080v14.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.newbalance.com.my/nb-launches.html",
+      "source_scope": "OFFICIAL_MODEL_OR_MODEL_FAMILY_SOURCE; exact local colorway remains unverified",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 2,
+      "name": "Air Force 1 '07",
+      "slug": "air-force-1-07",
+      "brand": "Nike",
+      "brand_slug": "nike",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "8995",
+      "local_variants": [
+        {
+          "sku": "SZ-AIRFORCE107-10",
+          "size": "10",
+          "color": "White",
+          "price": "8995",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-AIRFORCE107-11",
+          "size": "11",
+          "color": "White",
+          "price": "8995",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-AIRFORCE107-6",
+          "size": "6",
+          "color": "White",
+          "price": "8995",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-AIRFORCE107-7",
+          "size": "7",
+          "color": "White",
+          "price": "8995",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-AIRFORCE107-8",
+          "size": "8",
+          "color": "White",
+          "price": "8995",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-AIRFORCE107-9",
+          "size": "9",
+          "color": "White",
+          "price": "8995",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Air Force 1 '07 by Nike in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "nike/air-force-1-07.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.nike.com/w/shoes-1ef98z88t5xzy7ok",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 4,
+      "name": "Air Jordan 1 Low",
+      "slug": "air-jordan-1-low",
+      "brand": "Nike",
+      "brand_slug": "nike",
+      "category": "Men's Sneakers",
+      "category_slug": "mens-sneakers",
+      "base_price_inr": "11295",
+      "local_variants": [
+        {
+          "sku": "SZ-AIRJORDAN1LOW-10",
+          "size": "10",
+          "color": "White/Red",
+          "price": "11295",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-AIRJORDAN1LOW-11",
+          "size": "11",
+          "color": "White/Red",
+          "price": "11295",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-AIRJORDAN1LOW-6",
+          "size": "6",
+          "color": "White/Red",
+          "price": "11295",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-AIRJORDAN1LOW-7",
+          "size": "7",
+          "color": "White/Red",
+          "price": "11295",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-AIRJORDAN1LOW-8",
+          "size": "8",
+          "color": "White/Red",
+          "price": "11295",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-AIRJORDAN1LOW-9",
+          "size": "9",
+          "color": "White/Red",
+          "price": "11295",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Air Jordan 1 Low by Nike in STEPZONE's Men's Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "nike/air-jordan-1-low.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.nike.com/t/air-jordan-1-low-mens-shoes-w9HO9jOz",
+      "source_scope": "OFFICIAL_MODEL_OR_MODEL_FAMILY_SOURCE; exact local colorway remains unverified",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 5,
+      "name": "Air Max 90",
+      "slug": "air-max-90",
+      "brand": "Nike",
+      "brand_slug": "nike",
+      "category": "Men's Sneakers",
+      "category_slug": "mens-sneakers",
+      "base_price_inr": "12795",
+      "local_variants": [
+        {
+          "sku": "SZ-AIRMAX90-10",
+          "size": "10",
+          "color": "White/Grey",
+          "price": "12795",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-AIRMAX90-11",
+          "size": "11",
+          "color": "White/Grey",
+          "price": "12795",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-AIRMAX90-6",
+          "size": "6",
+          "color": "White/Grey",
+          "price": "12795",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-AIRMAX90-7",
+          "size": "7",
+          "color": "White/Grey",
+          "price": "12795",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-AIRMAX90-8",
+          "size": "8",
+          "color": "White/Grey",
+          "price": "12795",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-AIRMAX90-9",
+          "size": "9",
+          "color": "White/Grey",
+          "price": "12795",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Air Max 90 by Nike in STEPZONE's Men's Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "nike/air-max-90.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.nike.com/w/shoes-1ef98z88t5xzy7ok",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 8,
+      "name": "Blazer Low '77",
+      "slug": "blazer-low-77",
+      "brand": "Nike",
+      "brand_slug": "nike",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "7995",
+      "local_variants": [
+        {
+          "sku": "SZ-BLAZERLOW77-10",
+          "size": "10",
+          "color": "White/Black",
+          "price": "7995",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-BLAZERLOW77-11",
+          "size": "11",
+          "color": "White/Black",
+          "price": "7995",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-BLAZERLOW77-6",
+          "size": "6",
+          "color": "White/Black",
+          "price": "7995",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-BLAZERLOW77-7",
+          "size": "7",
+          "color": "White/Black",
+          "price": "7995",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-BLAZERLOW77-8",
+          "size": "8",
+          "color": "White/Black",
+          "price": "7995",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-BLAZERLOW77-9",
+          "size": "9",
+          "color": "White/Black",
+          "price": "7995",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Blazer Low '77 by Nike in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "nike/blazer-low-77.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.nike.com/w/shoes-1ef98z88t5xzy7ok",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 9,
+      "name": "Court Vision Low",
+      "slug": "court-vision-low",
+      "brand": "Nike",
+      "brand_slug": "nike",
+      "category": "Men's Sneakers",
+      "category_slug": "mens-sneakers",
+      "base_price_inr": "6495",
+      "local_variants": [
+        {
+          "sku": "SZ-COURTVISIONLOW-10",
+          "size": "10",
+          "color": "White/Navy",
+          "price": "6495",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-COURTVISIONLOW-11",
+          "size": "11",
+          "color": "White/Navy",
+          "price": "6495",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-COURTVISIONLOW-6",
+          "size": "6",
+          "color": "White/Navy",
+          "price": "6495",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-COURTVISIONLOW-7",
+          "size": "7",
+          "color": "White/Navy",
+          "price": "6495",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-COURTVISIONLOW-8",
+          "size": "8",
+          "color": "White/Navy",
+          "price": "6495",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-COURTVISIONLOW-9",
+          "size": "9",
+          "color": "White/Navy",
+          "price": "6495",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Court Vision Low by Nike in STEPZONE's Men's Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "nike/court-vision-low.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.nike.com/w/shoes-1ef98z88t5xzy7ok",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 3,
+      "name": "Dunk Low Retro",
+      "slug": "dunk-low-retro",
+      "brand": "Nike",
+      "brand_slug": "nike",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "10295",
+      "local_variants": [
+        {
+          "sku": "SZ-DUNKLOWRETRO-10",
+          "size": "10",
+          "color": "White/Black",
+          "price": "10295",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-DUNKLOWRETRO-11",
+          "size": "11",
+          "color": "White/Black",
+          "price": "10295",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-DUNKLOWRETRO-6",
+          "size": "6",
+          "color": "White/Black",
+          "price": "10295",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-DUNKLOWRETRO-7",
+          "size": "7",
+          "color": "White/Black",
+          "price": "10295",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-DUNKLOWRETRO-8",
+          "size": "8",
+          "color": "White/Black",
+          "price": "10295",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-DUNKLOWRETRO-9",
+          "size": "9",
+          "color": "White/Black",
+          "price": "10295",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Dunk Low Retro by Nike in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "nike/dunk-low-retro.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.nike.com/w/shoes-1ef98z88t5xzy7ok",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 10,
+      "name": "P-6000",
+      "slug": "p-6000",
+      "brand": "Nike",
+      "brand_slug": "nike",
+      "category": "Men's Sneakers",
+      "category_slug": "mens-sneakers",
+      "base_price_inr": "9995",
+      "local_variants": [
+        {
+          "sku": "SZ-P6000-10",
+          "size": "10",
+          "color": "Silver/White",
+          "price": "9995",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-P6000-11",
+          "size": "11",
+          "color": "Silver/White",
+          "price": "9995",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-P6000-6",
+          "size": "6",
+          "color": "Silver/White",
+          "price": "9995",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-P6000-7",
+          "size": "7",
+          "color": "Silver/White",
+          "price": "9995",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-P6000-8",
+          "size": "8",
+          "color": "Silver/White",
+          "price": "9995",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-P6000-9",
+          "size": "9",
+          "color": "Silver/White",
+          "price": "9995",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the P-6000 by Nike in STEPZONE's Men's Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "nike/p-6000.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.nike.com/w/shoes-1ef98z88t5xzy7ok",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 6,
+      "name": "Pegasus 41",
+      "slug": "pegasus-41",
+      "brand": "Nike",
+      "brand_slug": "nike",
+      "category": "Performance Sneakers",
+      "category_slug": "performance-sneakers",
+      "base_price_inr": "11895",
+      "local_variants": [
+        {
+          "sku": "SZ-PEGASUS41-10",
+          "size": "10",
+          "color": "Black/White",
+          "price": "11895",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-PEGASUS41-11",
+          "size": "11",
+          "color": "Black/White",
+          "price": "11895",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-PEGASUS41-6",
+          "size": "6",
+          "color": "Black/White",
+          "price": "11895",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-PEGASUS41-7",
+          "size": "7",
+          "color": "Black/White",
+          "price": "11895",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-PEGASUS41-8",
+          "size": "8",
+          "color": "Black/White",
+          "price": "11895",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-PEGASUS41-9",
+          "size": "9",
+          "color": "Black/White",
+          "price": "11895",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Pegasus 41 by Nike in STEPZONE's Performance Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "nike/pegasus-41.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.nike.com/w/shoes-1ef98z88t5xzy7ok",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 7,
+      "name": "Vomero 18",
+      "slug": "vomero-18",
+      "brand": "Nike",
+      "brand_slug": "nike",
+      "category": "Performance Sneakers",
+      "category_slug": "performance-sneakers",
+      "base_price_inr": "14995",
+      "local_variants": [
+        {
+          "sku": "SZ-VOMERO18-10",
+          "size": "10",
+          "color": "White/Blue",
+          "price": "14995",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-VOMERO18-11",
+          "size": "11",
+          "color": "White/Blue",
+          "price": "14995",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-VOMERO18-6",
+          "size": "6",
+          "color": "White/Blue",
+          "price": "14995",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-VOMERO18-7",
+          "size": "7",
+          "color": "White/Blue",
+          "price": "14995",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-VOMERO18-8",
+          "size": "8",
+          "color": "White/Blue",
+          "price": "14995",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-VOMERO18-9",
+          "size": "9",
+          "color": "White/Blue",
+          "price": "14995",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Vomero 18 by Nike in STEPZONE's Performance Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "nike/vomero-18.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.nike.com/w/shoes-1ef98z88t5xzy7ok",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 25,
+      "name": "Caven 2.0",
+      "slug": "caven-2",
+      "brand": "Puma",
+      "brand_slug": "puma",
+      "category": "Men's Sneakers",
+      "category_slug": "mens-sneakers",
+      "base_price_inr": "5999",
+      "local_variants": [
+        {
+          "sku": "SZ-CAVEN2-10",
+          "size": "10",
+          "color": "White/Black",
+          "price": "5999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-CAVEN2-11",
+          "size": "11",
+          "color": "White/Black",
+          "price": "5999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-CAVEN2-6",
+          "size": "6",
+          "color": "White/Black",
+          "price": "5999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-CAVEN2-7",
+          "size": "7",
+          "color": "White/Black",
+          "price": "5999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-CAVEN2-8",
+          "size": "8",
+          "color": "White/Black",
+          "price": "5999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-CAVEN2-9",
+          "size": "9",
+          "color": "White/Black",
+          "price": "5999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Caven 2.0 by Puma in STEPZONE's Men's Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "puma/caven-2.webp",
+      "image_source_url": null,
+      "source_page_url": "https://us.puma.com/us/en/pd/caven-20-sneakers/392290",
+      "source_scope": "OFFICIAL_MODEL_OR_MODEL_FAMILY_SOURCE; exact local colorway remains unverified",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 26,
+      "name": "Deviate Nitro 3",
+      "slug": "deviate-nitro-3",
+      "brand": "Puma",
+      "brand_slug": "puma",
+      "category": "Performance Sneakers",
+      "category_slug": "performance-sneakers",
+      "base_price_inr": "15999",
+      "local_variants": [
+        {
+          "sku": "SZ-DEVIATENITRO3-10",
+          "size": "10",
+          "color": "Black/Yellow",
+          "price": "15999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-DEVIATENITRO3-11",
+          "size": "11",
+          "color": "Black/Yellow",
+          "price": "15999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-DEVIATENITRO3-6",
+          "size": "6",
+          "color": "Black/Yellow",
+          "price": "15999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-DEVIATENITRO3-7",
+          "size": "7",
+          "color": "Black/Yellow",
+          "price": "15999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-DEVIATENITRO3-8",
+          "size": "8",
+          "color": "Black/Yellow",
+          "price": "15999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-DEVIATENITRO3-9",
+          "size": "9",
+          "color": "Black/Yellow",
+          "price": "15999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Deviate Nitro 3 by Puma in STEPZONE's Performance Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "puma/deviate-nitro-3.webp",
+      "image_source_url": null,
+      "source_page_url": "https://us.puma.com/us/es/pd/deviate-nitro-3-womens-road-running-shoes/309708",
+      "source_scope": "OFFICIAL_MODEL_OR_MODEL_FAMILY_SOURCE; exact local colorway remains unverified",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 29,
+      "name": "Easy Rider",
+      "slug": "easy-rider",
+      "brand": "Puma",
+      "brand_slug": "puma",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "7999",
+      "local_variants": [
+        {
+          "sku": "SZ-EASYRIDER-10",
+          "size": "10",
+          "color": "Green/White",
+          "price": "7999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-EASYRIDER-11",
+          "size": "11",
+          "color": "Green/White",
+          "price": "7999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-EASYRIDER-6",
+          "size": "6",
+          "color": "Green/White",
+          "price": "7999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-EASYRIDER-7",
+          "size": "7",
+          "color": "Green/White",
+          "price": "7999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-EASYRIDER-8",
+          "size": "8",
+          "color": "Green/White",
+          "price": "7999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-EASYRIDER-9",
+          "size": "9",
+          "color": "Green/White",
+          "price": "7999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Easy Rider by Puma in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "puma/easy-rider.webp",
+      "image_source_url": null,
+      "source_page_url": "https://us.puma.com/us/en/sport/lifestyle/shop-all-classics/mens-classic-shoes-and-clothing",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 24,
+      "name": "Future Rider",
+      "slug": "future-rider",
+      "brand": "Puma",
+      "brand_slug": "puma",
+      "category": "Men's Sneakers",
+      "category_slug": "mens-sneakers",
+      "base_price_inr": "7999",
+      "local_variants": [
+        {
+          "sku": "SZ-FUTURERIDER-10",
+          "size": "10",
+          "color": "White/Blue",
+          "price": "7999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-FUTURERIDER-11",
+          "size": "11",
+          "color": "White/Blue",
+          "price": "7999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-FUTURERIDER-6",
+          "size": "6",
+          "color": "White/Blue",
+          "price": "7999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-FUTURERIDER-7",
+          "size": "7",
+          "color": "White/Blue",
+          "price": "7999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-FUTURERIDER-8",
+          "size": "8",
+          "color": "White/Blue",
+          "price": "7999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-FUTURERIDER-9",
+          "size": "9",
+          "color": "White/Blue",
+          "price": "7999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Future Rider by Puma in STEPZONE's Men's Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "puma/future-rider.webp",
+      "image_source_url": null,
+      "source_page_url": "https://us.puma.com/us/en/sport/lifestyle/shop-all-classics/mens-classic-shoes-and-clothing",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 23,
+      "name": "Palermo",
+      "slug": "palermo",
+      "brand": "Puma",
+      "brand_slug": "puma",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "7999",
+      "local_variants": [
+        {
+          "sku": "SZ-PALERMO-10",
+          "size": "10",
+          "color": "White/Green",
+          "price": "7999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-PALERMO-11",
+          "size": "11",
+          "color": "White/Green",
+          "price": "7999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-PALERMO-6",
+          "size": "6",
+          "color": "White/Green",
+          "price": "7999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-PALERMO-7",
+          "size": "7",
+          "color": "White/Green",
+          "price": "7999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-PALERMO-8",
+          "size": "8",
+          "color": "White/Green",
+          "price": "7999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-PALERMO-9",
+          "size": "9",
+          "color": "White/Green",
+          "price": "7999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Palermo by Puma in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "puma/palermo.webp",
+      "image_source_url": null,
+      "source_page_url": "https://us.puma.com/us/en/sport/lifestyle/shop-all-classics/mens-classic-shoes-and-clothing",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 30,
+      "name": "R78 Voyage",
+      "slug": "r78-voyage",
+      "brand": "Puma",
+      "brand_slug": "puma",
+      "category": "Women's Sneakers",
+      "category_slug": "womens-sneakers",
+      "base_price_inr": "5999",
+      "local_variants": [
+        {
+          "sku": "SZ-R78VOYAGE-10",
+          "size": "10",
+          "color": "White/Pink",
+          "price": "5999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-R78VOYAGE-11",
+          "size": "11",
+          "color": "White/Pink",
+          "price": "5999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-R78VOYAGE-6",
+          "size": "6",
+          "color": "White/Pink",
+          "price": "5999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-R78VOYAGE-7",
+          "size": "7",
+          "color": "White/Pink",
+          "price": "5999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-R78VOYAGE-8",
+          "size": "8",
+          "color": "White/Pink",
+          "price": "5999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-R78VOYAGE-9",
+          "size": "9",
+          "color": "White/Pink",
+          "price": "5999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the R78 Voyage by Puma in STEPZONE's Women's Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "puma/r78-voyage.webp",
+      "image_source_url": null,
+      "source_page_url": "https://us.puma.com/us/en/sport/lifestyle/shop-all-classics/mens-classic-shoes-and-clothing",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 28,
+      "name": "Slipstream Lo",
+      "slug": "slipstream-lo",
+      "brand": "Puma",
+      "brand_slug": "puma",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "8999",
+      "local_variants": [
+        {
+          "sku": "SZ-SLIPSTREAMLO-10",
+          "size": "10",
+          "color": "White/Blue",
+          "price": "8999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-SLIPSTREAMLO-11",
+          "size": "11",
+          "color": "White/Blue",
+          "price": "8999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-SLIPSTREAMLO-6",
+          "size": "6",
+          "color": "White/Blue",
+          "price": "8999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-SLIPSTREAMLO-7",
+          "size": "7",
+          "color": "White/Blue",
+          "price": "8999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-SLIPSTREAMLO-8",
+          "size": "8",
+          "color": "White/Blue",
+          "price": "8999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-SLIPSTREAMLO-9",
+          "size": "9",
+          "color": "White/Blue",
+          "price": "8999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Slipstream Lo by Puma in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "puma/slipstream-lo.webp",
+      "image_source_url": null,
+      "source_page_url": "https://us.puma.com/us/en/sport/lifestyle/shop-all-classics/mens-classic-shoes-and-clothing",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 27,
+      "name": "Speedcat OG",
+      "slug": "speedcat-og",
+      "brand": "Puma",
+      "brand_slug": "puma",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "9999",
+      "local_variants": [
+        {
+          "sku": "SZ-SPEEDCATOG-10",
+          "size": "10",
+          "color": "Black/White",
+          "price": "9999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-SPEEDCATOG-11",
+          "size": "11",
+          "color": "Black/White",
+          "price": "9999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-SPEEDCATOG-6",
+          "size": "6",
+          "color": "Black/White",
+          "price": "9999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-SPEEDCATOG-7",
+          "size": "7",
+          "color": "Black/White",
+          "price": "9999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-SPEEDCATOG-8",
+          "size": "8",
+          "color": "Black/White",
+          "price": "9999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-SPEEDCATOG-9",
+          "size": "9",
+          "color": "Black/White",
+          "price": "9999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Speedcat OG by Puma in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "puma/speedcat-og.webp",
+      "image_source_url": null,
+      "source_page_url": "https://us.puma.com/us/en/sport/lifestyle/shop-all-classics/mens-classic-shoes-and-clothing",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 22,
+      "name": "Suede Classic",
+      "slug": "suede-classic",
+      "brand": "Puma",
+      "brand_slug": "puma",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "6999",
+      "local_variants": [
+        {
+          "sku": "SZ-SUEDECLASSIC-10",
+          "size": "10",
+          "color": "Black/White",
+          "price": "6999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-SUEDECLASSIC-11",
+          "size": "11",
+          "color": "Black/White",
+          "price": "6999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-SUEDECLASSIC-6",
+          "size": "6",
+          "color": "Black/White",
+          "price": "6999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-SUEDECLASSIC-7",
+          "size": "7",
+          "color": "Black/White",
+          "price": "6999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-SUEDECLASSIC-8",
+          "size": "8",
+          "color": "Black/White",
+          "price": "6999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-SUEDECLASSIC-9",
+          "size": "9",
+          "color": "Black/White",
+          "price": "6999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Suede Classic by Puma in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "puma/suede-classic.webp",
+      "image_source_url": null,
+      "source_page_url": "https://us.puma.com/us/en/sport/lifestyle/shop-all-classics/mens-classic-shoes-and-clothing",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 46,
+      "name": "BB 4000 II",
+      "slug": "bb-4000-ii",
+      "brand": "Reebok",
+      "brand_slug": "reebok",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "7999",
+      "local_variants": [
+        {
+          "sku": "SZ-BB4000II-10",
+          "size": "10",
+          "color": "White/Green",
+          "price": "7999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-BB4000II-11",
+          "size": "11",
+          "color": "White/Green",
+          "price": "7999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-BB4000II-6",
+          "size": "6",
+          "color": "White/Green",
+          "price": "7999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-BB4000II-7",
+          "size": "7",
+          "color": "White/Green",
+          "price": "7999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-BB4000II-8",
+          "size": "8",
+          "color": "White/Green",
+          "price": "7999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-BB4000II-9",
+          "size": "9",
+          "color": "White/Green",
+          "price": "7999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the BB 4000 II by Reebok in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "reebok/bb-4000-ii.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.reebok.com/collections/shoes",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 42,
+      "name": "Classic Leather",
+      "slug": "classic-leather",
+      "brand": "Reebok",
+      "brand_slug": "reebok",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "7999",
+      "local_variants": [
+        {
+          "sku": "SZ-CLASSICLEATHER-10",
+          "size": "10",
+          "color": "White",
+          "price": "7999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-CLASSICLEATHER-11",
+          "size": "11",
+          "color": "White",
+          "price": "7999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-CLASSICLEATHER-6",
+          "size": "6",
+          "color": "White",
+          "price": "7999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-CLASSICLEATHER-7",
+          "size": "7",
+          "color": "White",
+          "price": "7999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-CLASSICLEATHER-8",
+          "size": "8",
+          "color": "White",
+          "price": "7999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-CLASSICLEATHER-9",
+          "size": "9",
+          "color": "White",
+          "price": "7999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Classic Leather by Reebok in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "reebok/classic-leather.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.reebok.com/collections/shoes",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 44,
+      "name": "Classic Nylon",
+      "slug": "classic-nylon",
+      "brand": "Reebok",
+      "brand_slug": "reebok",
+      "category": "Men's Sneakers",
+      "category_slug": "mens-sneakers",
+      "base_price_inr": "6999",
+      "local_variants": [
+        {
+          "sku": "SZ-CLASSICNYLON-10",
+          "size": "10",
+          "color": "Navy/White",
+          "price": "6999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-CLASSICNYLON-11",
+          "size": "11",
+          "color": "Navy/White",
+          "price": "6999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-CLASSICNYLON-6",
+          "size": "6",
+          "color": "Navy/White",
+          "price": "6999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-CLASSICNYLON-7",
+          "size": "7",
+          "color": "Navy/White",
+          "price": "6999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-CLASSICNYLON-8",
+          "size": "8",
+          "color": "Navy/White",
+          "price": "6999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-CLASSICNYLON-9",
+          "size": "9",
+          "color": "Navy/White",
+          "price": "6999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Classic Nylon by Reebok in STEPZONE's Men's Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "reebok/classic-nylon.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.reebok.com/collections/shoes",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 47,
+      "name": "Club C 85 Vintage",
+      "slug": "club-c-85-vintage",
+      "brand": "Reebok",
+      "brand_slug": "reebok",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "8999",
+      "local_variants": [
+        {
+          "sku": "SZ-CLUBC85VINTAGE-10",
+          "size": "10",
+          "color": "Chalk/Green",
+          "price": "8999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-CLUBC85VINTAGE-11",
+          "size": "11",
+          "color": "Chalk/Green",
+          "price": "8999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-CLUBC85VINTAGE-6",
+          "size": "6",
+          "color": "Chalk/Green",
+          "price": "8999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-CLUBC85VINTAGE-7",
+          "size": "7",
+          "color": "Chalk/Green",
+          "price": "8999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-CLUBC85VINTAGE-8",
+          "size": "8",
+          "color": "Chalk/Green",
+          "price": "8999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-CLUBC85VINTAGE-9",
+          "size": "9",
+          "color": "Chalk/Green",
+          "price": "8999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Club C 85 Vintage by Reebok in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "reebok/club-c-85-vintage.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.reebok.com/collections/shoes",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 45,
+      "name": "FloatZig 1",
+      "slug": "floatzig-1",
+      "brand": "Reebok",
+      "brand_slug": "reebok",
+      "category": "Performance Sneakers",
+      "category_slug": "performance-sneakers",
+      "base_price_inr": "13999",
+      "local_variants": [
+        {
+          "sku": "SZ-FLOATZIG1-10",
+          "size": "10",
+          "color": "White/Orange",
+          "price": "13999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-FLOATZIG1-11",
+          "size": "11",
+          "color": "White/Orange",
+          "price": "13999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-FLOATZIG1-6",
+          "size": "6",
+          "color": "White/Orange",
+          "price": "13999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-FLOATZIG1-7",
+          "size": "7",
+          "color": "White/Orange",
+          "price": "13999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-FLOATZIG1-8",
+          "size": "8",
+          "color": "White/Orange",
+          "price": "13999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-FLOATZIG1-9",
+          "size": "9",
+          "color": "White/Orange",
+          "price": "13999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the FloatZig 1 by Reebok in STEPZONE's Performance Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "reebok/floatzig-1.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.reebok.com/collections/shoes",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 43,
+      "name": "Nano X5",
+      "slug": "nano-x5",
+      "brand": "Reebok",
+      "brand_slug": "reebok",
+      "category": "Performance Sneakers",
+      "category_slug": "performance-sneakers",
+      "base_price_inr": "12999",
+      "local_variants": [
+        {
+          "sku": "SZ-NANOX5-10",
+          "size": "10",
+          "color": "Black/White",
+          "price": "12999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-NANOX5-11",
+          "size": "11",
+          "color": "Black/White",
+          "price": "12999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-NANOX5-6",
+          "size": "6",
+          "color": "Black/White",
+          "price": "12999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-NANOX5-7",
+          "size": "7",
+          "color": "Black/White",
+          "price": "12999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-NANOX5-8",
+          "size": "8",
+          "color": "Black/White",
+          "price": "12999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-NANOX5-9",
+          "size": "9",
+          "color": "Black/White",
+          "price": "12999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Nano X5 by Reebok in STEPZONE's Performance Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "reebok/nano-x5.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.reebok.com/collections/shoes",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 50,
+      "name": "Premier Road Modern",
+      "slug": "premier-road-modern",
+      "brand": "Reebok",
+      "brand_slug": "reebok",
+      "category": "Men's Sneakers",
+      "category_slug": "mens-sneakers",
+      "base_price_inr": "12999",
+      "local_variants": [
+        {
+          "sku": "SZ-PREMIERROADMODERN-10",
+          "size": "10",
+          "color": "White/Grey",
+          "price": "12999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-PREMIERROADMODERN-11",
+          "size": "11",
+          "color": "White/Grey",
+          "price": "12999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-PREMIERROADMODERN-6",
+          "size": "6",
+          "color": "White/Grey",
+          "price": "12999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-PREMIERROADMODERN-7",
+          "size": "7",
+          "color": "White/Grey",
+          "price": "12999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-PREMIERROADMODERN-8",
+          "size": "8",
+          "color": "White/Grey",
+          "price": "12999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-PREMIERROADMODERN-9",
+          "size": "9",
+          "color": "White/Grey",
+          "price": "12999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Premier Road Modern by Reebok in STEPZONE's Men's Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "reebok/premier-road-modern.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.reebok.com/collections/shoes",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 49,
+      "name": "Workout Plus",
+      "slug": "workout-plus",
+      "brand": "Reebok",
+      "brand_slug": "reebok",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "7499",
+      "local_variants": [
+        {
+          "sku": "SZ-WORKOUTPLUS-10",
+          "size": "10",
+          "color": "White/Chalk",
+          "price": "7499",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-WORKOUTPLUS-11",
+          "size": "11",
+          "color": "White/Chalk",
+          "price": "7499",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-WORKOUTPLUS-6",
+          "size": "6",
+          "color": "White/Chalk",
+          "price": "7499",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-WORKOUTPLUS-7",
+          "size": "7",
+          "color": "White/Chalk",
+          "price": "7499",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-WORKOUTPLUS-8",
+          "size": "8",
+          "color": "White/Chalk",
+          "price": "7499",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-WORKOUTPLUS-9",
+          "size": "9",
+          "color": "White/Chalk",
+          "price": "7499",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Workout Plus by Reebok in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "reebok/workout-plus.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.reebok.com/collections/shoes",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 48,
+      "name": "Zig Kinetica 2.5",
+      "slug": "zig-kinetica-25",
+      "brand": "Reebok",
+      "brand_slug": "reebok",
+      "category": "Men's Sneakers",
+      "category_slug": "mens-sneakers",
+      "base_price_inr": "11999",
+      "local_variants": [
+        {
+          "sku": "SZ-ZIGKINETICA25-10",
+          "size": "10",
+          "color": "Black/Red",
+          "price": "11999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-ZIGKINETICA25-11",
+          "size": "11",
+          "color": "Black/Red",
+          "price": "11999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-ZIGKINETICA25-6",
+          "size": "6",
+          "color": "Black/Red",
+          "price": "11999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-ZIGKINETICA25-7",
+          "size": "7",
+          "color": "Black/Red",
+          "price": "11999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-ZIGKINETICA25-8",
+          "size": "8",
+          "color": "Black/Red",
+          "price": "11999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-ZIGKINETICA25-9",
+          "size": "9",
+          "color": "Black/Red",
+          "price": "11999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": null,
+      "description_status": "HOLD_MODEL_IDENTITY_UNVERIFIED",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "reebok/zig-kinetica-25.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.reebok.com/collections/shoes",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false,
+      "approval_status": "HOLD_MODEL_IDENTITY_UNVERIFIED",
+      "production_import_status": "EXCLUDED_FROM_PRODUCTION_IMPORT_PROPOSALS"
+    },
+    {
+      "product_id": 52,
+      "name": "Authentic",
+      "slug": "authentic",
+      "brand": "Vans",
+      "brand_slug": "vans",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "5999",
+      "local_variants": [
+        {
+          "sku": "SZ-AUTHENTIC-10",
+          "size": "10",
+          "color": "Black",
+          "price": "5999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-AUTHENTIC-11",
+          "size": "11",
+          "color": "Black",
+          "price": "5999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-AUTHENTIC-6",
+          "size": "6",
+          "color": "Black",
+          "price": "5999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-AUTHENTIC-7",
+          "size": "7",
+          "color": "Black",
+          "price": "5999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-AUTHENTIC-8",
+          "size": "8",
+          "color": "Black",
+          "price": "5999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-AUTHENTIC-9",
+          "size": "9",
+          "color": "Black",
+          "price": "5999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Authentic by Vans in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "vans/authentic.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.vans.com/en-us/c/shoes-00081",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 59,
+      "name": "Checkerboard Slip-On",
+      "slug": "checkerboard-slip-on",
+      "brand": "Vans",
+      "brand_slug": "vans",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "6499",
+      "local_variants": [
+        {
+          "sku": "SZ-CHECKERBOARDSLIPON-10",
+          "size": "10",
+          "color": "Checkerboard",
+          "price": "6499",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-CHECKERBOARDSLIPON-11",
+          "size": "11",
+          "color": "Checkerboard",
+          "price": "6499",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-CHECKERBOARDSLIPON-6",
+          "size": "6",
+          "color": "Checkerboard",
+          "price": "6499",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-CHECKERBOARDSLIPON-7",
+          "size": "7",
+          "color": "Checkerboard",
+          "price": "6499",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-CHECKERBOARDSLIPON-8",
+          "size": "8",
+          "color": "Checkerboard",
+          "price": "6499",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-CHECKERBOARDSLIPON-9",
+          "size": "9",
+          "color": "Checkerboard",
+          "price": "6499",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Checkerboard Slip-On by Vans in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "vans/checkerboard-slip-on.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.vans.com/en-us/c/shoes-00081",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 56,
+      "name": "Classic Slip-On",
+      "slug": "classic-slip-on",
+      "brand": "Vans",
+      "brand_slug": "vans",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "5999",
+      "local_variants": [
+        {
+          "sku": "SZ-CLASSICSLIPON-10",
+          "size": "10",
+          "color": "Black/White Checkerboard",
+          "price": "5999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-CLASSICSLIPON-11",
+          "size": "11",
+          "color": "Black/White Checkerboard",
+          "price": "5999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-CLASSICSLIPON-6",
+          "size": "6",
+          "color": "Black/White Checkerboard",
+          "price": "5999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-CLASSICSLIPON-7",
+          "size": "7",
+          "color": "Black/White Checkerboard",
+          "price": "5999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-CLASSICSLIPON-8",
+          "size": "8",
+          "color": "Black/White Checkerboard",
+          "price": "5999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-CLASSICSLIPON-9",
+          "size": "9",
+          "color": "Black/White Checkerboard",
+          "price": "5999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Classic Slip-On by Vans in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "vans/classic-slip-on.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.vans.com/en-us/c/shoes-00081",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 55,
+      "name": "Era",
+      "slug": "era",
+      "brand": "Vans",
+      "brand_slug": "vans",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "5999",
+      "local_variants": [
+        {
+          "sku": "SZ-ERA-10",
+          "size": "10",
+          "color": "Navy/White",
+          "price": "5999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-ERA-11",
+          "size": "11",
+          "color": "Navy/White",
+          "price": "5999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-ERA-6",
+          "size": "6",
+          "color": "Navy/White",
+          "price": "5999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-ERA-7",
+          "size": "7",
+          "color": "Navy/White",
+          "price": "5999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-ERA-8",
+          "size": "8",
+          "color": "Navy/White",
+          "price": "5999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-ERA-9",
+          "size": "9",
+          "color": "Navy/White",
+          "price": "5999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Era by Vans in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "vans/era.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.vans.com/en-us/c/shoes-00081",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 54,
+      "name": "Knu Skool",
+      "slug": "knu-skool",
+      "brand": "Vans",
+      "brand_slug": "vans",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "8999",
+      "local_variants": [
+        {
+          "sku": "SZ-KNUSKOOL-10",
+          "size": "10",
+          "color": "Black/White",
+          "price": "8999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-KNUSKOOL-11",
+          "size": "11",
+          "color": "Black/White",
+          "price": "8999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-KNUSKOOL-6",
+          "size": "6",
+          "color": "Black/White",
+          "price": "8999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-KNUSKOOL-7",
+          "size": "7",
+          "color": "Black/White",
+          "price": "8999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-KNUSKOOL-8",
+          "size": "8",
+          "color": "Black/White",
+          "price": "8999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-KNUSKOOL-9",
+          "size": "9",
+          "color": "Black/White",
+          "price": "8999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Knu Skool by Vans in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "vans/knu-skool.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.vans.com/en-us/c/shoes-00081",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 58,
+      "name": "Old Skool Platform",
+      "slug": "old-skool-platform",
+      "brand": "Vans",
+      "brand_slug": "vans",
+      "category": "Women's Sneakers",
+      "category_slug": "womens-sneakers",
+      "base_price_inr": "8499",
+      "local_variants": [
+        {
+          "sku": "SZ-OLDSKOOLPLATFORM-10",
+          "size": "10",
+          "color": "Black/White",
+          "price": "8499",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-OLDSKOOLPLATFORM-11",
+          "size": "11",
+          "color": "Black/White",
+          "price": "8499",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-OLDSKOOLPLATFORM-6",
+          "size": "6",
+          "color": "Black/White",
+          "price": "8499",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-OLDSKOOLPLATFORM-7",
+          "size": "7",
+          "color": "Black/White",
+          "price": "8499",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-OLDSKOOLPLATFORM-8",
+          "size": "8",
+          "color": "Black/White",
+          "price": "8499",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-OLDSKOOLPLATFORM-9",
+          "size": "9",
+          "color": "Black/White",
+          "price": "8499",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Old Skool Platform by Vans in STEPZONE's Women's Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "vans/old-skool-platform.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.vans.com/en-us/c/shoes-00081",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 53,
+      "name": "Sk8-Hi",
+      "slug": "sk8-hi",
+      "brand": "Vans",
+      "brand_slug": "vans",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "7999",
+      "local_variants": [
+        {
+          "sku": "SZ-SK8HI-10",
+          "size": "10",
+          "color": "Black/White",
+          "price": "7999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-SK8HI-11",
+          "size": "11",
+          "color": "Black/White",
+          "price": "7999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-SK8HI-6",
+          "size": "6",
+          "color": "Black/White",
+          "price": "7999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-SK8HI-7",
+          "size": "7",
+          "color": "Black/White",
+          "price": "7999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-SK8HI-8",
+          "size": "8",
+          "color": "Black/White",
+          "price": "7999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-SK8HI-9",
+          "size": "9",
+          "color": "Black/White",
+          "price": "7999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Sk8-Hi by Vans in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "vans/sk8-hi.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.vans.com/en-us/c/shoes-00081",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 60,
+      "name": "Sk8-Low",
+      "slug": "sk8-low",
+      "brand": "Vans",
+      "brand_slug": "vans",
+      "category": "Unisex Sneakers",
+      "category_slug": "unisex-sneakers",
+      "base_price_inr": "7499",
+      "local_variants": [
+        {
+          "sku": "SZ-SK8LOW-10",
+          "size": "10",
+          "color": "Black/White",
+          "price": "7499",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-SK8LOW-11",
+          "size": "11",
+          "color": "Black/White",
+          "price": "7499",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-SK8LOW-6",
+          "size": "6",
+          "color": "Black/White",
+          "price": "7499",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-SK8LOW-7",
+          "size": "7",
+          "color": "Black/White",
+          "price": "7499",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-SK8LOW-8",
+          "size": "8",
+          "color": "Black/White",
+          "price": "7499",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-SK8LOW-9",
+          "size": "9",
+          "color": "Black/White",
+          "price": "7499",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the Sk8-Low by Vans in STEPZONE's Unisex Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "vans/sk8-low.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.vans.com/en-us/c/shoes-00081",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    },
+    {
+      "product_id": 57,
+      "name": "UltraRange EXO",
+      "slug": "ultrarange-exo",
+      "brand": "Vans",
+      "brand_slug": "vans",
+      "category": "Men's Sneakers",
+      "category_slug": "mens-sneakers",
+      "base_price_inr": "9999",
+      "local_variants": [
+        {
+          "sku": "SZ-ULTRARANGEEXO-10",
+          "size": "10",
+          "color": "Black/White",
+          "price": "9999",
+          "stock_quantity": 10
+        },
+        {
+          "sku": "SZ-ULTRARANGEEXO-11",
+          "size": "11",
+          "color": "Black/White",
+          "price": "9999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-ULTRARANGEEXO-6",
+          "size": "6",
+          "color": "Black/White",
+          "price": "9999",
+          "stock_quantity": 6
+        },
+        {
+          "sku": "SZ-ULTRARANGEEXO-7",
+          "size": "7",
+          "color": "Black/White",
+          "price": "9999",
+          "stock_quantity": 7
+        },
+        {
+          "sku": "SZ-ULTRARANGEEXO-8",
+          "size": "8",
+          "color": "Black/White",
+          "price": "9999",
+          "stock_quantity": 8
+        },
+        {
+          "sku": "SZ-ULTRARANGEEXO-9",
+          "size": "9",
+          "color": "Black/White",
+          "price": "9999",
+          "stock_quantity": 9
+        }
+      ],
+      "proposed_description": "Shop the UltraRange EXO by Vans in STEPZONE's Men's Sneakers collection. Review the listed size and color options, and confirm product specifications before ordering.",
+      "description_status": "NEEDS_VERIFICATION",
+      "verified_product_facts_used": [
+        "Existing local catalogue name, brand, and category only"
+      ],
+      "missing_specifications": [
+        "materials",
+        "construction",
+        "model-specific technology",
+        "exact model edition and colorway details"
+      ],
+      "image_filename": null,
+      "suggested_filename_if_approved": "vans/ultrarange-exo.webp",
+      "image_source_url": null,
+      "source_page_url": "https://www.vans.com/en-us/c/shoes-00081",
+      "source_scope": "OFFICIAL_BRAND_COLLECTION_SOURCE; exact model edition and local colorway need review",
+      "image_license_usage_status": "No reuse license or permission identified on the inspected official source; image not downloaded or stored.",
+      "image_verification_status": "IMAGE_REVIEW_REQUIRED",
+      "model_verification_status": "NEEDS_EXACT_MODEL_AND_LOCAL_COLORWAY_REVIEW",
+      "manual_review_notes": [
+        "No image asset is included. Confirm exact model/edition and match to local colorway before assigning any image.",
+        "Use of brand product photographs requires permission or a clearly applicable license.",
+        "Description avoids unverified material, technology, performance, and construction claims."
+      ],
+      "existing_image_replaced": false
+    }
+  ]
+}
