@@ -1,4 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("[data-profile-form]").forEach((form) => {
+        let submitting = false;
+        form.addEventListener("submit", (event) => {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                form.reportValidity();
+                return;
+            }
+            if (submitting) {
+                event.preventDefault();
+                return;
+            }
+            submitting = true;
+            form.setAttribute("aria-busy", "true");
+            const button = form.querySelector("[data-profile-submit]");
+            const label = form.querySelector("[data-profile-label]");
+            if (button) {
+                button.disabled = true;
+                button.setAttribute("aria-busy", "true");
+            }
+            if (label) label.textContent = "Saving…";
+        });
+    });
+
     document.querySelectorAll("[data-product-image]").forEach((image) => {
         image.addEventListener("error", () => {
             console.warn("STEPZONE product image could not be loaded:", image.currentSrc || image.src);

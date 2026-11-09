@@ -1,0 +1,5415 @@
+{
+  "report": "STEPZONE production catalogue import preparation plan",
+  "schema_version": 1,
+  "generated_at_utc": "2026-11-06T17:43:38.1126953Z",
+  "mode": "OFFLINE_PREPARATION_ONLY",
+  "approval_state": "AWAITING_USER_APPROVAL",
+  "production_connection_attempted": false,
+  "production_writes_performed": false,
+  "provenance": {
+    "local_source": "Existing offline dry-run report sourced from local_test_data/stepzone_catalog_test.sqlite3 in read-only mode",
+    "production_source": "User-provided sanitized production snapshot; not independently queried live",
+    "limits": "No Supabase connection, environment variable access, migrations, seed operation, or production SQL was used in this review."
+  },
+  "current_counts": {
+    "production_snapshot_products": 6,
+    "production_snapshot_variants": 18,
+    "local_catalog_products": 70,
+    "local_catalog_variants": 402,
+    "local_brands": 7,
+    "local_categories": 4
+  },
+  "mappings": {
+    "brand_slugs": [
+      "nike",
+      "adidas",
+      "new-balance",
+      "puma",
+      "reebok",
+      "vans",
+      "asics"
+    ],
+    "brand_mappings": "7/7 active in supplied snapshot",
+    "category_slugs": [
+      "mens-sneakers",
+      "womens-sneakers",
+      "unisex-sneakers",
+      "performance-sneakers"
+    ],
+    "category_mappings": "4/4 active in supplied snapshot",
+    "asics_approved_local_correction": {
+      "slug": "gel-quantum-360-viii",
+      "category_slug": "unisex-sneakers",
+      "category_id": 3,
+      "production_change": "none"
+    }
+  },
+  "existing_production_products": {
+    "count": 6,
+    "records": [
+      {
+        "name": "574 Core Trainer",
+        "slug": "574-core-trainer",
+        "brand_slug": "new-balance",
+        "category_slug": "womens-sneakers",
+        "base_price": "8999.00",
+        "variant_count": 3,
+        "production_id": 3,
+        "comparison": {
+          "brand_slug": {
+            "local": "new-balance",
+            "production": "new-balance",
+            "match": true
+          },
+          "name": {
+            "local": "574 Core Trainer",
+            "production": "574 Core Trainer",
+            "match": true
+          },
+          "base_price": {
+            "local": "8999.00",
+            "production": "8999.00",
+            "match": true
+          },
+          "category_slug": {
+            "local": "womens-sneakers",
+            "production": "womens-sneakers",
+            "match": true
+          }
+        },
+        "action": "PRESERVE_UNCHANGED"
+      },
+      {
+        "name": "Air Max Dn8",
+        "slug": "air-max-dn8",
+        "brand_slug": "nike",
+        "category_slug": "mens-sneakers",
+        "base_price": "14995.00",
+        "variant_count": 3,
+        "production_id": 1,
+        "comparison": {
+          "brand_slug": {
+            "local": "nike",
+            "production": "nike",
+            "match": true
+          },
+          "name": {
+            "local": "Air Max Dn8",
+            "production": "Air Max Dn8",
+            "match": true
+          },
+          "base_price": {
+            "local": "14995.00",
+            "production": "14995.00",
+            "match": true
+          },
+          "category_slug": {
+            "local": "mens-sneakers",
+            "production": "mens-sneakers",
+            "match": true
+          }
+        },
+        "action": "PRESERVE_UNCHANGED"
+      },
+      {
+        "name": "Club C Revenge",
+        "slug": "club-c-revenge",
+        "brand_slug": "reebok",
+        "category_slug": "unisex-sneakers",
+        "base_price": "9799.00",
+        "variant_count": 3,
+        "production_id": 4,
+        "comparison": {
+          "brand_slug": {
+            "local": "reebok",
+            "production": "reebok",
+            "match": true
+          },
+          "name": {
+            "local": "Club C Revenge",
+            "production": "Club C Revenge",
+            "match": true
+          },
+          "base_price": {
+            "local": "9799.00",
+            "production": "9799.00",
+            "match": true
+          },
+          "category_slug": {
+            "local": "unisex-sneakers",
+            "production": "unisex-sneakers",
+            "match": true
+          }
+        },
+        "action": "PRESERVE_UNCHANGED"
+      },
+      {
+        "name": "Forum Low Classic",
+        "slug": "forum-low-classic",
+        "brand_slug": "adidas",
+        "category_slug": "unisex-sneakers",
+        "base_price": "10499.00",
+        "variant_count": 3,
+        "production_id": 2,
+        "comparison": {
+          "brand_slug": {
+            "local": "adidas",
+            "production": "adidas",
+            "match": true
+          },
+          "name": {
+            "local": "Forum Low Classic",
+            "production": "Forum Low Classic",
+            "match": true
+          },
+          "base_price": {
+            "local": "10499.00",
+            "production": "10499.00",
+            "match": true
+          },
+          "category_slug": {
+            "local": "unisex-sneakers",
+            "production": "unisex-sneakers",
+            "match": true
+          }
+        },
+        "action": "PRESERVE_UNCHANGED"
+      },
+      {
+        "name": "Old Skool Classic",
+        "slug": "old-skool-classic",
+        "brand_slug": "vans",
+        "category_slug": "unisex-sneakers",
+        "base_price": "7499.00",
+        "variant_count": 3,
+        "production_id": 6,
+        "comparison": {
+          "brand_slug": {
+            "local": "vans",
+            "production": "vans",
+            "match": true
+          },
+          "name": {
+            "local": "Old Skool Classic",
+            "production": "Old Skool Classic",
+            "match": true
+          },
+          "base_price": {
+            "local": "7499.00",
+            "production": "7499.00",
+            "match": true
+          },
+          "category_slug": {
+            "local": "unisex-sneakers",
+            "production": "unisex-sneakers",
+            "match": true
+          }
+        },
+        "action": "PRESERVE_UNCHANGED"
+      },
+      {
+        "name": "RS-X Heritage",
+        "slug": "rs-x-heritage",
+        "brand_slug": "puma",
+        "category_slug": "mens-sneakers",
+        "base_price": "11499.00",
+        "variant_count": 3,
+        "production_id": 5,
+        "comparison": {
+          "brand_slug": {
+            "local": "puma",
+            "production": "puma",
+            "match": true
+          },
+          "name": {
+            "local": "RS-X Heritage",
+            "production": "RS-X Heritage",
+            "match": true
+          },
+          "base_price": {
+            "local": "11499.00",
+            "production": "11499.00",
+            "match": true
+          },
+          "category_slug": {
+            "local": "mens-sneakers",
+            "production": "mens-sneakers",
+            "match": true
+          }
+        },
+        "action": "PRESERVE_UNCHANGED"
+      }
+    ]
+  },
+  "existing_production_variants": {
+    "count": 18,
+    "exact_match_count": 17,
+    "difference_count": 1,
+    "records": [
+      {
+        "sku": "SZ-ADI-FORUM-07-WHT",
+        "product_slug": "forum-low-classic",
+        "comparisons": {
+          "product_slug": {
+            "local": "forum-low-classic",
+            "production": "forum-low-classic",
+            "match": true
+          },
+          "size": {
+            "local": "7",
+            "production": 7,
+            "match": true
+          },
+          "color": {
+            "local": "White",
+            "production": "White",
+            "match": true
+          },
+          "stock_quantity": {
+            "local": 14,
+            "production": 14,
+            "match": true
+          },
+          "price": {
+            "local": "10499.00",
+            "production": "10499.00",
+            "match": true
+          }
+        },
+        "exact_match": true,
+        "will_remain_untouched": true
+      },
+      {
+        "sku": "SZ-ADI-FORUM-08-WHT",
+        "product_slug": "forum-low-classic",
+        "comparisons": {
+          "product_slug": {
+            "local": "forum-low-classic",
+            "production": "forum-low-classic",
+            "match": true
+          },
+          "size": {
+            "local": "8",
+            "production": 8,
+            "match": true
+          },
+          "color": {
+            "local": "White",
+            "production": "White",
+            "match": true
+          },
+          "stock_quantity": {
+            "local": 12,
+            "production": 12,
+            "match": true
+          },
+          "price": {
+            "local": "10499.00",
+            "production": "10499.00",
+            "match": true
+          }
+        },
+        "exact_match": true,
+        "will_remain_untouched": true
+      },
+      {
+        "sku": "SZ-ADI-FORUM-09-WHT",
+        "product_slug": "forum-low-classic",
+        "comparisons": {
+          "product_slug": {
+            "local": "forum-low-classic",
+            "production": "forum-low-classic",
+            "match": true
+          },
+          "size": {
+            "local": "9",
+            "production": 9,
+            "match": true
+          },
+          "color": {
+            "local": "White",
+            "production": "White",
+            "match": true
+          },
+          "stock_quantity": {
+            "local": 9,
+            "production": 9,
+            "match": true
+          },
+          "price": {
+            "local": "10499.00",
+            "production": "10499.00",
+            "match": true
+          }
+        },
+        "exact_match": true,
+        "will_remain_untouched": true
+      },
+      {
+        "sku": "SZ-NB-574-06-GRY",
+        "product_slug": "574-core-trainer",
+        "comparisons": {
+          "product_slug": {
+            "local": "574-core-trainer",
+            "production": "574-core-trainer",
+            "match": true
+          },
+          "size": {
+            "local": "6",
+            "production": 6,
+            "match": true
+          },
+          "color": {
+            "local": "Grey",
+            "production": "Grey",
+            "match": true
+          },
+          "stock_quantity": {
+            "local": 10,
+            "production": 10,
+            "match": true
+          },
+          "price": {
+            "local": "8999.00",
+            "production": "8999.00",
+            "match": true
+          }
+        },
+        "exact_match": true,
+        "will_remain_untouched": true
+      },
+      {
+        "sku": "SZ-NB-574-07-GRY",
+        "product_slug": "574-core-trainer",
+        "comparisons": {
+          "product_slug": {
+            "local": "574-core-trainer",
+            "production": "574-core-trainer",
+            "match": true
+          },
+          "size": {
+            "local": "7",
+            "production": 7,
+            "match": true
+          },
+          "color": {
+            "local": "Grey",
+            "production": "Grey",
+            "match": true
+          },
+          "stock_quantity": {
+            "local": 12,
+            "production": 12,
+            "match": true
+          },
+          "price": {
+            "local": "8999.00",
+            "production": "8999.00",
+            "match": true
+          }
+        },
+        "exact_match": true,
+        "will_remain_untouched": true
+      },
+      {
+        "sku": "SZ-NB-574-08-GRY",
+        "product_slug": "574-core-trainer",
+        "comparisons": {
+          "product_slug": {
+            "local": "574-core-trainer",
+            "production": "574-core-trainer",
+            "match": true
+          },
+          "size": {
+            "local": "8",
+            "production": 8,
+            "match": true
+          },
+          "color": {
+            "local": "Grey",
+            "production": "Grey",
+            "match": true
+          },
+          "stock_quantity": {
+            "local": 8,
+            "production": 8,
+            "match": true
+          },
+          "price": {
+            "local": "8999.00",
+            "production": "8999.00",
+            "match": true
+          }
+        },
+        "exact_match": true,
+        "will_remain_untouched": true
+      },
+      {
+        "sku": "SZ-NIKE-DN8-08-BLK",
+        "product_slug": "air-max-dn8",
+        "comparisons": {
+          "product_slug": {
+            "local": "air-max-dn8",
+            "production": "air-max-dn8",
+            "match": true
+          },
+          "size": {
+            "local": "8",
+            "production": 8,
+            "match": true
+          },
+          "color": {
+            "local": "Black",
+            "production": "Black",
+            "match": true
+          },
+          "stock_quantity": {
+            "local": 12,
+            "production": 12,
+            "match": true
+          },
+          "price": {
+            "local": "14995.00",
+            "production": "14995.00",
+            "match": true
+          }
+        },
+        "exact_match": true,
+        "will_remain_untouched": true
+      },
+      {
+        "sku": "SZ-NIKE-DN8-09-BLK",
+        "product_slug": "air-max-dn8",
+        "comparisons": {
+          "product_slug": {
+            "local": "air-max-dn8",
+            "production": "air-max-dn8",
+            "match": true
+          },
+          "size": {
+            "local": "9",
+            "production": 9,
+            "match": true
+          },
+          "color": {
+            "local": "Black",
+            "production": "Black",
+            "match": true
+          },
+          "stock_quantity": {
+            "local": 10,
+            "production": 10,
+            "match": true
+          },
+          "price": {
+            "local": "14995.00",
+            "production": "14995.00",
+            "match": true
+          }
+        },
+        "exact_match": true,
+        "will_remain_untouched": true
+      },
+      {
+        "sku": "SZ-NIKE-DN8-10-BLK",
+        "product_slug": "air-max-dn8",
+        "comparisons": {
+          "product_slug": {
+            "local": "air-max-dn8",
+            "production": "air-max-dn8",
+            "match": true
+          },
+          "size": {
+            "local": "10",
+            "production": 10,
+            "match": true
+          },
+          "color": {
+            "local": "Black",
+            "production": "Black",
+            "match": true
+          },
+          "stock_quantity": {
+            "local": 8,
+            "production": 8,
+            "match": true
+          },
+          "price": {
+            "local": "14995.00",
+            "production": "14995.00",
+            "match": true
+          }
+        },
+        "exact_match": true,
+        "will_remain_untouched": true
+      },
+      {
+        "sku": "SZ-PUMA-RSX-08-ORG",
+        "product_slug": "rs-x-heritage",
+        "comparisons": {
+          "product_slug": {
+            "local": "rs-x-heritage",
+            "production": "rs-x-heritage",
+            "match": true
+          },
+          "size": {
+            "local": "8",
+            "production": 8,
+            "match": true
+          },
+          "color": {
+            "local": "Orange",
+            "production": "Orange",
+            "match": true
+          },
+          "stock_quantity": {
+            "local": 9,
+            "production": 8,
+            "match": false
+          },
+          "price": {
+            "local": "11499.00",
+            "production": "11499.00",
+            "match": true
+          }
+        },
+        "exact_match": false,
+        "will_remain_untouched": true
+      },
+      {
+        "sku": "SZ-PUMA-RSX-09-ORG",
+        "product_slug": "rs-x-heritage",
+        "comparisons": {
+          "product_slug": {
+            "local": "rs-x-heritage",
+            "production": "rs-x-heritage",
+            "match": true
+          },
+          "size": {
+            "local": "9",
+            "production": 9,
+            "match": true
+          },
+          "color": {
+            "local": "Orange",
+            "production": "Orange",
+            "match": true
+          },
+          "stock_quantity": {
+            "local": 10,
+            "production": 10,
+            "match": true
+          },
+          "price": {
+            "local": "11499.00",
+            "production": "11499.00",
+            "match": true
+          }
+        },
+        "exact_match": true,
+        "will_remain_untouched": true
+      },
+      {
+        "sku": "SZ-PUMA-RSX-10-ORG",
+        "product_slug": "rs-x-heritage",
+        "comparisons": {
+          "product_slug": {
+            "local": "rs-x-heritage",
+            "production": "rs-x-heritage",
+            "match": true
+          },
+          "size": {
+            "local": "10",
+            "production": 10,
+            "match": true
+          },
+          "color": {
+            "local": "Orange",
+            "production": "Orange",
+            "match": true
+          },
+          "stock_quantity": {
+            "local": 6,
+            "production": 6,
+            "match": true
+          },
+          "price": {
+            "local": "11499.00",
+            "production": "11499.00",
+            "match": true
+          }
+        },
+        "exact_match": true,
+        "will_remain_untouched": true
+      },
+      {
+        "sku": "SZ-REEBOK-CCR-07-WHT",
+        "product_slug": "club-c-revenge",
+        "comparisons": {
+          "product_slug": {
+            "local": "club-c-revenge",
+            "production": "club-c-revenge",
+            "match": true
+          },
+          "size": {
+            "local": "7",
+            "production": 7,
+            "match": true
+          },
+          "color": {
+            "local": "White",
+            "production": "White",
+            "match": true
+          },
+          "stock_quantity": {
+            "local": 11,
+            "production": 11,
+            "match": true
+          },
+          "price": {
+            "local": "9799.00",
+            "production": "9799.00",
+            "match": true
+          }
+        },
+        "exact_match": true,
+        "will_remain_untouched": true
+      },
+      {
+        "sku": "SZ-REEBOK-CCR-08-WHT",
+        "product_slug": "club-c-revenge",
+        "comparisons": {
+          "product_slug": {
+            "local": "club-c-revenge",
+            "production": "club-c-revenge",
+            "match": true
+          },
+          "size": {
+            "local": "8",
+            "production": 8,
+            "match": true
+          },
+          "color": {
+            "local": "White",
+            "production": "White",
+            "match": true
+          },
+          "stock_quantity": {
+            "local": 13,
+            "production": 13,
+            "match": true
+          },
+          "price": {
+            "local": "9799.00",
+            "production": "9799.00",
+            "match": true
+          }
+        },
+        "exact_match": true,
+        "will_remain_untouched": true
+      },
+      {
+        "sku": "SZ-REEBOK-CCR-09-WHT",
+        "product_slug": "club-c-revenge",
+        "comparisons": {
+          "product_slug": {
+            "local": "club-c-revenge",
+            "production": "club-c-revenge",
+            "match": true
+          },
+          "size": {
+            "local": "9",
+            "production": 9,
+            "match": true
+          },
+          "color": {
+            "local": "White",
+            "production": "White",
+            "match": true
+          },
+          "stock_quantity": {
+            "local": 7,
+            "production": 7,
+            "match": true
+          },
+          "price": {
+            "local": "9799.00",
+            "production": "9799.00",
+            "match": true
+          }
+        },
+        "exact_match": true,
+        "will_remain_untouched": true
+      },
+      {
+        "sku": "SZ-VANS-OS-07-BLK",
+        "product_slug": "old-skool-classic",
+        "comparisons": {
+          "product_slug": {
+            "local": "old-skool-classic",
+            "production": "old-skool-classic",
+            "match": true
+          },
+          "size": {
+            "local": "7",
+            "production": 7,
+            "match": true
+          },
+          "color": {
+            "local": "Black",
+            "production": "Black",
+            "match": true
+          },
+          "stock_quantity": {
+            "local": 15,
+            "production": 15,
+            "match": true
+          },
+          "price": {
+            "local": "7499.00",
+            "production": "7499.00",
+            "match": true
+          }
+        },
+        "exact_match": true,
+        "will_remain_untouched": true
+      },
+      {
+        "sku": "SZ-VANS-OS-08-BLK",
+        "product_slug": "old-skool-classic",
+        "comparisons": {
+          "product_slug": {
+            "local": "old-skool-classic",
+            "production": "old-skool-classic",
+            "match": true
+          },
+          "size": {
+            "local": "8",
+            "production": 8,
+            "match": true
+          },
+          "color": {
+            "local": "Black",
+            "production": "Black",
+            "match": true
+          },
+          "stock_quantity": {
+            "local": 14,
+            "production": 14,
+            "match": true
+          },
+          "price": {
+            "local": "7499.00",
+            "production": "7499.00",
+            "match": true
+          }
+        },
+        "exact_match": true,
+        "will_remain_untouched": true
+      },
+      {
+        "sku": "SZ-VANS-OS-09-BLK",
+        "product_slug": "old-skool-classic",
+        "comparisons": {
+          "product_slug": {
+            "local": "old-skool-classic",
+            "production": "old-skool-classic",
+            "match": true
+          },
+          "size": {
+            "local": "9",
+            "production": 9,
+            "match": true
+          },
+          "color": {
+            "local": "Black",
+            "production": "Black",
+            "match": true
+          },
+          "stock_quantity": {
+            "local": 10,
+            "production": 10,
+            "match": true
+          },
+          "price": {
+            "local": "7499.00",
+            "production": "7499.00",
+            "match": true
+          }
+        },
+        "exact_match": true,
+        "will_remain_untouched": true
+      }
+    ],
+    "action": "PRESERVE_ALL_EXISTING_VARIANTS_AND_STOCK"
+  },
+  "candidates": {
+    "products": [
+      {
+        "name": "1906R",
+        "slug": "1906r",
+        "brand_slug": "new-balance",
+        "category_slug": "mens-sneakers",
+        "category_id": 1,
+        "base_price": "15999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "2002R",
+        "slug": "2002r",
+        "brand_slug": "new-balance",
+        "category_slug": "mens-sneakers",
+        "category_id": 1,
+        "base_price": "14999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "327",
+        "slug": "327",
+        "brand_slug": "new-balance",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "10999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "530",
+        "slug": "530",
+        "brand_slug": "new-balance",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "9999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "550",
+        "slug": "550",
+        "brand_slug": "new-balance",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "11999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "574 Legacy",
+        "slug": "574-legacy",
+        "brand_slug": "new-balance",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "10999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "9060",
+        "slug": "9060",
+        "brand_slug": "new-balance",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "17999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "990v6",
+        "slug": "990v6",
+        "brand_slug": "new-balance",
+        "category_slug": "mens-sneakers",
+        "category_id": 1,
+        "base_price": "22999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Adizero SL2",
+        "slug": "adizero-sl2",
+        "brand_slug": "adidas",
+        "category_slug": "performance-sneakers",
+        "category_id": 4,
+        "base_price": "11999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Air Force 1 '07",
+        "slug": "air-force-1-07",
+        "brand_slug": "nike",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "8995.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Air Jordan 1 Low",
+        "slug": "air-jordan-1-low",
+        "brand_slug": "nike",
+        "category_slug": "mens-sneakers",
+        "category_id": 1,
+        "base_price": "11295.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Air Max 90",
+        "slug": "air-max-90",
+        "brand_slug": "nike",
+        "category_slug": "mens-sneakers",
+        "category_id": 1,
+        "base_price": "12795.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Authentic",
+        "slug": "authentic",
+        "brand_slug": "vans",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "5999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "BB 4000 II",
+        "slug": "bb-4000-ii",
+        "brand_slug": "reebok",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "7999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Blazer Low '77",
+        "slug": "blazer-low-77",
+        "brand_slug": "nike",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "7995.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Campus 00s",
+        "slug": "campus-00s",
+        "brand_slug": "adidas",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "9999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Caven 2.0",
+        "slug": "caven-2",
+        "brand_slug": "puma",
+        "category_slug": "mens-sneakers",
+        "category_id": 1,
+        "base_price": "5999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Checkerboard Slip-On",
+        "slug": "checkerboard-slip-on",
+        "brand_slug": "vans",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "6499.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Classic Leather",
+        "slug": "classic-leather",
+        "brand_slug": "reebok",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "7999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Classic Nylon",
+        "slug": "classic-nylon",
+        "brand_slug": "reebok",
+        "category_slug": "mens-sneakers",
+        "category_id": 1,
+        "base_price": "6999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Classic Slip-On",
+        "slug": "classic-slip-on",
+        "brand_slug": "vans",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "5999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Club C 85 Vintage",
+        "slug": "club-c-85-vintage",
+        "brand_slug": "reebok",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "8999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Court Vision Low",
+        "slug": "court-vision-low",
+        "brand_slug": "nike",
+        "category_slug": "mens-sneakers",
+        "category_id": 1,
+        "base_price": "6495.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Deviate Nitro 3",
+        "slug": "deviate-nitro-3",
+        "brand_slug": "puma",
+        "category_slug": "performance-sneakers",
+        "category_id": 4,
+        "base_price": "15999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Dunk Low Retro",
+        "slug": "dunk-low-retro",
+        "brand_slug": "nike",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "10295.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Easy Rider",
+        "slug": "easy-rider",
+        "brand_slug": "puma",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "7999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Era",
+        "slug": "era",
+        "brand_slug": "vans",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "5999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "FloatZig 1",
+        "slug": "floatzig-1",
+        "brand_slug": "reebok",
+        "category_slug": "performance-sneakers",
+        "category_id": 4,
+        "base_price": "13999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Fresh Foam X 1080v14",
+        "slug": "fresh-foam-x-1080v14",
+        "brand_slug": "new-balance",
+        "category_slug": "performance-sneakers",
+        "category_id": 4,
+        "base_price": "16999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Future Rider",
+        "slug": "future-rider",
+        "brand_slug": "puma",
+        "category_slug": "mens-sneakers",
+        "category_id": 1,
+        "base_price": "7999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Gazelle Indoor",
+        "slug": "gazelle-indoor",
+        "brand_slug": "adidas",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "10999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "GEL-1130",
+        "slug": "gel-1130",
+        "brand_slug": "asics",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "9999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "GEL-Cumulus 26",
+        "slug": "gel-cumulus-26",
+        "brand_slug": "asics",
+        "category_slug": "performance-sneakers",
+        "category_id": 4,
+        "base_price": "12999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "GEL-Kayano 31",
+        "slug": "gel-kayano-31",
+        "brand_slug": "asics",
+        "category_slug": "performance-sneakers",
+        "category_id": 4,
+        "base_price": "15999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "GEL-Nimbus 27",
+        "slug": "gel-nimbus-27",
+        "brand_slug": "asics",
+        "category_slug": "performance-sneakers",
+        "category_id": 4,
+        "base_price": "16999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "GEL-NYC",
+        "slug": "gel-nyc",
+        "brand_slug": "asics",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "13999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "GEL-Quantum 360 VIII",
+        "slug": "gel-quantum-360-viii",
+        "brand_slug": "asics",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "15999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "GEL-Venture 6",
+        "slug": "gel-venture-6",
+        "brand_slug": "asics",
+        "category_slug": "mens-sneakers",
+        "category_id": 1,
+        "base_price": "7999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "GT-2000 13",
+        "slug": "gt-2000-13",
+        "brand_slug": "asics",
+        "category_slug": "performance-sneakers",
+        "category_id": 4,
+        "base_price": "11999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "GT-2160",
+        "slug": "gt-2160",
+        "brand_slug": "asics",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "11999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Handball Spezial",
+        "slug": "handball-spezial",
+        "brand_slug": "adidas",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "9999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Knu Skool",
+        "slug": "knu-skool",
+        "brand_slug": "vans",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "8999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Nano X5",
+        "slug": "nano-x5",
+        "brand_slug": "reebok",
+        "category_slug": "performance-sneakers",
+        "category_id": 4,
+        "base_price": "12999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Novablast 5",
+        "slug": "novablast-5",
+        "brand_slug": "asics",
+        "category_slug": "performance-sneakers",
+        "category_id": 4,
+        "base_price": "13999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Old Skool Platform",
+        "slug": "old-skool-platform",
+        "brand_slug": "vans",
+        "category_slug": "womens-sneakers",
+        "category_id": 2,
+        "base_price": "8499.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "P-6000",
+        "slug": "p-6000",
+        "brand_slug": "nike",
+        "category_slug": "mens-sneakers",
+        "category_id": 1,
+        "base_price": "9995.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Palermo",
+        "slug": "palermo",
+        "brand_slug": "puma",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "7999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Pegasus 41",
+        "slug": "pegasus-41",
+        "brand_slug": "nike",
+        "category_slug": "performance-sneakers",
+        "category_id": 4,
+        "base_price": "11895.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Premier Road Modern",
+        "slug": "premier-road-modern",
+        "brand_slug": "reebok",
+        "category_slug": "mens-sneakers",
+        "category_id": 1,
+        "base_price": "12999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "R78 Voyage",
+        "slug": "r78-voyage",
+        "brand_slug": "puma",
+        "category_slug": "womens-sneakers",
+        "category_id": 2,
+        "base_price": "5999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Response CL",
+        "slug": "response-cl",
+        "brand_slug": "adidas",
+        "category_slug": "mens-sneakers",
+        "category_id": 1,
+        "base_price": "9999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Samba OG",
+        "slug": "samba-og",
+        "brand_slug": "adidas",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "10999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Sk8-Hi",
+        "slug": "sk8-hi",
+        "brand_slug": "vans",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "7999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Sk8-Low",
+        "slug": "sk8-low",
+        "brand_slug": "vans",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "7499.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Slipstream Lo",
+        "slug": "slipstream-lo",
+        "brand_slug": "puma",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "8999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Speedcat OG",
+        "slug": "speedcat-og",
+        "brand_slug": "puma",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "9999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Stan Smith",
+        "slug": "stan-smith",
+        "brand_slug": "adidas",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "8999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Suede Classic",
+        "slug": "suede-classic",
+        "brand_slug": "puma",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "6999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Superstar II",
+        "slug": "superstar-ii",
+        "brand_slug": "adidas",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "8999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Ultraboost 5",
+        "slug": "ultraboost-5",
+        "brand_slug": "adidas",
+        "category_slug": "performance-sneakers",
+        "category_id": 4,
+        "base_price": "15999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "UltraRange EXO",
+        "slug": "ultrarange-exo",
+        "brand_slug": "vans",
+        "category_slug": "mens-sneakers",
+        "category_id": 1,
+        "base_price": "9999.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Vomero 18",
+        "slug": "vomero-18",
+        "brand_slug": "nike",
+        "category_slug": "performance-sneakers",
+        "category_id": 4,
+        "base_price": "14995.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      },
+      {
+        "name": "Workout Plus",
+        "slug": "workout-plus",
+        "brand_slug": "reebok",
+        "category_slug": "unisex-sneakers",
+        "category_id": 3,
+        "base_price": "7499.00",
+        "local_variant_count": 6,
+        "local_image_present": false,
+        "production_match": false,
+        "production_id": null,
+        "decision": "CANDIDATE_PENDING_APPROVAL",
+        "description_status": "NEEDS_VERIFICATION",
+        "image_status": "IMAGE_REVIEW_REQUIRED",
+        "approval_status": "AWAITING_WORDING_APPROVAL",
+        "import_status": "BLOCKED_PENDING_DESCRIPTION_IMAGE_EDITION_COLORWAY_REVIEW"
+      }
+    ],
+    "product_count": 63,
+    "variants": [
+      {
+        "sku": "SZ-1906R-10",
+        "product_slug": "1906r",
+        "size": "10",
+        "color": "White/Silver",
+        "price": "15999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-1906R-11",
+        "product_slug": "1906r",
+        "size": "11",
+        "color": "White/Silver",
+        "price": "15999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-1906R-6",
+        "product_slug": "1906r",
+        "size": "6",
+        "color": "White/Silver",
+        "price": "15999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-1906R-7",
+        "product_slug": "1906r",
+        "size": "7",
+        "color": "White/Silver",
+        "price": "15999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-1906R-8",
+        "product_slug": "1906r",
+        "size": "8",
+        "color": "White/Silver",
+        "price": "15999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-1906R-9",
+        "product_slug": "1906r",
+        "size": "9",
+        "color": "White/Silver",
+        "price": "15999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-2002R-10",
+        "product_slug": "2002r",
+        "size": "10",
+        "color": "Grey/Blue",
+        "price": "14999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-2002R-11",
+        "product_slug": "2002r",
+        "size": "11",
+        "color": "Grey/Blue",
+        "price": "14999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-2002R-6",
+        "product_slug": "2002r",
+        "size": "6",
+        "color": "Grey/Blue",
+        "price": "14999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-2002R-7",
+        "product_slug": "2002r",
+        "size": "7",
+        "color": "Grey/Blue",
+        "price": "14999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-2002R-8",
+        "product_slug": "2002r",
+        "size": "8",
+        "color": "Grey/Blue",
+        "price": "14999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-2002R-9",
+        "product_slug": "2002r",
+        "size": "9",
+        "color": "Grey/Blue",
+        "price": "14999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-327-10",
+        "product_slug": "327",
+        "size": "10",
+        "color": "White/Blue",
+        "price": "10999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-327-11",
+        "product_slug": "327",
+        "size": "11",
+        "color": "White/Blue",
+        "price": "10999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-327-6",
+        "product_slug": "327",
+        "size": "6",
+        "color": "White/Blue",
+        "price": "10999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-327-7",
+        "product_slug": "327",
+        "size": "7",
+        "color": "White/Blue",
+        "price": "10999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-327-8",
+        "product_slug": "327",
+        "size": "8",
+        "color": "White/Blue",
+        "price": "10999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-327-9",
+        "product_slug": "327",
+        "size": "9",
+        "color": "White/Blue",
+        "price": "10999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-530-10",
+        "product_slug": "530",
+        "size": "10",
+        "color": "White/Silver",
+        "price": "9999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-530-11",
+        "product_slug": "530",
+        "size": "11",
+        "color": "White/Silver",
+        "price": "9999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-530-6",
+        "product_slug": "530",
+        "size": "6",
+        "color": "White/Silver",
+        "price": "9999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-530-7",
+        "product_slug": "530",
+        "size": "7",
+        "color": "White/Silver",
+        "price": "9999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-530-8",
+        "product_slug": "530",
+        "size": "8",
+        "color": "White/Silver",
+        "price": "9999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-530-9",
+        "product_slug": "530",
+        "size": "9",
+        "color": "White/Silver",
+        "price": "9999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-550-10",
+        "product_slug": "550",
+        "size": "10",
+        "color": "White/Green",
+        "price": "11999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-550-11",
+        "product_slug": "550",
+        "size": "11",
+        "color": "White/Green",
+        "price": "11999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-550-6",
+        "product_slug": "550",
+        "size": "6",
+        "color": "White/Green",
+        "price": "11999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-550-7",
+        "product_slug": "550",
+        "size": "7",
+        "color": "White/Green",
+        "price": "11999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-550-8",
+        "product_slug": "550",
+        "size": "8",
+        "color": "White/Green",
+        "price": "11999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-550-9",
+        "product_slug": "550",
+        "size": "9",
+        "color": "White/Green",
+        "price": "11999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-574LEGACY-10",
+        "product_slug": "574-legacy",
+        "size": "10",
+        "color": "Navy/Grey",
+        "price": "10999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-574LEGACY-11",
+        "product_slug": "574-legacy",
+        "size": "11",
+        "color": "Navy/Grey",
+        "price": "10999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-574LEGACY-6",
+        "product_slug": "574-legacy",
+        "size": "6",
+        "color": "Navy/Grey",
+        "price": "10999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-574LEGACY-7",
+        "product_slug": "574-legacy",
+        "size": "7",
+        "color": "Navy/Grey",
+        "price": "10999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-574LEGACY-8",
+        "product_slug": "574-legacy",
+        "size": "8",
+        "color": "Navy/Grey",
+        "price": "10999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-574LEGACY-9",
+        "product_slug": "574-legacy",
+        "size": "9",
+        "color": "Navy/Grey",
+        "price": "10999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-9060-10",
+        "product_slug": "9060",
+        "size": "10",
+        "color": "Grey",
+        "price": "17999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-9060-11",
+        "product_slug": "9060",
+        "size": "11",
+        "color": "Grey",
+        "price": "17999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-9060-6",
+        "product_slug": "9060",
+        "size": "6",
+        "color": "Grey",
+        "price": "17999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-9060-7",
+        "product_slug": "9060",
+        "size": "7",
+        "color": "Grey",
+        "price": "17999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-9060-8",
+        "product_slug": "9060",
+        "size": "8",
+        "color": "Grey",
+        "price": "17999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-9060-9",
+        "product_slug": "9060",
+        "size": "9",
+        "color": "Grey",
+        "price": "17999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-990V6-10",
+        "product_slug": "990v6",
+        "size": "10",
+        "color": "Grey",
+        "price": "22999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-990V6-11",
+        "product_slug": "990v6",
+        "size": "11",
+        "color": "Grey",
+        "price": "22999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-990V6-6",
+        "product_slug": "990v6",
+        "size": "6",
+        "color": "Grey",
+        "price": "22999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-990V6-7",
+        "product_slug": "990v6",
+        "size": "7",
+        "color": "Grey",
+        "price": "22999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-990V6-8",
+        "product_slug": "990v6",
+        "size": "8",
+        "color": "Grey",
+        "price": "22999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-990V6-9",
+        "product_slug": "990v6",
+        "size": "9",
+        "color": "Grey",
+        "price": "22999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ADIZEROSL2-10",
+        "product_slug": "adizero-sl2",
+        "size": "10",
+        "color": "White/Blue",
+        "price": "11999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ADIZEROSL2-11",
+        "product_slug": "adizero-sl2",
+        "size": "11",
+        "color": "White/Blue",
+        "price": "11999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ADIZEROSL2-6",
+        "product_slug": "adizero-sl2",
+        "size": "6",
+        "color": "White/Blue",
+        "price": "11999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ADIZEROSL2-7",
+        "product_slug": "adizero-sl2",
+        "size": "7",
+        "color": "White/Blue",
+        "price": "11999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ADIZEROSL2-8",
+        "product_slug": "adizero-sl2",
+        "size": "8",
+        "color": "White/Blue",
+        "price": "11999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ADIZEROSL2-9",
+        "product_slug": "adizero-sl2",
+        "size": "9",
+        "color": "White/Blue",
+        "price": "11999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AIRFORCE107-10",
+        "product_slug": "air-force-1-07",
+        "size": "10",
+        "color": "White",
+        "price": "8995.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AIRFORCE107-11",
+        "product_slug": "air-force-1-07",
+        "size": "11",
+        "color": "White",
+        "price": "8995.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AIRFORCE107-6",
+        "product_slug": "air-force-1-07",
+        "size": "6",
+        "color": "White",
+        "price": "8995.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AIRFORCE107-7",
+        "product_slug": "air-force-1-07",
+        "size": "7",
+        "color": "White",
+        "price": "8995.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AIRFORCE107-8",
+        "product_slug": "air-force-1-07",
+        "size": "8",
+        "color": "White",
+        "price": "8995.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AIRFORCE107-9",
+        "product_slug": "air-force-1-07",
+        "size": "9",
+        "color": "White",
+        "price": "8995.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AIRJORDAN1LOW-10",
+        "product_slug": "air-jordan-1-low",
+        "size": "10",
+        "color": "White/Red",
+        "price": "11295.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AIRJORDAN1LOW-11",
+        "product_slug": "air-jordan-1-low",
+        "size": "11",
+        "color": "White/Red",
+        "price": "11295.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AIRJORDAN1LOW-6",
+        "product_slug": "air-jordan-1-low",
+        "size": "6",
+        "color": "White/Red",
+        "price": "11295.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AIRJORDAN1LOW-7",
+        "product_slug": "air-jordan-1-low",
+        "size": "7",
+        "color": "White/Red",
+        "price": "11295.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AIRJORDAN1LOW-8",
+        "product_slug": "air-jordan-1-low",
+        "size": "8",
+        "color": "White/Red",
+        "price": "11295.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AIRJORDAN1LOW-9",
+        "product_slug": "air-jordan-1-low",
+        "size": "9",
+        "color": "White/Red",
+        "price": "11295.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AIRMAX90-10",
+        "product_slug": "air-max-90",
+        "size": "10",
+        "color": "White/Grey",
+        "price": "12795.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AIRMAX90-11",
+        "product_slug": "air-max-90",
+        "size": "11",
+        "color": "White/Grey",
+        "price": "12795.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AIRMAX90-6",
+        "product_slug": "air-max-90",
+        "size": "6",
+        "color": "White/Grey",
+        "price": "12795.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AIRMAX90-7",
+        "product_slug": "air-max-90",
+        "size": "7",
+        "color": "White/Grey",
+        "price": "12795.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AIRMAX90-8",
+        "product_slug": "air-max-90",
+        "size": "8",
+        "color": "White/Grey",
+        "price": "12795.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AIRMAX90-9",
+        "product_slug": "air-max-90",
+        "size": "9",
+        "color": "White/Grey",
+        "price": "12795.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AUTHENTIC-10",
+        "product_slug": "authentic",
+        "size": "10",
+        "color": "Black",
+        "price": "5999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AUTHENTIC-11",
+        "product_slug": "authentic",
+        "size": "11",
+        "color": "Black",
+        "price": "5999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AUTHENTIC-6",
+        "product_slug": "authentic",
+        "size": "6",
+        "color": "Black",
+        "price": "5999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AUTHENTIC-7",
+        "product_slug": "authentic",
+        "size": "7",
+        "color": "Black",
+        "price": "5999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AUTHENTIC-8",
+        "product_slug": "authentic",
+        "size": "8",
+        "color": "Black",
+        "price": "5999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-AUTHENTIC-9",
+        "product_slug": "authentic",
+        "size": "9",
+        "color": "Black",
+        "price": "5999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-BB4000II-10",
+        "product_slug": "bb-4000-ii",
+        "size": "10",
+        "color": "White/Green",
+        "price": "7999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-BB4000II-11",
+        "product_slug": "bb-4000-ii",
+        "size": "11",
+        "color": "White/Green",
+        "price": "7999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-BB4000II-6",
+        "product_slug": "bb-4000-ii",
+        "size": "6",
+        "color": "White/Green",
+        "price": "7999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-BB4000II-7",
+        "product_slug": "bb-4000-ii",
+        "size": "7",
+        "color": "White/Green",
+        "price": "7999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-BB4000II-8",
+        "product_slug": "bb-4000-ii",
+        "size": "8",
+        "color": "White/Green",
+        "price": "7999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-BB4000II-9",
+        "product_slug": "bb-4000-ii",
+        "size": "9",
+        "color": "White/Green",
+        "price": "7999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-BLAZERLOW77-10",
+        "product_slug": "blazer-low-77",
+        "size": "10",
+        "color": "White/Black",
+        "price": "7995.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-BLAZERLOW77-11",
+        "product_slug": "blazer-low-77",
+        "size": "11",
+        "color": "White/Black",
+        "price": "7995.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-BLAZERLOW77-6",
+        "product_slug": "blazer-low-77",
+        "size": "6",
+        "color": "White/Black",
+        "price": "7995.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-BLAZERLOW77-7",
+        "product_slug": "blazer-low-77",
+        "size": "7",
+        "color": "White/Black",
+        "price": "7995.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-BLAZERLOW77-8",
+        "product_slug": "blazer-low-77",
+        "size": "8",
+        "color": "White/Black",
+        "price": "7995.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-BLAZERLOW77-9",
+        "product_slug": "blazer-low-77",
+        "size": "9",
+        "color": "White/Black",
+        "price": "7995.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CAMPUS00S-10",
+        "product_slug": "campus-00s",
+        "size": "10",
+        "color": "Grey/White",
+        "price": "9999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CAMPUS00S-11",
+        "product_slug": "campus-00s",
+        "size": "11",
+        "color": "Grey/White",
+        "price": "9999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CAMPUS00S-6",
+        "product_slug": "campus-00s",
+        "size": "6",
+        "color": "Grey/White",
+        "price": "9999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CAMPUS00S-7",
+        "product_slug": "campus-00s",
+        "size": "7",
+        "color": "Grey/White",
+        "price": "9999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CAMPUS00S-8",
+        "product_slug": "campus-00s",
+        "size": "8",
+        "color": "Grey/White",
+        "price": "9999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CAMPUS00S-9",
+        "product_slug": "campus-00s",
+        "size": "9",
+        "color": "Grey/White",
+        "price": "9999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CAVEN2-10",
+        "product_slug": "caven-2",
+        "size": "10",
+        "color": "White/Black",
+        "price": "5999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CAVEN2-11",
+        "product_slug": "caven-2",
+        "size": "11",
+        "color": "White/Black",
+        "price": "5999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CAVEN2-6",
+        "product_slug": "caven-2",
+        "size": "6",
+        "color": "White/Black",
+        "price": "5999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CAVEN2-7",
+        "product_slug": "caven-2",
+        "size": "7",
+        "color": "White/Black",
+        "price": "5999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CAVEN2-8",
+        "product_slug": "caven-2",
+        "size": "8",
+        "color": "White/Black",
+        "price": "5999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CAVEN2-9",
+        "product_slug": "caven-2",
+        "size": "9",
+        "color": "White/Black",
+        "price": "5999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CHECKERBOARDSLIPON-10",
+        "product_slug": "checkerboard-slip-on",
+        "size": "10",
+        "color": "Checkerboard",
+        "price": "6499.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CHECKERBOARDSLIPON-11",
+        "product_slug": "checkerboard-slip-on",
+        "size": "11",
+        "color": "Checkerboard",
+        "price": "6499.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CHECKERBOARDSLIPON-6",
+        "product_slug": "checkerboard-slip-on",
+        "size": "6",
+        "color": "Checkerboard",
+        "price": "6499.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CHECKERBOARDSLIPON-7",
+        "product_slug": "checkerboard-slip-on",
+        "size": "7",
+        "color": "Checkerboard",
+        "price": "6499.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CHECKERBOARDSLIPON-8",
+        "product_slug": "checkerboard-slip-on",
+        "size": "8",
+        "color": "Checkerboard",
+        "price": "6499.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CHECKERBOARDSLIPON-9",
+        "product_slug": "checkerboard-slip-on",
+        "size": "9",
+        "color": "Checkerboard",
+        "price": "6499.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLASSICLEATHER-10",
+        "product_slug": "classic-leather",
+        "size": "10",
+        "color": "White",
+        "price": "7999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLASSICLEATHER-11",
+        "product_slug": "classic-leather",
+        "size": "11",
+        "color": "White",
+        "price": "7999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLASSICLEATHER-6",
+        "product_slug": "classic-leather",
+        "size": "6",
+        "color": "White",
+        "price": "7999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLASSICLEATHER-7",
+        "product_slug": "classic-leather",
+        "size": "7",
+        "color": "White",
+        "price": "7999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLASSICLEATHER-8",
+        "product_slug": "classic-leather",
+        "size": "8",
+        "color": "White",
+        "price": "7999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLASSICLEATHER-9",
+        "product_slug": "classic-leather",
+        "size": "9",
+        "color": "White",
+        "price": "7999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLASSICNYLON-10",
+        "product_slug": "classic-nylon",
+        "size": "10",
+        "color": "Navy/White",
+        "price": "6999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLASSICNYLON-11",
+        "product_slug": "classic-nylon",
+        "size": "11",
+        "color": "Navy/White",
+        "price": "6999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLASSICNYLON-6",
+        "product_slug": "classic-nylon",
+        "size": "6",
+        "color": "Navy/White",
+        "price": "6999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLASSICNYLON-7",
+        "product_slug": "classic-nylon",
+        "size": "7",
+        "color": "Navy/White",
+        "price": "6999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLASSICNYLON-8",
+        "product_slug": "classic-nylon",
+        "size": "8",
+        "color": "Navy/White",
+        "price": "6999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLASSICNYLON-9",
+        "product_slug": "classic-nylon",
+        "size": "9",
+        "color": "Navy/White",
+        "price": "6999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLASSICSLIPON-10",
+        "product_slug": "classic-slip-on",
+        "size": "10",
+        "color": "Black/White Checkerboard",
+        "price": "5999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLASSICSLIPON-11",
+        "product_slug": "classic-slip-on",
+        "size": "11",
+        "color": "Black/White Checkerboard",
+        "price": "5999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLASSICSLIPON-6",
+        "product_slug": "classic-slip-on",
+        "size": "6",
+        "color": "Black/White Checkerboard",
+        "price": "5999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLASSICSLIPON-7",
+        "product_slug": "classic-slip-on",
+        "size": "7",
+        "color": "Black/White Checkerboard",
+        "price": "5999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLASSICSLIPON-8",
+        "product_slug": "classic-slip-on",
+        "size": "8",
+        "color": "Black/White Checkerboard",
+        "price": "5999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLASSICSLIPON-9",
+        "product_slug": "classic-slip-on",
+        "size": "9",
+        "color": "Black/White Checkerboard",
+        "price": "5999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLUBC85VINTAGE-10",
+        "product_slug": "club-c-85-vintage",
+        "size": "10",
+        "color": "Chalk/Green",
+        "price": "8999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLUBC85VINTAGE-11",
+        "product_slug": "club-c-85-vintage",
+        "size": "11",
+        "color": "Chalk/Green",
+        "price": "8999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLUBC85VINTAGE-6",
+        "product_slug": "club-c-85-vintage",
+        "size": "6",
+        "color": "Chalk/Green",
+        "price": "8999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLUBC85VINTAGE-7",
+        "product_slug": "club-c-85-vintage",
+        "size": "7",
+        "color": "Chalk/Green",
+        "price": "8999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLUBC85VINTAGE-8",
+        "product_slug": "club-c-85-vintage",
+        "size": "8",
+        "color": "Chalk/Green",
+        "price": "8999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-CLUBC85VINTAGE-9",
+        "product_slug": "club-c-85-vintage",
+        "size": "9",
+        "color": "Chalk/Green",
+        "price": "8999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-COURTVISIONLOW-10",
+        "product_slug": "court-vision-low",
+        "size": "10",
+        "color": "White/Navy",
+        "price": "6495.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-COURTVISIONLOW-11",
+        "product_slug": "court-vision-low",
+        "size": "11",
+        "color": "White/Navy",
+        "price": "6495.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-COURTVISIONLOW-6",
+        "product_slug": "court-vision-low",
+        "size": "6",
+        "color": "White/Navy",
+        "price": "6495.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-COURTVISIONLOW-7",
+        "product_slug": "court-vision-low",
+        "size": "7",
+        "color": "White/Navy",
+        "price": "6495.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-COURTVISIONLOW-8",
+        "product_slug": "court-vision-low",
+        "size": "8",
+        "color": "White/Navy",
+        "price": "6495.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-COURTVISIONLOW-9",
+        "product_slug": "court-vision-low",
+        "size": "9",
+        "color": "White/Navy",
+        "price": "6495.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-DEVIATENITRO3-10",
+        "product_slug": "deviate-nitro-3",
+        "size": "10",
+        "color": "Black/Yellow",
+        "price": "15999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-DEVIATENITRO3-11",
+        "product_slug": "deviate-nitro-3",
+        "size": "11",
+        "color": "Black/Yellow",
+        "price": "15999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-DEVIATENITRO3-6",
+        "product_slug": "deviate-nitro-3",
+        "size": "6",
+        "color": "Black/Yellow",
+        "price": "15999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-DEVIATENITRO3-7",
+        "product_slug": "deviate-nitro-3",
+        "size": "7",
+        "color": "Black/Yellow",
+        "price": "15999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-DEVIATENITRO3-8",
+        "product_slug": "deviate-nitro-3",
+        "size": "8",
+        "color": "Black/Yellow",
+        "price": "15999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-DEVIATENITRO3-9",
+        "product_slug": "deviate-nitro-3",
+        "size": "9",
+        "color": "Black/Yellow",
+        "price": "15999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-DUNKLOWRETRO-10",
+        "product_slug": "dunk-low-retro",
+        "size": "10",
+        "color": "White/Black",
+        "price": "10295.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-DUNKLOWRETRO-11",
+        "product_slug": "dunk-low-retro",
+        "size": "11",
+        "color": "White/Black",
+        "price": "10295.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-DUNKLOWRETRO-6",
+        "product_slug": "dunk-low-retro",
+        "size": "6",
+        "color": "White/Black",
+        "price": "10295.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-DUNKLOWRETRO-7",
+        "product_slug": "dunk-low-retro",
+        "size": "7",
+        "color": "White/Black",
+        "price": "10295.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-DUNKLOWRETRO-8",
+        "product_slug": "dunk-low-retro",
+        "size": "8",
+        "color": "White/Black",
+        "price": "10295.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-DUNKLOWRETRO-9",
+        "product_slug": "dunk-low-retro",
+        "size": "9",
+        "color": "White/Black",
+        "price": "10295.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-EASYRIDER-10",
+        "product_slug": "easy-rider",
+        "size": "10",
+        "color": "Green/White",
+        "price": "7999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-EASYRIDER-11",
+        "product_slug": "easy-rider",
+        "size": "11",
+        "color": "Green/White",
+        "price": "7999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-EASYRIDER-6",
+        "product_slug": "easy-rider",
+        "size": "6",
+        "color": "Green/White",
+        "price": "7999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-EASYRIDER-7",
+        "product_slug": "easy-rider",
+        "size": "7",
+        "color": "Green/White",
+        "price": "7999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-EASYRIDER-8",
+        "product_slug": "easy-rider",
+        "size": "8",
+        "color": "Green/White",
+        "price": "7999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-EASYRIDER-9",
+        "product_slug": "easy-rider",
+        "size": "9",
+        "color": "Green/White",
+        "price": "7999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ERA-10",
+        "product_slug": "era",
+        "size": "10",
+        "color": "Navy/White",
+        "price": "5999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ERA-11",
+        "product_slug": "era",
+        "size": "11",
+        "color": "Navy/White",
+        "price": "5999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ERA-6",
+        "product_slug": "era",
+        "size": "6",
+        "color": "Navy/White",
+        "price": "5999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ERA-7",
+        "product_slug": "era",
+        "size": "7",
+        "color": "Navy/White",
+        "price": "5999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ERA-8",
+        "product_slug": "era",
+        "size": "8",
+        "color": "Navy/White",
+        "price": "5999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ERA-9",
+        "product_slug": "era",
+        "size": "9",
+        "color": "Navy/White",
+        "price": "5999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-FLOATZIG1-10",
+        "product_slug": "floatzig-1",
+        "size": "10",
+        "color": "White/Orange",
+        "price": "13999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-FLOATZIG1-11",
+        "product_slug": "floatzig-1",
+        "size": "11",
+        "color": "White/Orange",
+        "price": "13999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-FLOATZIG1-6",
+        "product_slug": "floatzig-1",
+        "size": "6",
+        "color": "White/Orange",
+        "price": "13999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-FLOATZIG1-7",
+        "product_slug": "floatzig-1",
+        "size": "7",
+        "color": "White/Orange",
+        "price": "13999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-FLOATZIG1-8",
+        "product_slug": "floatzig-1",
+        "size": "8",
+        "color": "White/Orange",
+        "price": "13999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-FLOATZIG1-9",
+        "product_slug": "floatzig-1",
+        "size": "9",
+        "color": "White/Orange",
+        "price": "13999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-FRESHFOAMX1080V14-10",
+        "product_slug": "fresh-foam-x-1080v14",
+        "size": "10",
+        "color": "Black/White",
+        "price": "16999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-FRESHFOAMX1080V14-11",
+        "product_slug": "fresh-foam-x-1080v14",
+        "size": "11",
+        "color": "Black/White",
+        "price": "16999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-FRESHFOAMX1080V14-6",
+        "product_slug": "fresh-foam-x-1080v14",
+        "size": "6",
+        "color": "Black/White",
+        "price": "16999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-FRESHFOAMX1080V14-7",
+        "product_slug": "fresh-foam-x-1080v14",
+        "size": "7",
+        "color": "Black/White",
+        "price": "16999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-FRESHFOAMX1080V14-8",
+        "product_slug": "fresh-foam-x-1080v14",
+        "size": "8",
+        "color": "Black/White",
+        "price": "16999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-FRESHFOAMX1080V14-9",
+        "product_slug": "fresh-foam-x-1080v14",
+        "size": "9",
+        "color": "Black/White",
+        "price": "16999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-FUTURERIDER-10",
+        "product_slug": "future-rider",
+        "size": "10",
+        "color": "White/Blue",
+        "price": "7999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-FUTURERIDER-11",
+        "product_slug": "future-rider",
+        "size": "11",
+        "color": "White/Blue",
+        "price": "7999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-FUTURERIDER-6",
+        "product_slug": "future-rider",
+        "size": "6",
+        "color": "White/Blue",
+        "price": "7999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-FUTURERIDER-7",
+        "product_slug": "future-rider",
+        "size": "7",
+        "color": "White/Blue",
+        "price": "7999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-FUTURERIDER-8",
+        "product_slug": "future-rider",
+        "size": "8",
+        "color": "White/Blue",
+        "price": "7999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-FUTURERIDER-9",
+        "product_slug": "future-rider",
+        "size": "9",
+        "color": "White/Blue",
+        "price": "7999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GAZELLEINDOOR-10",
+        "product_slug": "gazelle-indoor",
+        "size": "10",
+        "color": "Green/White",
+        "price": "10999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GAZELLEINDOOR-11",
+        "product_slug": "gazelle-indoor",
+        "size": "11",
+        "color": "Green/White",
+        "price": "10999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GAZELLEINDOOR-6",
+        "product_slug": "gazelle-indoor",
+        "size": "6",
+        "color": "Green/White",
+        "price": "10999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GAZELLEINDOOR-7",
+        "product_slug": "gazelle-indoor",
+        "size": "7",
+        "color": "Green/White",
+        "price": "10999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GAZELLEINDOOR-8",
+        "product_slug": "gazelle-indoor",
+        "size": "8",
+        "color": "Green/White",
+        "price": "10999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GAZELLEINDOOR-9",
+        "product_slug": "gazelle-indoor",
+        "size": "9",
+        "color": "Green/White",
+        "price": "10999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GEL1130-10",
+        "product_slug": "gel-1130",
+        "size": "10",
+        "color": "White/Silver",
+        "price": "9999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GEL1130-11",
+        "product_slug": "gel-1130",
+        "size": "11",
+        "color": "White/Silver",
+        "price": "9999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GEL1130-6",
+        "product_slug": "gel-1130",
+        "size": "6",
+        "color": "White/Silver",
+        "price": "9999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GEL1130-7",
+        "product_slug": "gel-1130",
+        "size": "7",
+        "color": "White/Silver",
+        "price": "9999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GEL1130-8",
+        "product_slug": "gel-1130",
+        "size": "8",
+        "color": "White/Silver",
+        "price": "9999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GEL1130-9",
+        "product_slug": "gel-1130",
+        "size": "9",
+        "color": "White/Silver",
+        "price": "9999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELCUMULUS26-10",
+        "product_slug": "gel-cumulus-26",
+        "size": "10",
+        "color": "White/Blue",
+        "price": "12999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELCUMULUS26-11",
+        "product_slug": "gel-cumulus-26",
+        "size": "11",
+        "color": "White/Blue",
+        "price": "12999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELCUMULUS26-6",
+        "product_slug": "gel-cumulus-26",
+        "size": "6",
+        "color": "White/Blue",
+        "price": "12999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELCUMULUS26-7",
+        "product_slug": "gel-cumulus-26",
+        "size": "7",
+        "color": "White/Blue",
+        "price": "12999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELCUMULUS26-8",
+        "product_slug": "gel-cumulus-26",
+        "size": "8",
+        "color": "White/Blue",
+        "price": "12999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELCUMULUS26-9",
+        "product_slug": "gel-cumulus-26",
+        "size": "9",
+        "color": "White/Blue",
+        "price": "12999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELKAYANO31-10",
+        "product_slug": "gel-kayano-31",
+        "size": "10",
+        "color": "Black/White",
+        "price": "15999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELKAYANO31-11",
+        "product_slug": "gel-kayano-31",
+        "size": "11",
+        "color": "Black/White",
+        "price": "15999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELKAYANO31-6",
+        "product_slug": "gel-kayano-31",
+        "size": "6",
+        "color": "Black/White",
+        "price": "15999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELKAYANO31-7",
+        "product_slug": "gel-kayano-31",
+        "size": "7",
+        "color": "Black/White",
+        "price": "15999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELKAYANO31-8",
+        "product_slug": "gel-kayano-31",
+        "size": "8",
+        "color": "Black/White",
+        "price": "15999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELKAYANO31-9",
+        "product_slug": "gel-kayano-31",
+        "size": "9",
+        "color": "Black/White",
+        "price": "15999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELNIMBUS27-10",
+        "product_slug": "gel-nimbus-27",
+        "size": "10",
+        "color": "White/Blue",
+        "price": "16999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELNIMBUS27-11",
+        "product_slug": "gel-nimbus-27",
+        "size": "11",
+        "color": "White/Blue",
+        "price": "16999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELNIMBUS27-6",
+        "product_slug": "gel-nimbus-27",
+        "size": "6",
+        "color": "White/Blue",
+        "price": "16999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELNIMBUS27-7",
+        "product_slug": "gel-nimbus-27",
+        "size": "7",
+        "color": "White/Blue",
+        "price": "16999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELNIMBUS27-8",
+        "product_slug": "gel-nimbus-27",
+        "size": "8",
+        "color": "White/Blue",
+        "price": "16999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELNIMBUS27-9",
+        "product_slug": "gel-nimbus-27",
+        "size": "9",
+        "color": "White/Blue",
+        "price": "16999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELNYC-10",
+        "product_slug": "gel-nyc",
+        "size": "10",
+        "color": "White/Grey",
+        "price": "13999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELNYC-11",
+        "product_slug": "gel-nyc",
+        "size": "11",
+        "color": "White/Grey",
+        "price": "13999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELNYC-6",
+        "product_slug": "gel-nyc",
+        "size": "6",
+        "color": "White/Grey",
+        "price": "13999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELNYC-7",
+        "product_slug": "gel-nyc",
+        "size": "7",
+        "color": "White/Grey",
+        "price": "13999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELNYC-8",
+        "product_slug": "gel-nyc",
+        "size": "8",
+        "color": "White/Grey",
+        "price": "13999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELNYC-9",
+        "product_slug": "gel-nyc",
+        "size": "9",
+        "color": "White/Grey",
+        "price": "13999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELQUANTUM360VIII-10",
+        "product_slug": "gel-quantum-360-viii",
+        "size": "10",
+        "color": "Black/Silver",
+        "price": "15999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELQUANTUM360VIII-11",
+        "product_slug": "gel-quantum-360-viii",
+        "size": "11",
+        "color": "Black/Silver",
+        "price": "15999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELQUANTUM360VIII-6",
+        "product_slug": "gel-quantum-360-viii",
+        "size": "6",
+        "color": "Black/Silver",
+        "price": "15999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELQUANTUM360VIII-7",
+        "product_slug": "gel-quantum-360-viii",
+        "size": "7",
+        "color": "Black/Silver",
+        "price": "15999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELQUANTUM360VIII-8",
+        "product_slug": "gel-quantum-360-viii",
+        "size": "8",
+        "color": "Black/Silver",
+        "price": "15999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELQUANTUM360VIII-9",
+        "product_slug": "gel-quantum-360-viii",
+        "size": "9",
+        "color": "Black/Silver",
+        "price": "15999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELVENTURE6-10",
+        "product_slug": "gel-venture-6",
+        "size": "10",
+        "color": "Black/Grey",
+        "price": "7999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELVENTURE6-11",
+        "product_slug": "gel-venture-6",
+        "size": "11",
+        "color": "Black/Grey",
+        "price": "7999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELVENTURE6-6",
+        "product_slug": "gel-venture-6",
+        "size": "6",
+        "color": "Black/Grey",
+        "price": "7999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELVENTURE6-7",
+        "product_slug": "gel-venture-6",
+        "size": "7",
+        "color": "Black/Grey",
+        "price": "7999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELVENTURE6-8",
+        "product_slug": "gel-venture-6",
+        "size": "8",
+        "color": "Black/Grey",
+        "price": "7999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GELVENTURE6-9",
+        "product_slug": "gel-venture-6",
+        "size": "9",
+        "color": "Black/Grey",
+        "price": "7999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GT200013-10",
+        "product_slug": "gt-2000-13",
+        "size": "10",
+        "color": "Black/Blue",
+        "price": "11999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GT200013-11",
+        "product_slug": "gt-2000-13",
+        "size": "11",
+        "color": "Black/Blue",
+        "price": "11999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GT200013-6",
+        "product_slug": "gt-2000-13",
+        "size": "6",
+        "color": "Black/Blue",
+        "price": "11999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GT200013-7",
+        "product_slug": "gt-2000-13",
+        "size": "7",
+        "color": "Black/Blue",
+        "price": "11999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GT200013-8",
+        "product_slug": "gt-2000-13",
+        "size": "8",
+        "color": "Black/Blue",
+        "price": "11999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GT200013-9",
+        "product_slug": "gt-2000-13",
+        "size": "9",
+        "color": "Black/Blue",
+        "price": "11999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GT2160-10",
+        "product_slug": "gt-2160",
+        "size": "10",
+        "color": "White/Grey",
+        "price": "11999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GT2160-11",
+        "product_slug": "gt-2160",
+        "size": "11",
+        "color": "White/Grey",
+        "price": "11999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GT2160-6",
+        "product_slug": "gt-2160",
+        "size": "6",
+        "color": "White/Grey",
+        "price": "11999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GT2160-7",
+        "product_slug": "gt-2160",
+        "size": "7",
+        "color": "White/Grey",
+        "price": "11999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GT2160-8",
+        "product_slug": "gt-2160",
+        "size": "8",
+        "color": "White/Grey",
+        "price": "11999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-GT2160-9",
+        "product_slug": "gt-2160",
+        "size": "9",
+        "color": "White/Grey",
+        "price": "11999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-HANDBALLSPEZIAL-10",
+        "product_slug": "handball-spezial",
+        "size": "10",
+        "color": "Navy/White",
+        "price": "9999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-HANDBALLSPEZIAL-11",
+        "product_slug": "handball-spezial",
+        "size": "11",
+        "color": "Navy/White",
+        "price": "9999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-HANDBALLSPEZIAL-6",
+        "product_slug": "handball-spezial",
+        "size": "6",
+        "color": "Navy/White",
+        "price": "9999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-HANDBALLSPEZIAL-7",
+        "product_slug": "handball-spezial",
+        "size": "7",
+        "color": "Navy/White",
+        "price": "9999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-HANDBALLSPEZIAL-8",
+        "product_slug": "handball-spezial",
+        "size": "8",
+        "color": "Navy/White",
+        "price": "9999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-HANDBALLSPEZIAL-9",
+        "product_slug": "handball-spezial",
+        "size": "9",
+        "color": "Navy/White",
+        "price": "9999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-KNUSKOOL-10",
+        "product_slug": "knu-skool",
+        "size": "10",
+        "color": "Black/White",
+        "price": "8999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-KNUSKOOL-11",
+        "product_slug": "knu-skool",
+        "size": "11",
+        "color": "Black/White",
+        "price": "8999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-KNUSKOOL-6",
+        "product_slug": "knu-skool",
+        "size": "6",
+        "color": "Black/White",
+        "price": "8999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-KNUSKOOL-7",
+        "product_slug": "knu-skool",
+        "size": "7",
+        "color": "Black/White",
+        "price": "8999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-KNUSKOOL-8",
+        "product_slug": "knu-skool",
+        "size": "8",
+        "color": "Black/White",
+        "price": "8999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-KNUSKOOL-9",
+        "product_slug": "knu-skool",
+        "size": "9",
+        "color": "Black/White",
+        "price": "8999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-NANOX5-10",
+        "product_slug": "nano-x5",
+        "size": "10",
+        "color": "Black/White",
+        "price": "12999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-NANOX5-11",
+        "product_slug": "nano-x5",
+        "size": "11",
+        "color": "Black/White",
+        "price": "12999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-NANOX5-6",
+        "product_slug": "nano-x5",
+        "size": "6",
+        "color": "Black/White",
+        "price": "12999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-NANOX5-7",
+        "product_slug": "nano-x5",
+        "size": "7",
+        "color": "Black/White",
+        "price": "12999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-NANOX5-8",
+        "product_slug": "nano-x5",
+        "size": "8",
+        "color": "Black/White",
+        "price": "12999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-NANOX5-9",
+        "product_slug": "nano-x5",
+        "size": "9",
+        "color": "Black/White",
+        "price": "12999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-NOVABLAST5-10",
+        "product_slug": "novablast-5",
+        "size": "10",
+        "color": "Black/Orange",
+        "price": "13999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-NOVABLAST5-11",
+        "product_slug": "novablast-5",
+        "size": "11",
+        "color": "Black/Orange",
+        "price": "13999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-NOVABLAST5-6",
+        "product_slug": "novablast-5",
+        "size": "6",
+        "color": "Black/Orange",
+        "price": "13999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-NOVABLAST5-7",
+        "product_slug": "novablast-5",
+        "size": "7",
+        "color": "Black/Orange",
+        "price": "13999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-NOVABLAST5-8",
+        "product_slug": "novablast-5",
+        "size": "8",
+        "color": "Black/Orange",
+        "price": "13999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-NOVABLAST5-9",
+        "product_slug": "novablast-5",
+        "size": "9",
+        "color": "Black/Orange",
+        "price": "13999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-OLDSKOOLPLATFORM-10",
+        "product_slug": "old-skool-platform",
+        "size": "10",
+        "color": "Black/White",
+        "price": "8499.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-OLDSKOOLPLATFORM-11",
+        "product_slug": "old-skool-platform",
+        "size": "11",
+        "color": "Black/White",
+        "price": "8499.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-OLDSKOOLPLATFORM-6",
+        "product_slug": "old-skool-platform",
+        "size": "6",
+        "color": "Black/White",
+        "price": "8499.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-OLDSKOOLPLATFORM-7",
+        "product_slug": "old-skool-platform",
+        "size": "7",
+        "color": "Black/White",
+        "price": "8499.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-OLDSKOOLPLATFORM-8",
+        "product_slug": "old-skool-platform",
+        "size": "8",
+        "color": "Black/White",
+        "price": "8499.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-OLDSKOOLPLATFORM-9",
+        "product_slug": "old-skool-platform",
+        "size": "9",
+        "color": "Black/White",
+        "price": "8499.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-P6000-10",
+        "product_slug": "p-6000",
+        "size": "10",
+        "color": "Silver/White",
+        "price": "9995.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-P6000-11",
+        "product_slug": "p-6000",
+        "size": "11",
+        "color": "Silver/White",
+        "price": "9995.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-P6000-6",
+        "product_slug": "p-6000",
+        "size": "6",
+        "color": "Silver/White",
+        "price": "9995.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-P6000-7",
+        "product_slug": "p-6000",
+        "size": "7",
+        "color": "Silver/White",
+        "price": "9995.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-P6000-8",
+        "product_slug": "p-6000",
+        "size": "8",
+        "color": "Silver/White",
+        "price": "9995.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-P6000-9",
+        "product_slug": "p-6000",
+        "size": "9",
+        "color": "Silver/White",
+        "price": "9995.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-PALERMO-10",
+        "product_slug": "palermo",
+        "size": "10",
+        "color": "White/Green",
+        "price": "7999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-PALERMO-11",
+        "product_slug": "palermo",
+        "size": "11",
+        "color": "White/Green",
+        "price": "7999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-PALERMO-6",
+        "product_slug": "palermo",
+        "size": "6",
+        "color": "White/Green",
+        "price": "7999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-PALERMO-7",
+        "product_slug": "palermo",
+        "size": "7",
+        "color": "White/Green",
+        "price": "7999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-PALERMO-8",
+        "product_slug": "palermo",
+        "size": "8",
+        "color": "White/Green",
+        "price": "7999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-PALERMO-9",
+        "product_slug": "palermo",
+        "size": "9",
+        "color": "White/Green",
+        "price": "7999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-PEGASUS41-10",
+        "product_slug": "pegasus-41",
+        "size": "10",
+        "color": "Black/White",
+        "price": "11895.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-PEGASUS41-11",
+        "product_slug": "pegasus-41",
+        "size": "11",
+        "color": "Black/White",
+        "price": "11895.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-PEGASUS41-6",
+        "product_slug": "pegasus-41",
+        "size": "6",
+        "color": "Black/White",
+        "price": "11895.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-PEGASUS41-7",
+        "product_slug": "pegasus-41",
+        "size": "7",
+        "color": "Black/White",
+        "price": "11895.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-PEGASUS41-8",
+        "product_slug": "pegasus-41",
+        "size": "8",
+        "color": "Black/White",
+        "price": "11895.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-PEGASUS41-9",
+        "product_slug": "pegasus-41",
+        "size": "9",
+        "color": "Black/White",
+        "price": "11895.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-PREMIERROADMODERN-10",
+        "product_slug": "premier-road-modern",
+        "size": "10",
+        "color": "White/Grey",
+        "price": "12999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-PREMIERROADMODERN-11",
+        "product_slug": "premier-road-modern",
+        "size": "11",
+        "color": "White/Grey",
+        "price": "12999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-PREMIERROADMODERN-6",
+        "product_slug": "premier-road-modern",
+        "size": "6",
+        "color": "White/Grey",
+        "price": "12999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-PREMIERROADMODERN-7",
+        "product_slug": "premier-road-modern",
+        "size": "7",
+        "color": "White/Grey",
+        "price": "12999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-PREMIERROADMODERN-8",
+        "product_slug": "premier-road-modern",
+        "size": "8",
+        "color": "White/Grey",
+        "price": "12999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-PREMIERROADMODERN-9",
+        "product_slug": "premier-road-modern",
+        "size": "9",
+        "color": "White/Grey",
+        "price": "12999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-R78VOYAGE-10",
+        "product_slug": "r78-voyage",
+        "size": "10",
+        "color": "White/Pink",
+        "price": "5999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-R78VOYAGE-11",
+        "product_slug": "r78-voyage",
+        "size": "11",
+        "color": "White/Pink",
+        "price": "5999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-R78VOYAGE-6",
+        "product_slug": "r78-voyage",
+        "size": "6",
+        "color": "White/Pink",
+        "price": "5999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-R78VOYAGE-7",
+        "product_slug": "r78-voyage",
+        "size": "7",
+        "color": "White/Pink",
+        "price": "5999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-R78VOYAGE-8",
+        "product_slug": "r78-voyage",
+        "size": "8",
+        "color": "White/Pink",
+        "price": "5999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-R78VOYAGE-9",
+        "product_slug": "r78-voyage",
+        "size": "9",
+        "color": "White/Pink",
+        "price": "5999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-RESPONSECL-10",
+        "product_slug": "response-cl",
+        "size": "10",
+        "color": "White/Grey",
+        "price": "9999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-RESPONSECL-11",
+        "product_slug": "response-cl",
+        "size": "11",
+        "color": "White/Grey",
+        "price": "9999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-RESPONSECL-6",
+        "product_slug": "response-cl",
+        "size": "6",
+        "color": "White/Grey",
+        "price": "9999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-RESPONSECL-7",
+        "product_slug": "response-cl",
+        "size": "7",
+        "color": "White/Grey",
+        "price": "9999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-RESPONSECL-8",
+        "product_slug": "response-cl",
+        "size": "8",
+        "color": "White/Grey",
+        "price": "9999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-RESPONSECL-9",
+        "product_slug": "response-cl",
+        "size": "9",
+        "color": "White/Grey",
+        "price": "9999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SAMBAOG-10",
+        "product_slug": "samba-og",
+        "size": "10",
+        "color": "White/Black",
+        "price": "10999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SAMBAOG-11",
+        "product_slug": "samba-og",
+        "size": "11",
+        "color": "White/Black",
+        "price": "10999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SAMBAOG-6",
+        "product_slug": "samba-og",
+        "size": "6",
+        "color": "White/Black",
+        "price": "10999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SAMBAOG-7",
+        "product_slug": "samba-og",
+        "size": "7",
+        "color": "White/Black",
+        "price": "10999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SAMBAOG-8",
+        "product_slug": "samba-og",
+        "size": "8",
+        "color": "White/Black",
+        "price": "10999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SAMBAOG-9",
+        "product_slug": "samba-og",
+        "size": "9",
+        "color": "White/Black",
+        "price": "10999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SK8HI-10",
+        "product_slug": "sk8-hi",
+        "size": "10",
+        "color": "Black/White",
+        "price": "7999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SK8HI-11",
+        "product_slug": "sk8-hi",
+        "size": "11",
+        "color": "Black/White",
+        "price": "7999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SK8HI-6",
+        "product_slug": "sk8-hi",
+        "size": "6",
+        "color": "Black/White",
+        "price": "7999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SK8HI-7",
+        "product_slug": "sk8-hi",
+        "size": "7",
+        "color": "Black/White",
+        "price": "7999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SK8HI-8",
+        "product_slug": "sk8-hi",
+        "size": "8",
+        "color": "Black/White",
+        "price": "7999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SK8HI-9",
+        "product_slug": "sk8-hi",
+        "size": "9",
+        "color": "Black/White",
+        "price": "7999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SK8LOW-10",
+        "product_slug": "sk8-low",
+        "size": "10",
+        "color": "Black/White",
+        "price": "7499.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SK8LOW-11",
+        "product_slug": "sk8-low",
+        "size": "11",
+        "color": "Black/White",
+        "price": "7499.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SK8LOW-6",
+        "product_slug": "sk8-low",
+        "size": "6",
+        "color": "Black/White",
+        "price": "7499.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SK8LOW-7",
+        "product_slug": "sk8-low",
+        "size": "7",
+        "color": "Black/White",
+        "price": "7499.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SK8LOW-8",
+        "product_slug": "sk8-low",
+        "size": "8",
+        "color": "Black/White",
+        "price": "7499.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SK8LOW-9",
+        "product_slug": "sk8-low",
+        "size": "9",
+        "color": "Black/White",
+        "price": "7499.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SLIPSTREAMLO-10",
+        "product_slug": "slipstream-lo",
+        "size": "10",
+        "color": "White/Blue",
+        "price": "8999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SLIPSTREAMLO-11",
+        "product_slug": "slipstream-lo",
+        "size": "11",
+        "color": "White/Blue",
+        "price": "8999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SLIPSTREAMLO-6",
+        "product_slug": "slipstream-lo",
+        "size": "6",
+        "color": "White/Blue",
+        "price": "8999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SLIPSTREAMLO-7",
+        "product_slug": "slipstream-lo",
+        "size": "7",
+        "color": "White/Blue",
+        "price": "8999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SLIPSTREAMLO-8",
+        "product_slug": "slipstream-lo",
+        "size": "8",
+        "color": "White/Blue",
+        "price": "8999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SLIPSTREAMLO-9",
+        "product_slug": "slipstream-lo",
+        "size": "9",
+        "color": "White/Blue",
+        "price": "8999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SPEEDCATOG-10",
+        "product_slug": "speedcat-og",
+        "size": "10",
+        "color": "Black/White",
+        "price": "9999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SPEEDCATOG-11",
+        "product_slug": "speedcat-og",
+        "size": "11",
+        "color": "Black/White",
+        "price": "9999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SPEEDCATOG-6",
+        "product_slug": "speedcat-og",
+        "size": "6",
+        "color": "Black/White",
+        "price": "9999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SPEEDCATOG-7",
+        "product_slug": "speedcat-og",
+        "size": "7",
+        "color": "Black/White",
+        "price": "9999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SPEEDCATOG-8",
+        "product_slug": "speedcat-og",
+        "size": "8",
+        "color": "Black/White",
+        "price": "9999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SPEEDCATOG-9",
+        "product_slug": "speedcat-og",
+        "size": "9",
+        "color": "Black/White",
+        "price": "9999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-STANSMITH-10",
+        "product_slug": "stan-smith",
+        "size": "10",
+        "color": "White/Green",
+        "price": "8999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-STANSMITH-11",
+        "product_slug": "stan-smith",
+        "size": "11",
+        "color": "White/Green",
+        "price": "8999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-STANSMITH-6",
+        "product_slug": "stan-smith",
+        "size": "6",
+        "color": "White/Green",
+        "price": "8999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-STANSMITH-7",
+        "product_slug": "stan-smith",
+        "size": "7",
+        "color": "White/Green",
+        "price": "8999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-STANSMITH-8",
+        "product_slug": "stan-smith",
+        "size": "8",
+        "color": "White/Green",
+        "price": "8999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-STANSMITH-9",
+        "product_slug": "stan-smith",
+        "size": "9",
+        "color": "White/Green",
+        "price": "8999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SUEDECLASSIC-10",
+        "product_slug": "suede-classic",
+        "size": "10",
+        "color": "Black/White",
+        "price": "6999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SUEDECLASSIC-11",
+        "product_slug": "suede-classic",
+        "size": "11",
+        "color": "Black/White",
+        "price": "6999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SUEDECLASSIC-6",
+        "product_slug": "suede-classic",
+        "size": "6",
+        "color": "Black/White",
+        "price": "6999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SUEDECLASSIC-7",
+        "product_slug": "suede-classic",
+        "size": "7",
+        "color": "Black/White",
+        "price": "6999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SUEDECLASSIC-8",
+        "product_slug": "suede-classic",
+        "size": "8",
+        "color": "Black/White",
+        "price": "6999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SUEDECLASSIC-9",
+        "product_slug": "suede-classic",
+        "size": "9",
+        "color": "Black/White",
+        "price": "6999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SUPERSTARII-10",
+        "product_slug": "superstar-ii",
+        "size": "10",
+        "color": "White/Black",
+        "price": "8999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SUPERSTARII-11",
+        "product_slug": "superstar-ii",
+        "size": "11",
+        "color": "White/Black",
+        "price": "8999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SUPERSTARII-6",
+        "product_slug": "superstar-ii",
+        "size": "6",
+        "color": "White/Black",
+        "price": "8999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SUPERSTARII-7",
+        "product_slug": "superstar-ii",
+        "size": "7",
+        "color": "White/Black",
+        "price": "8999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SUPERSTARII-8",
+        "product_slug": "superstar-ii",
+        "size": "8",
+        "color": "White/Black",
+        "price": "8999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-SUPERSTARII-9",
+        "product_slug": "superstar-ii",
+        "size": "9",
+        "color": "White/Black",
+        "price": "8999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ULTRABOOST5-10",
+        "product_slug": "ultraboost-5",
+        "size": "10",
+        "color": "Black",
+        "price": "15999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ULTRABOOST5-11",
+        "product_slug": "ultraboost-5",
+        "size": "11",
+        "color": "Black",
+        "price": "15999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ULTRABOOST5-6",
+        "product_slug": "ultraboost-5",
+        "size": "6",
+        "color": "Black",
+        "price": "15999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ULTRABOOST5-7",
+        "product_slug": "ultraboost-5",
+        "size": "7",
+        "color": "Black",
+        "price": "15999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ULTRABOOST5-8",
+        "product_slug": "ultraboost-5",
+        "size": "8",
+        "color": "Black",
+        "price": "15999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ULTRABOOST5-9",
+        "product_slug": "ultraboost-5",
+        "size": "9",
+        "color": "Black",
+        "price": "15999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ULTRARANGEEXO-10",
+        "product_slug": "ultrarange-exo",
+        "size": "10",
+        "color": "Black/White",
+        "price": "9999.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ULTRARANGEEXO-11",
+        "product_slug": "ultrarange-exo",
+        "size": "11",
+        "color": "Black/White",
+        "price": "9999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ULTRARANGEEXO-6",
+        "product_slug": "ultrarange-exo",
+        "size": "6",
+        "color": "Black/White",
+        "price": "9999.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ULTRARANGEEXO-7",
+        "product_slug": "ultrarange-exo",
+        "size": "7",
+        "color": "Black/White",
+        "price": "9999.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ULTRARANGEEXO-8",
+        "product_slug": "ultrarange-exo",
+        "size": "8",
+        "color": "Black/White",
+        "price": "9999.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-ULTRARANGEEXO-9",
+        "product_slug": "ultrarange-exo",
+        "size": "9",
+        "color": "Black/White",
+        "price": "9999.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-VOMERO18-10",
+        "product_slug": "vomero-18",
+        "size": "10",
+        "color": "White/Blue",
+        "price": "14995.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-VOMERO18-11",
+        "product_slug": "vomero-18",
+        "size": "11",
+        "color": "White/Blue",
+        "price": "14995.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-VOMERO18-6",
+        "product_slug": "vomero-18",
+        "size": "6",
+        "color": "White/Blue",
+        "price": "14995.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-VOMERO18-7",
+        "product_slug": "vomero-18",
+        "size": "7",
+        "color": "White/Blue",
+        "price": "14995.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-VOMERO18-8",
+        "product_slug": "vomero-18",
+        "size": "8",
+        "color": "White/Blue",
+        "price": "14995.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-VOMERO18-9",
+        "product_slug": "vomero-18",
+        "size": "9",
+        "color": "White/Blue",
+        "price": "14995.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-WORKOUTPLUS-10",
+        "product_slug": "workout-plus",
+        "size": "10",
+        "color": "White/Chalk",
+        "price": "7499.00",
+        "local_stock_quantity": 10,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-WORKOUTPLUS-11",
+        "product_slug": "workout-plus",
+        "size": "11",
+        "color": "White/Chalk",
+        "price": "7499.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-WORKOUTPLUS-6",
+        "product_slug": "workout-plus",
+        "size": "6",
+        "color": "White/Chalk",
+        "price": "7499.00",
+        "local_stock_quantity": 6,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-WORKOUTPLUS-7",
+        "product_slug": "workout-plus",
+        "size": "7",
+        "color": "White/Chalk",
+        "price": "7499.00",
+        "local_stock_quantity": 7,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-WORKOUTPLUS-8",
+        "product_slug": "workout-plus",
+        "size": "8",
+        "color": "White/Chalk",
+        "price": "7499.00",
+        "local_stock_quantity": 8,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      },
+      {
+        "sku": "SZ-WORKOUTPLUS-9",
+        "product_slug": "workout-plus",
+        "size": "9",
+        "color": "White/Chalk",
+        "price": "7499.00",
+        "local_stock_quantity": 9,
+        "action": "CANDIDATE_ONLY_NOT_AUTHORIZED"
+      }
+    ],
+    "variant_count": 378,
+    "currently_approved_product_inserts": 0,
+    "currently_approved_variant_inserts": 0
+  },
+  "held": {
+    "product": {
+      "name": "Zig Kinetica 2.5",
+      "slug": "zig-kinetica-25",
+      "status": "HOLD_MODEL_IDENTITY_UNVERIFIED",
+      "description_approved": false,
+      "production_import": "EXCLUDED"
+    },
+    "local_variant_count": 6,
+    "variant_skus": [
+      "SZ-ZIGKINETICA25-10",
+      "SZ-ZIGKINETICA25-11",
+      "SZ-ZIGKINETICA25-6",
+      "SZ-ZIGKINETICA25-7",
+      "SZ-ZIGKINETICA25-8",
+      "SZ-ZIGKINETICA25-9"
+    ],
+    "production_import": "EXCLUDE_PRODUCT_AND_ALL_VARIANTS"
+  },
+  "discrepancies": [
+    {
+      "sku": "SZ-PUMA-RSX-08-ORG",
+      "field": "stock_quantity",
+      "local": 9,
+      "production_snapshot": 8,
+      "action": "MANUAL_REVIEW_PRESERVE_PRODUCTION_VALUE_NO_OVERWRITE"
+    }
+  ],
+  "unresolved_review": {
+    "description_approval": "63 drafts await wording approval",
+    "images": "64 additional products have no verified local product image or confirmed usage permission; image fallback should remain",
+    "exact_model_edition_colorway": "Style codes, editions and exact manufacturer colorways are not fully linked to local SKUs; local color labels are not evidence of manufacturer colorway",
+    "reebok": "Zig Kinetica 2.5 is held pending official exact identity verification",
+    "puma": "Review stock discrepancy only; do not adjust existing stock"
+  },
+  "conditional_counts_after_all_63_approved_and_imported": {
+    "products": 69,
+    "variants": 396,
+    "explanation": "6 existing + 63 candidate products, 18 existing + 378 candidate variants; Reebok Zig Kinetica 2.5 and its six variants remain excluded."
+  },
+  "rollback_plan": "A future separately approved importer should use one database transaction and roll back before commit on any validation or insert failure. After commit, no automatic deletes are proposed; recovery requires a reviewed backup/restore or a separately approved compensating action. This task does not implement or run that writer.",
+  "safety": {
+    "existing_product_data_overwritten": false,
+    "existing_variant_data_or_stock_overwritten": false,
+    "customer_order_cart_wishlist_payment_data_read_or_changed": false,
+    "production_execution_script_created": true,
+    "requires_separate_explicit_approval_before_any_production_writer_or_execution": true
+  },
+  "audit_artifact_inconsistencies": [
+    "The prior dry-run JSON lists 63 candidates but its items mark them insert_ready=true while the count says insert_ready_count=0 and blocked_candidate_count=63. This plan treats all 63 as blocked pending approval.",
+    "The prior dry-run JSON still records GEL-Quantum 360 VIII as mens-sneakers/category ID 1, while the approved local verification manifest records unisex-sneakers/category ID 3. This plan uses the approved local correction.",
+    "The prior dry-run Markdown still states 64 new products and 384 variants were validated; current approved disposition excludes Reebok Zig Kinetica 2.5 and its six variants. The valid conditional set is 63/378."
+  ],
+  "implementation_status": {
+    "writer": "scripts/import_catalog_production.py",
+    "default_mode": "dry-run; no database connection",
+    "production_execution_requires": [
+      "per-product approval JSON for every inserted product",
+      "--execute-production",
+      "exact confirmation phrase",
+      "Supabase PostgreSQL host and dialect",
+      "transaction commit succeeds"
+    ],
+    "writer_invoked": false,
+    "production_connected": false,
+    "production_writes_performed": false,
+    "execution_confirmation": "STEPZONE PRODUCTION IMPORT CONFIRMED",
+    "approval_manifest": "reports/catalog_import_approvals.json",
+    "required_product_fields": [
+      "product_approved=true",
+      "description_approved=true",
+      "nonempty approved description",
+      "image_decision_approved=true",
+      "approved image URL or image_fallback_approved=true",
+      "edition_colorway_reviewed=true"
+    ],
+    "default_dry_run": "No database connection and no write",
+    "validation": {
+      "python_syntax": "passed",
+      "jinja_syntax": "passed",
+      "javascript_syntax": "passed",
+      "offline_cli_dry_run": "passed: zero writes, zero database connection",
+      "pytest": "passed: 76 tests; SQLAlchemy pure-Python fallback active after Windows Application Control blocked optional Cython DLLs",
+      "python_version": "3.14.2 in venv; project pin is 3.12 and no 3.12 interpreter was installed"
+    }
+  }
+}

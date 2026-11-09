@@ -205,6 +205,22 @@ class CustomerAuthTests(unittest.TestCase):
         self.login(second_client, "second@example.com")
         self.assertEqual(second_client.get(f"/account/orders/{self.order.id}").status_code, 404)
 
+    def test_profile_dashboard_shows_saved_details_real_orders_and_account_links(self):
+        client = self.app.test_client()
+        self.login(client)
+        response = client.get("/account")
+        self.assertEqual(response.status_code, 200)
+        markup = response.get_data(as_text=True)
+        self.assertIn("Your Account", markup)
+        self.assertIn("Manage your personal details and track your STEPZONE orders.", markup)
+        self.assertIn('name="full_name"', markup)
+        self.assertIn('name="postal_code"', markup)
+        self.assertIn("Save Details", markup)
+        self.assertIn(self.order.order_number, markup)
+        self.assertIn("My Cart", markup)
+        self.assertIn("My Wishlist", markup)
+        self.assertIn("Continue Shopping", markup)
+
     def test_profile_update_persists_all_fields(self):
         client = self.app.test_client()
         self.login(client)
