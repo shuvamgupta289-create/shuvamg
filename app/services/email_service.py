@@ -1,4 +1,3 @@
-from datetime import datetime
 import secrets
 import json
 from urllib.request import Request, urlopen
@@ -8,6 +7,7 @@ from sqlalchemy import select
 
 from ..extensions import db
 from ..models import Order, Payment
+from ..utils.time import utc_now
 
 
 class EmailConfigurationError(RuntimeError):
@@ -86,7 +86,7 @@ def send_order_confirmation(order_id):
 
         payment = db.session.get(Payment, payment.id)
         payment.email_status = "sent"
-        payment.email_sent_at = datetime.utcnow()
+        payment.email_sent_at = utc_now()
         payment.email_error = None
         db.session.commit()
         return True

@@ -5,6 +5,7 @@ from sqlalchemy.orm import joinedload
 
 from ..extensions import db
 from ..models import Brand, Product, ProductVariant, User
+from ..utils.search import escape_like_value
 from .customer_auth import customer_csrf_token
 from .customer_shopping import get_wishlist_ids
 
@@ -86,6 +87,14 @@ def brand_detail(slug):
     if brand is None:
         abort(404)
 
+    local_logo_path = LOCAL_BRAND_LOGOS.get(brand.slug)
+    if local_logo_path:
+        brand_logo_url = url_for("static", filename=local_logo_path)
+    elif brand.logo_url and brand.logo_url.startswith("/static/"):
+        brand_logo_url = url_for("static", filename=brand.logo_url[len("/static/"):])
+    else:
+        brand_logo_url = brand.logo_url
+
     page = request.args.get("page", default=1, type=int)
     page = max(page or 1, 1)
     per_page = 9
@@ -106,7 +115,7 @@ def brand_detail(slug):
         )
     )
     if search:
-        query = query.filter(Product.name.ilike(f"%{search}%"))
+        query = query.filter(Product.name.ilike(f"%{escape_like_value(search)}%", escape="!"))
     variant_filters = [ProductVariant.is_active.is_(True), ProductVariant.stock_quantity > 0]
     if size:
         variant_filters.append(ProductVariant.size == size)
@@ -166,6 +175,7 @@ def brand_detail(slug):
     return render_template(
         "brands/detail.html",
         brand=brand,
+        brand_logo_url=brand_logo_url,
         pagination=pagination,
         products=pagination.items,
         available_sizes=available_sizes,
@@ -189,7 +199,8 @@ def product_search():
             Product.variants.any(
                 ProductVariant.is_active.is_(True) & (ProductVariant.stock_quantity > 0)
             ),
-            Product.name.ilike(f"%{search}%") | Brand.name.ilike(f"%{search}%"),
+            Product.name.ilike(f"%{escape_like_value(search)}%", escape="!")
+            | Brand.name.ilike(f"%{escape_like_value(search)}%", escape="!"),
         )
     else:
         query = query.filter(False)

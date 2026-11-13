@@ -1,6 +1,5 @@
-from datetime import datetime
-
 from ..extensions import db
+from ..utils.time import utc_now
 
 
 class User(db.Model):
@@ -19,8 +18,8 @@ class User(db.Model):
     postal_code = db.Column(db.String(20))
     role = db.Column(db.String(20), nullable=False, default="customer", server_default="customer")
     is_active = db.Column(db.Boolean, nullable=False, default=True, server_default=db.true())
-    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.utcnow)
-    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now, onupdate=utc_now)
 
     def __repr__(self):
         return f"<User {self.email}>"

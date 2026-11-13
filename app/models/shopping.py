@@ -1,6 +1,5 @@
-from datetime import datetime
-
 from ..extensions import db
+from ..utils.time import utc_now
 
 
 class CartItem(db.Model):
@@ -14,8 +13,8 @@ class CartItem(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
     product_variant_id = db.Column(db.Integer, db.ForeignKey("product_variants.id", ondelete="CASCADE"), nullable=False, index=True)
     quantity = db.Column(db.Integer, nullable=False, default=1, server_default="1")
-    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.utcnow)
-    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now, onupdate=utc_now)
 
     user = db.relationship("User", backref=db.backref("cart_items", cascade="all, delete-orphan", lazy=True))
     product_variant = db.relationship("ProductVariant")
@@ -30,7 +29,7 @@ class WishlistItem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id", ondelete="CASCADE"), nullable=False, index=True)
     product_id = db.Column(db.Integer, db.ForeignKey("products.id", ondelete="CASCADE"), nullable=False, index=True)
-    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
 
     user = db.relationship("User", backref=db.backref("wishlist_items", cascade="all, delete-orphan", lazy=True))
     product = db.relationship("Product")

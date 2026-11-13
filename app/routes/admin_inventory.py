@@ -5,6 +5,7 @@ from sqlalchemy.orm import joinedload
 
 from ..extensions import db
 from ..models import Product, ProductVariant
+from ..utils.search import escape_like_value
 from .admin import _csrf_token, _valid_csrf_token, admin_required
 
 admin_inventory_bp = Blueprint("admin_inventory", __name__, url_prefix="/admin/inventory")
@@ -69,15 +70,18 @@ def listing():
     if product_filter.isdigit():
         query = query.filter(ProductVariant.product_id == int(product_filter))
     if size_filter:
-        query = query.filter(ProductVariant.size.ilike(f"%{size_filter}%"))
+        query = query.filter(ProductVariant.size.ilike(f"%{escape_like_value(size_filter)}%", escape="!"))
     if stock_filter == "out":
         query = query.filter(ProductVariant.stock_quantity == 0)
     elif stock_filter == "low":
         query = query.filter(ProductVariant.stock_quantity.between(1, LOW_STOCK_THRESHOLD))
-    variants = query.order_by(Product.name, ProductVariant.size, ProductVariant.sku).all()
+    pagination = query.order_by(Product.name, ProductVariant.size, ProductVariant.sku).paginate(
+        page=max(request.args.get("page", 1, type=int) or 1, 1), per_page=25, error_out=False
+    )
     return render_template(
         "admin/inventory/list.html",
-        variants=variants,
+        variants=pagination.items,
+        pagination=pagination,
         products=Product.query.order_by(Product.name).all(),
         product_filter=product_filter,
         size_filter=size_filter,

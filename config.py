@@ -11,6 +11,18 @@ BASE_DIR = Path(__file__).resolve().parent
 load_dotenv(BASE_DIR / ".env")
 
 _LOCAL_DATABASE_HOSTS = {"localhost", "127.0.0.1", "::1"}
+PAYTM_GATEWAY_ENDPOINTS = {
+    "staging": {
+        "PAYTM_INITIATE_URL": "https://securegw-stage.paytm.in/theia/api/v1/initiateTransaction",
+        "PAYTM_STATUS_URL": "https://securegw-stage.paytm.in/v3/order/status",
+        "PAYTM_CHECKOUT_JS_URL": "https://securegw-stage.paytm.in/merchantpgpui/checkoutjs/merchants/{mid}.js",
+    },
+    "production": {
+        "PAYTM_INITIATE_URL": "https://securegw.paytm.in/theia/api/v1/initiateTransaction",
+        "PAYTM_STATUS_URL": "https://securegw.paytm.in/v3/order/status",
+        "PAYTM_CHECKOUT_JS_URL": "https://securegw.paytm.in/merchantpgpui/checkoutjs/merchants/{mid}.js",
+    },
+}
 
 
 def _is_remote_postgres(parsed_url):
@@ -99,16 +111,22 @@ class BaseConfig:
     PAYTM_MID = os.getenv("PAYTM_MID")
     PAYTM_MERCHANT_KEY = os.getenv("PAYTM_MERCHANT_KEY")
     PAYTM_WEBSITE = os.getenv("PAYTM_WEBSITE")
-    PAYTM_ENVIRONMENT = os.getenv("PAYTM_ENVIRONMENT", "staging")
+    PAYTM_ENVIRONMENT = os.getenv("PAYTM_ENVIRONMENT", "staging").strip().lower()
     PAYTM_CALLBACK_URL = os.getenv(
         "PAYTM_CALLBACK_URL", "http://127.0.0.1:5000/payment/paytm/callback"
     )
-    PAYTM_INITIATE_URL = "https://securegw-stage.paytm.in/theia/api/v1/initiateTransaction"
-    PAYTM_STATUS_URL = "https://securegw-stage.paytm.in/v3/order/status"
-    PAYTM_CHECKOUT_JS_URL = "https://securegw-stage.paytm.in/merchantpgpui/checkoutjs/merchants/{mid}.js"
+    PAYTM_INITIATE_URL = PAYTM_GATEWAY_ENDPOINTS.get(PAYTM_ENVIRONMENT, PAYTM_GATEWAY_ENDPOINTS["staging"])["PAYTM_INITIATE_URL"]
+    PAYTM_STATUS_URL = PAYTM_GATEWAY_ENDPOINTS.get(PAYTM_ENVIRONMENT, PAYTM_GATEWAY_ENDPOINTS["staging"])["PAYTM_STATUS_URL"]
+    PAYTM_CHECKOUT_JS_URL = PAYTM_GATEWAY_ENDPOINTS.get(PAYTM_ENVIRONMENT, PAYTM_GATEWAY_ENDPOINTS["staging"])["PAYTM_CHECKOUT_JS_URL"]
     BREVO_API_KEY = os.getenv("BREVO_API_KEY")
     BREVO_SENDER_EMAIL = os.getenv("BREVO_SENDER_EMAIL")
     BREVO_SENDER_NAME = os.getenv("BREVO_SENDER_NAME", "STEPZONE")
+    RATELIMIT_ENABLED = os.getenv("RATELIMIT_ENABLED", "true").strip().lower() in {"1", "true", "yes", "on"}
+    RATELIMIT_STORAGE_URI = os.getenv("RATELIMIT_STORAGE_URI", "memory://")
+    CUSTOMER_LOGIN_RATE_LIMIT = os.getenv("CUSTOMER_LOGIN_RATE_LIMIT", "10 per 15 minutes")
+    ADMIN_LOGIN_RATE_LIMIT = os.getenv("ADMIN_LOGIN_RATE_LIMIT", "10 per 15 minutes")
+    REGISTRATION_RATE_LIMIT = os.getenv("REGISTRATION_RATE_LIMIT", "10 per 15 minutes")
+    FORGOT_PASSWORD_RATE_LIMIT = os.getenv("FORGOT_PASSWORD_RATE_LIMIT", "5 per 15 minutes")
 
 
 class DevelopmentConfig(BaseConfig):

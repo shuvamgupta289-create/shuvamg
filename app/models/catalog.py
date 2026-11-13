@@ -1,7 +1,7 @@
-from datetime import datetime
 from decimal import Decimal
 
 from ..extensions import db
+from ..utils.time import utc_now
 
 
 class Category(db.Model):
@@ -13,8 +13,8 @@ class Category(db.Model):
     slug = db.Column(db.String(140), nullable=False, index=True)
     description = db.Column(db.Text)
     is_active = db.Column(db.Boolean, nullable=False, default=True, server_default=db.true())
-    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.utcnow)
-    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now, onupdate=utc_now)
 
     products = db.relationship("Product", back_populates="category")
 
@@ -29,8 +29,8 @@ class Brand(db.Model):
     description = db.Column(db.Text)
     logo_url = db.Column(db.String(500))
     is_active = db.Column(db.Boolean, nullable=False, default=True, server_default=db.true())
-    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.utcnow)
-    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now, onupdate=utc_now)
 
     products = db.relationship("Product", back_populates="brand")
 
@@ -48,8 +48,8 @@ class Product(db.Model):
     image_url = db.Column(db.String(1000))
     base_price = db.Column(db.Numeric(12, 2), nullable=False)
     is_active = db.Column(db.Boolean, nullable=False, default=True, server_default=db.true())
-    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.utcnow)
-    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now, onupdate=utc_now)
 
     category = db.relationship("Category", back_populates="products")
     brand = db.relationship("Brand", back_populates="products")
@@ -58,7 +58,10 @@ class Product(db.Model):
 
 class ProductVariant(db.Model):
     __tablename__ = "product_variants"
-    __table_args__ = (db.UniqueConstraint("sku", name="uq_product_variants_sku"),)
+    __table_args__ = (
+        db.UniqueConstraint("sku", name="uq_product_variants_sku"),
+        db.CheckConstraint("stock_quantity >= 0", name="ck_product_variants_stock_nonnegative"),
+    )
 
     id = db.Column(db.Integer, primary_key=True)
     product_id = db.Column(db.Integer, db.ForeignKey("products.id", ondelete="CASCADE"), nullable=False, index=True)
@@ -68,8 +71,8 @@ class ProductVariant(db.Model):
     price = db.Column(db.Numeric(12, 2), nullable=True)
     stock_quantity = db.Column(db.Integer, nullable=False, default=0, server_default="0")
     is_active = db.Column(db.Boolean, nullable=False, default=True, server_default=db.true())
-    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.utcnow)
-    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now, onupdate=utc_now)
 
     product = db.relationship("Product", back_populates="variants")
 

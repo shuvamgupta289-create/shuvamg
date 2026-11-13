@@ -86,7 +86,7 @@ class AdminAuthenticationTests(unittest.TestCase):
             },
         )
         self.assertEqual(response.status_code, 302)
-        cookie = next((item for item in response.headers.getlist("Set-Cookie") if item.startswith("session=")), "")
+        cookie = next((item for item in response.headers.getlist("Set-Cookie") if item.startswith("stepzone_admin_session=")), "")
         expires_text = next((part.split("=", 1)[1].strip() for part in cookie.split(";")[1:] if part.strip().lower().startswith("expires=")), "")
         self.assertTrue(expires_text)
         remaining = parsedate_to_datetime(expires_text) - datetime.now(timezone.utc)
@@ -98,6 +98,29 @@ class AdminAuthenticationTests(unittest.TestCase):
         logout = client.post("/admin/logout", data={"csrf_token": dashboard_token})
         self.assertEqual(logout.status_code, 302)
         self.assertEqual(client.get("/admin/").status_code, 302)
+
+    def test_customer_and_admin_logins_use_separate_session_cookies(self):
+        client = self.app.test_client()
+        admin_response = client.post(
+            "/admin/login",
+            data={
+                "csrf_token": self.csrf_token(client),
+                "email": "admin@example.com",
+                "password": "CorrectHorseBatteryStaple!",
+            },
+        )
+        self.assertTrue(any(value.startswith("stepzone_admin_session=") for value in admin_response.headers.getlist("Set-Cookie")))
+        self.assertEqual(client.get("/admin/").status_code, 200)
+
+        login_page = client.get("/login")
+        customer_csrf = re.search(r'name="csrf_token" value="([^"]+)"', login_page.get_data(as_text=True)).group(1)
+        customer_response = client.post(
+            "/login",
+            data={"csrf_token": customer_csrf, "email": "customer@example.com", "password": "CustomerPassword!"},
+        )
+        self.assertTrue(any(value.startswith("session=") for value in customer_response.headers.getlist("Set-Cookie")))
+        self.assertEqual(client.get("/cart").status_code, 200)
+        self.assertEqual(client.get("/admin/").status_code, 200)
 
     def test_customer_role_cannot_login_to_admin(self):
         client = self.app.test_client()

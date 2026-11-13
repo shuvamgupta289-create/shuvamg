@@ -7,8 +7,8 @@
     --muted: #777771;
     --orange: #ff5a1f;
     --orange-dark: #d9430c;
-    --display: "Space Grotesk", sans-serif;
-    --body: "DM Sans", sans-serif;
+    --display: "Space Grotesk Variable", sans-serif;
+    --body: "DM Sans Variable", sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -172,7 +172,11 @@ em { font-family: Georgia, serif; font-weight: 400; letter-spacing: -.07em; }
 .brand-hero-content h1 em { color: var(--orange); font-style: normal; }
 .brand-hero-content > p:not(.eyebrow) { color: #c7c7c3; font-size: 13px; line-height: 1.7; margin: 14px 0; max-width: 560px; }
 .brand-product-count { color: #b4b4ae; display: inline-block; font-size: 10px; margin-top: 12px; }
-.brand-hero-logo { background: #fff; border-radius: 8px; height: 58px; margin-bottom: 24px; object-fit: contain; padding: 9px; width: 110px; }
+.brand-hero-logo-wrap { align-items: center; background: #fff; border-radius: 10px; display: flex; height: 66px; justify-content: center; margin-bottom: 24px; padding: 8px 12px; width: 132px; }
+.brand-hero-logo { display: block; height: 100%; object-fit: contain; width: 100%; }
+.brand-hero-logo-fallback { align-items: center; background: #fff; border-radius: 10px; color: var(--ink); display: flex; font: 700 13px/1.1 var(--display); justify-content: center; min-height: 66px; padding: 8px 12px; text-align: center; width: 132px; }
+.brand-hero-logo-fallback[hidden] { display: none; }
+.brand-hero-logo-fallback-visible { margin-bottom: 24px; }
 .brand-products-heading { margin-bottom: 22px; }
 .brand-products-heading h2 { font: 600 clamp(27px, 4vw, 40px) var(--display); letter-spacing: -.05em; margin: 0; }
 .brand-products-heading h2 em { color: var(--orange); font-style: normal; }

@@ -1,7 +1,7 @@
 from functools import wraps
 import hmac
 import secrets
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 import click
 from flask import Blueprint, current_app, redirect, render_template, request, session, url_for
@@ -9,8 +9,11 @@ from sqlalchemy import func
 from sqlalchemy.orm import joinedload
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from ..extensions import db
-from ..models import Order, Product, ProductVariant, User
+from ..extensions import db, limiter
+from ..models import Order, Payment, Product, ProductVariant, User
+from ..services.email_service import send_order_confirmation
+from ..services.order_service import mark_order_failed
+from ..utils.time import utc_now
 
 admin_bp = Blueprint("admin", __name__, url_prefix="/admin")
 
@@ -58,6 +61,7 @@ def login():
 
 
 @admin_bp.post("/login")
+@limiter.limit(lambda: current_app.config["ADMIN_LOGIN_RATE_LIMIT"], methods=["POST"])
 def login_submit():
     email = request.form.get("email", "").strip().lower()
     password = request.form.get("password", "")
@@ -81,8 +85,8 @@ def login_submit():
 def dashboard():
     low_stock_threshold = 5
     paid_sales = db.session.query(func.coalesce(func.sum(Order.total_amount), 0)).filter(Order.payment_status == "paid").scalar() or 0
-    today = datetime.utcnow().date()
-    chart_start = datetime.combine(today - timedelta(days=6), datetime.min.time())
+    today = utc_now().date()
+    chart_start = datetime.combine(today - timedelta(days=6), datetime.min.time(), tzinfo=timezone.utc)
     sales_rows = (
         db.session.query(func.date(Order.created_at), func.coalesce(func.sum(Order.total_amount), 0))
         .filter(Order.payment_status == "paid", Order.created_at >= chart_start)
@@ -131,6 +135,37 @@ def logout():
 
 
 def register_admin_cli(app):
+    @app.cli.command("retry-failed-emails")
+    @click.option("--limit", default=100, show_default=True, type=click.IntRange(min=1))
+    def retry_failed_emails(limit):
+        """Retry a bounded batch of failed order-confirmation emails."""
+        failed = Payment.query.filter_by(email_status="failed").order_by(Payment.id.asc()).limit(limit).all()
+        sent = sum(bool(send_order_confirmation(payment.order_id)) for payment in failed)
+        click.echo(f"Retried {len(failed)} failed email(s); {sent} sent successfully.")
+
+    @app.cli.command("expire-pending-orders")
+    @click.option("--minutes", default=30, show_default=True, type=click.IntRange(min=1))
+    def expire_pending_orders(minutes):
+        """Fail stale pending Paytm orders and release their reserved stock."""
+        cutoff = datetime.now(timezone.utc) - timedelta(minutes=minutes)
+        orders = (
+            Order.query.filter(
+                Order.payment_method == "paytm",
+                Order.payment_status == "pending",
+                Order.created_at < cutoff,
+            )
+            .order_by(Order.id.asc())
+            .with_for_update()
+            .all()
+        )
+        for order in orders:
+            mark_order_failed(order, "Paytm payment expired before confirmation.")
+            order.status = "expired"
+            order.payment_status = "expired"
+            order.payment.status = "expired"
+        db.session.commit()
+        click.echo(f"Expired {len(orders)} pending Paytm order(s).")
+
     @app.cli.command("create-admin")
     @click.option("--email", prompt=True, help="Administrator email address")
     @click.option("--first-name", prompt=True, help="Administrator first name")

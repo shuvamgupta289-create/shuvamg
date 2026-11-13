@@ -39,7 +39,7 @@
                     <div class="checkout-section-heading"><span>02</span><div><h2 id="checkout-payment-title">Payment method</h2><p>Choose how you would like to pay.</p></div></div>
                     <div class="checkout-payment-options">
                         <button class="checkout-payment-option is-selected" type="submit" name="payment-choice" value="paytm" formaction="{{ url_for('checkout.start_paytm_payment') }}">
-                            <span class="checkout-payment-icon"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></span><span><strong>Pay with Paytm</strong><small>Secure online payment · Staging</small></span><i class="fa-regular fa-circle-check checkout-payment-check" aria-hidden="true"></i>
+                            <span class="checkout-payment-icon"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></span><span><strong>Pay with Paytm</strong><small>Secure online payment · {{ config['PAYTM_ENVIRONMENT']|title }}</small></span><i class="fa-regular fa-circle-check checkout-payment-check" aria-hidden="true"></i>
                         </button>
                         <button class="checkout-payment-option" type="submit" name="payment-choice" value="cod" formaction="{{ url_for('checkout.place_cod_order') }}">
                             <span class="checkout-payment-icon"><i class="fa-solid fa-box" aria-hidden="true"></i></span><span><strong>Cash on Delivery</strong><small>Pay when your order arrives</small></span><i class="fa-regular fa-circle checkout-payment-check" aria-hidden="true"></i>

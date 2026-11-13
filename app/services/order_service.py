@@ -1,11 +1,11 @@
-from datetime import datetime
 from decimal import Decimal
 from uuid import uuid4
 
-from sqlalchemy import select
+from sqlalchemy import select, update
 
 from ..extensions import db
 from ..models import Order, OrderItem, Payment, Product, ProductVariant
+from ..utils.time import utc_now
 
 
 class OrderValidationError(ValueError):
@@ -117,16 +117,75 @@ def create_pending_order(
     )
     db.session.add(order)
     db.session.flush()
+    if payment_method == "paytm":
+        reserve_order_stock(order)
+    return order
+
+
+def reserve_order_stock(order):
+    """Atomically reserve inventory for an unpaid Paytm order."""
+    if order.stock_reserved or order.stock_deducted:
+        return order
+    for item in order.items:
+        result = db.session.execute(
+            update(ProductVariant)
+            .where(
+                ProductVariant.id == item.product_variant_id,
+                ProductVariant.product_id == item.product_id,
+                ProductVariant.is_active.is_(True),
+                ProductVariant.stock_quantity >= item.quantity,
+            )
+            .values(stock_quantity=ProductVariant.stock_quantity - item.quantity)
+        )
+        if result.rowcount != 1:
+            raise OrderValidationError("The selected variant no longer has enough stock.")
+    order.stock_reserved = True
+    return order
+
+
+def release_order_stock(order):
+    """Release a Paytm reservation or restore deducted stock once only."""
+    if order.stock_reserved:
+        for item in order.items:
+            db.session.execute(
+                update(ProductVariant)
+                .where(ProductVariant.id == item.product_variant_id)
+                .values(stock_quantity=ProductVariant.stock_quantity + item.quantity)
+            )
+        order.stock_reserved = False
+    elif order.stock_deducted:
+        for item in order.items:
+            db.session.execute(
+                update(ProductVariant)
+                .where(ProductVariant.id == item.product_variant_id)
+                .values(stock_quantity=ProductVariant.stock_quantity + item.quantity)
+            )
+        order.stock_deducted = False
+    return order
+
+
+def mark_order_failed(order, response_message=None):
+    if order.payment_status in {"paid", "paid_needs_review", "failed", "expired"}:
+        return order
+    release_order_stock(order)
+    order.status = "failed"
+    order.payment_status = "failed"
+    if order.payment is not None:
+        order.payment.status = "failed"
+        order.payment.response_message = (response_message or "Payment was not successful.")[:255]
     return order
 
 
 def mark_order_paid(order, transaction_id=None, response_code=None, response_message=None):
-    if order.payment_status == "paid":
+    if order.payment_status in {"paid", "paid_needs_review"}:
         return order
-
-    for item in order.items:
-        variant = get_available_variant(item.product_variant_id, item.product_id, item.quantity, lock=True)
-        variant.stock_quantity -= item.quantity
+    if order.stock_reserved:
+        order.stock_reserved = False
+        order.stock_deducted = True
+    elif not order.stock_deducted:
+        reserve_order_stock(order)
+        order.stock_reserved = False
+        order.stock_deducted = True
 
     order.status = "confirmed"
     order.payment_status = "paid"
@@ -134,7 +193,7 @@ def mark_order_paid(order, transaction_id=None, response_code=None, response_mes
     order.payment.provider_transaction_id = transaction_id
     order.payment.response_code = response_code
     order.payment.response_message = response_message
-    order.payment.paid_at = datetime.utcnow()
+    order.payment.paid_at = utc_now()
     return order
 
 
@@ -144,6 +203,7 @@ def mark_order_cod(order):
     for item in order.items:
         variant = get_available_variant(item.product_variant_id, item.product_id, item.quantity, lock=True)
         variant.stock_quantity -= item.quantity
+    order.stock_deducted = True
     order.status = "confirmed"
     order.payment_status = "pending_cod"
     order.payment.status = "cod_pending"

@@ -9,7 +9,7 @@
         <div class="container-fluid content-shell">
             <nav class="brand-breadcrumb" aria-label="Breadcrumb"><a href="{{ url_for('main.home') }}">Home</a><span>/</span><a href="{{ url_for('main.home') }}#brands">Brands</a><span>/</span><span aria-current="page">{{ brand.name }}</span></nav>
             <div class="brand-hero-content">
-                {% if brand.logo_url %}<img class="brand-hero-logo" src="{{ brand.logo_url }}" alt="{{ brand.name }} logo">{% endif %}
+                {% if brand_logo_url %}<div class="brand-hero-logo-wrap"><img class="brand-hero-logo" src="{{ brand_logo_url }}" alt="{{ brand.name }} logo" loading="lazy" decoding="async" data-brand-logo><span class="brand-hero-logo-fallback" data-brand-logo-fallback hidden>{{ brand.name }}</span></div>{% else %}<span class="brand-hero-logo-fallback brand-hero-logo-fallback-visible">{{ brand.name }}</span>{% endif %}
                 <p class="eyebrow">STEPZONE BRAND EDIT</p>
                 <h1>{{ brand.name }}<em>.</em></h1>
                 {% if brand.description %}<p>{{ brand.description }}</p>{% endif %}

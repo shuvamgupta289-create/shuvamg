@@ -10,6 +10,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from app import create_app
 from app.extensions import db
 from app.models import Brand, CartItem, Category, Order, OrderItem, Payment, Product, ProductVariant, User, WishlistItem
+from app.routes.checkout import _clear_ordered_cart_quantities
 from app.routes.customer_auth import safe_next_url
 from config import config_by_name
 
@@ -26,6 +27,8 @@ ShoppingTestingConfig = type(
         "SESSION_COOKIE_SECURE": False,
         "PERMANENT_SESSION_LIFETIME": timedelta(hours=2),
         "PUBLIC_BASE_URL": "https://stepzone.example",
+        "PAYTM_MID": "mock-mid",
+        "PAYTM_CHECKOUT_JS_URL": "https://example.invalid/merchant/{mid}.js",
         "DEBUG": True,
     },
 )
@@ -147,6 +150,54 @@ class CustomerShoppingTests(unittest.TestCase):
         html = detail.get_data(as_text=True)
         self.assertIn(self.first_product.image_url, html)
         self.assertIn("Add to cart", html)
+
+    def test_checkout_out_of_stock_cart_item_returns_400_with_error(self):
+        client = self.app.test_client()
+        self.assertEqual(self.login(client).status_code, 302)
+        self.assertEqual(self.add_item(client, self.first_product, self.first_variant).status_code, 302)
+        self.first_variant.stock_quantity = 0
+        db.session.commit()
+
+        response = client.get("/checkout")
+
+        self.assertEqual(response.status_code, 400)
+        self.assertIn("does not have enough stock", response.get_data(as_text=True).lower())
+
+    def test_checkout_empty_cart_and_invalid_csrf_are_handled_without_order_creation(self):
+        client = self.app.test_client()
+        self.assertEqual(self.login(client).status_code, 302)
+        empty = client.get("/checkout")
+        self.assertEqual(empty.status_code, 200)
+        self.assertIn("cart is empty", empty.get_data(as_text=True).lower())
+        self.add_item(client, self.first_product, self.first_variant)
+        response = client.post("/checkout/cod", data={
+            "checkout_token": "invalid-csrf-token", "name": "First Shopper", "email": self.first.email,
+            "phone": "9999999999", "address": "Address", "city": "Pune", "state": "MH", "postal_code": "411001",
+        })
+        self.assertEqual(response.status_code, 400)
+        self.assertIn("form session expired", response.get_data(as_text=True).lower())
+        self.assertEqual(Order.query.filter_by(checkout_token="invalid-csrf-token").count(), 0)
+
+    def test_paytm_checkout_reserves_stock_when_gateway_start_succeeds(self):
+        client = self.app.test_client()
+        self.assertEqual(self.login(client).status_code, 302)
+        self.add_item(client, self.first_product, self.first_variant, quantity=2)
+        page = client.get("/checkout")
+        body = page.get_data(as_text=True)
+        csrf = re.search(r'name="csrf_token" value="([^"]+)"', body).group(1)
+        checkout_token = re.search(r'name="checkout_token" value="([^"]+)"', body).group(1)
+        data = {
+            "csrf_token": csrf, "checkout_token": checkout_token, "name": "First Shopper",
+            "email": self.first.email, "phone": "9999999999", "address": "Address",
+            "city": "Pune", "state": "MH", "postal_code": "411001",
+        }
+        with patch("app.routes.checkout.initiate_transaction", return_value={"order_id": "SZ-MOCK", "txn_token": "mock-token"}):
+            response = client.post("/checkout/paytm", data=data)
+        self.assertEqual(response.status_code, 200)
+        order = Order.query.filter_by(checkout_token=checkout_token).one()
+        self.assertTrue(order.stock_reserved)
+        self.assertEqual(order.payment_status, "pending")
+        self.assertEqual(self.first_variant.stock_quantity, 3)
 
     def test_guest_product_add_returns_to_product_with_requested_size(self):
         client = self.app.test_client()
@@ -325,8 +376,55 @@ class CustomerShoppingTests(unittest.TestCase):
         self.assertNotIn("Test Court", body)
         self.assertNotIn("Other Runner", body)
         self.assertIn("125.00", body)
+        descending = client.get("/brands/test-brand?sort=price_desc").get_data(as_text=True)
+        self.assertLess(descending.index("Test Court"), descending.index("Test Runner"))
         self.assertEqual(client.get("/brands/other-brand").status_code, 200)
         self.assertEqual(client.get("/brands/missing-brand").status_code, 404)
+
+    def test_product_search_escapes_percent_and_underscore(self):
+        percent = Product(name="Literal % Runner", slug="literal-percent-runner", brand_id=self.brand.id, category_id=self.category.id, base_price=Decimal("300.00"))
+        underscore = Product(name="Literal _ Court", slug="literal-underscore-court", brand_id=self.brand.id, category_id=self.category.id, base_price=Decimal("310.00"))
+        decoys = [
+            Product(name="Literal X Runner", slug="literal-x-runner", brand_id=self.brand.id, category_id=self.category.id, base_price=Decimal("320.00")),
+            Product(name="Literal A Court", slug="literal-a-court", brand_id=self.brand.id, category_id=self.category.id, base_price=Decimal("330.00")),
+        ]
+        db.session.add_all([percent, underscore, *decoys])
+        db.session.flush()
+        for index, product in enumerate([percent, underscore, *decoys]):
+            db.session.add(ProductVariant(product_id=product.id, sku=f"LITERAL-SEARCH-{index}", size="8", stock_quantity=2, price=product.base_price))
+        db.session.commit()
+
+        client = self.app.test_client()
+        percent_brand = client.get("/brands/test-brand?q=%25").get_data(as_text=True)
+        percent_search = client.get("/search?q=%25").get_data(as_text=True)
+        underscore_brand = client.get("/brands/test-brand?q=_").get_data(as_text=True)
+        underscore_search = client.get("/search?q=_").get_data(as_text=True)
+        for body in (percent_brand, percent_search):
+            self.assertIn("Literal % Runner", body)
+            self.assertNotIn("Literal X Runner", body)
+        for body in (underscore_brand, underscore_search):
+            self.assertIn("Literal _ Court", body)
+            self.assertNotIn("Literal A Court", body)
+
+    def test_ordered_cart_cleanup_ignores_quantity_changes(self):
+        cart = CartItem(user_id=self.first.id, product_variant_id=self.first_variant.id, quantity=3)
+        order = Order(
+            order_number="SZ-CART-CLEAR", checkout_token="cart-clear-token", user_id=self.first.id,
+            status="confirmed", payment_method="cod", payment_status="pending_cod",
+            subtotal=Decimal("250.00"), shipping_fee=Decimal("0"), total_amount=Decimal("250.00"),
+            customer_name="First Shopper", customer_email=self.first.email, customer_phone="9999999999",
+            shipping_address="Address", shipping_city="City", shipping_state="State", shipping_postal_code="411001",
+        )
+        order.items.append(OrderItem(
+            product_id=self.first_product.id, product_variant_id=self.first_variant.id,
+            product_name=self.first_product.name, sku=self.first_variant.sku, size=self.first_variant.size,
+            color=self.first_variant.color, unit_price=Decimal("125.00"), quantity=2, line_total=Decimal("250.00"),
+        ))
+        db.session.add_all([cart, order])
+        db.session.flush()
+        _clear_ordered_cart_quantities(self.first.id, order)
+        db.session.commit()
+        self.assertEqual(CartItem.query.filter_by(id=cart.id).count(), 0)
 
     def test_empty_brand_shows_friendly_message_and_inactive_products_are_hidden(self):
         empty_brand = Brand(name="Empty Brand", slug="empty-brand")

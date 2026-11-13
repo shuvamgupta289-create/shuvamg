@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Please slow down | STEPZONE{% endblock %}
+{% block content %}
+<main class="not-found-page">
+    <div class="not-found-inner">
+        <p class="eyebrow">STEPZONE / SECURITY</p>
+        <h1>Please slow down<em>.</em></h1>
+        <p>Too many requests were made in a short time. Please wait a little and try again.</p>
+        <a class="button button-orange" href="{{ url_for('main.home') }}">Back to STEPZONE</a>
+    </div>
+</main>
+{% endblock %}

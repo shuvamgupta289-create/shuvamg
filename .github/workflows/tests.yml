@@ -1,0 +1,21 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install runtime and development dependencies
+        run: python -m pip install -r requirements.txt -r requirements-dev.txt
+      - name: Run tests with checkout and services coverage
+        env:
+          PYTHON_DOTENV_DISABLED: "true"
+        run: python -m pytest -q --cov=app.routes.checkout --cov=app.services --cov-report=term-missing --cov-fail-under=85

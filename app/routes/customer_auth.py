@@ -1,4 +1,3 @@
-from datetime import datetime
 from functools import wraps
 import hmac
 import re
@@ -10,8 +9,9 @@ from itsdangerous import BadSignature, SignatureExpired, URLSafeTimedSerializer
 from sqlalchemy.exc import IntegrityError
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from ..extensions import db
+from ..extensions import db, limiter
 from ..models import Order, User
+from ..utils.time import utc_now
 
 customer_auth_bp = Blueprint("customer_auth", __name__)
 
@@ -115,6 +115,7 @@ def register():
 
 
 @customer_auth_bp.post("/register")
+@limiter.limit(lambda: current_app.config["REGISTRATION_RATE_LIMIT"], methods=["POST"])
 def register_submit():
     requested_next = request.form.get("next")
     next_url = safe_next_url(requested_next, default=url_for("main.home"))
@@ -176,6 +177,7 @@ def login():
 
 
 @customer_auth_bp.post("/login")
+@limiter.limit(lambda: current_app.config["CUSTOMER_LOGIN_RATE_LIMIT"], methods=["POST"])
 def login_submit():
     next_url = safe_next_url(request.form.get("next"))
     register_next_url = safe_next_url(
@@ -237,6 +239,7 @@ def forgot_password():
 
 
 @customer_auth_bp.post("/forgot-password")
+@limiter.limit(lambda: current_app.config["FORGOT_PASSWORD_RATE_LIMIT"], methods=["POST"])
 def forgot_password_submit():
     next_url = safe_next_url(request.form.get("next"))
     if not customer_csrf_valid():
@@ -331,7 +334,7 @@ def reset_password_submit(token):
         return render_template("auth/reset_password.html", error="Passwords do not match.", csrf_token=customer_csrf_token(), next_url=next_url, token=token), 400
 
     user.password_hash = generate_password_hash(password)
-    user.updated_at = datetime.utcnow()
+    user.updated_at = utc_now()
     db.session.commit()
     return redirect(url_for("customer_auth.login", password_reset="1", next=next_url))
 

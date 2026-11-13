@@ -8,7 +8,14 @@ from sqlalchemy.orm import joinedload
 from ..extensions import db
 from ..models import CartItem, Order, Product, ProductVariant, User
 from ..services.email_service import send_order_confirmation
-from ..services.order_service import OrderValidationError, create_pending_order, get_available_variant, mark_order_cod, mark_order_paid
+from ..services.order_service import (
+    OrderValidationError,
+    create_pending_order,
+    get_available_variant,
+    mark_order_cod,
+    mark_order_failed,
+    mark_order_paid,
+)
 from ..services.paytm_service import PaytmConfigurationError, PaytmGatewayError, initiate_transaction, verify_callback, verify_payment
 from .customer_auth import customer_csrf_token, customer_csrf_valid, customer_required
 
@@ -122,9 +129,9 @@ def _order_lines(items):
 
 
 def _clear_ordered_cart_quantities(user_id, order):
-    ordered = {(item.product_variant_id, item.quantity) for item in order.items}
+    ordered = {item.product_variant_id for item in order.items}
     for cart_item in CartItem.query.filter_by(user_id=user_id).all():
-        if (cart_item.product_variant_id, cart_item.quantity) in ordered:
+        if cart_item.product_variant_id in ordered:
             db.session.delete(cart_item)
 
 
@@ -134,7 +141,7 @@ def checkout_page(user):
     try:
         items, subtotal = _load_checkout_items(user)
     except OrderValidationError as error:
-        return _checkout_error(str(error), user=user), 400
+        return _checkout_error(str(error), 400, user=user)
     if not items:
         return _checkout_error("Your cart is empty. Add a product before checking out.", 200, user=user)
     return render_template(
@@ -247,18 +254,29 @@ def paytm_callback():
     if order is None:
         return render_template("payment_result.html", title="Payment failed", message="The payment order could not be found."), 404
     if order.payment_status == "paid":
-        send_order_confirmation(order.id)
         return render_template("payment_result.html", order=order, title="Payment confirmed", message="This payment has already been confirmed.")
+    if order.payment_status == "paid_needs_review":
+        return render_template("payment_result.html", order=order, title="Payment received", message="Your payment was received. Our team is reviewing the order before fulfillment; please contact STEPZONE support if you need help.")
+    if order.payment_status in {"failed", "expired"}:
+        return render_template("payment_result.html", order=order, title="Payment failed", message="This payment attempt is no longer active. Please place a new order if you still want these items."), 400
 
     try:
         if not verify_callback(callback_data):
             raise PaytmGatewayError("Paytm callback verification failed.")
         result_info, status_data = verify_payment(order.order_number)
         if result_info.get("resultStatus") != "TXN_SUCCESS":
-            raise PaytmGatewayError("Paytm payment was not successful.")
+            mark_order_failed(order, result_info.get("resultMsg") or "Paytm payment was not successful.")
+            db.session.commit()
+            return render_template("payment_result.html", order=order, title="Payment failed", message="Paytm did not complete this payment. Reserved stock has been released.")
         amount = status_data.get("txnAmount")
         if amount is None or Decimal(str(amount)) != order.total_amount:
-            raise PaytmGatewayError("Paytm payment amount did not match the order.")
+            order.status = "paid_needs_review"
+            order.payment_status = "paid_needs_review"
+            order.payment.status = "paid_needs_review"
+            order.payment.response_message = "Paytm reported success, but the amount did not match the order."
+            current_app.logger.error("Paytm reported a successful payment with an amount mismatch for order %s.", order.order_number)
+            db.session.commit()
+            return render_template("payment_result.html", order=order, title="Payment received", message="Your payment was received, but the order total needs manual review before fulfillment. Please contact STEPZONE support.")
         mark_order_paid(
             order,
             transaction_id=status_data.get("txnId"),
@@ -269,11 +287,23 @@ def paytm_callback():
             _clear_ordered_cart_quantities(order.user_id, order)
         db.session.commit()
         send_order_confirmation(order.id)
+    except OrderValidationError as error:
+        db.session.rollback()
+        order = Order.query.filter_by(order_number=order_number).with_for_update().first()
+        if order is not None:
+            order.status = "paid_needs_review"
+            order.payment_status = "paid_needs_review"
+            order.payment.status = "paid_needs_review"
+            order.payment.response_message = "Paytm reported success, but inventory could not be fulfilled."
+            current_app.logger.exception("Successful Paytm payment needs fulfillment review for order %s: %s", order_number, error)
+            db.session.commit()
+        return render_template("payment_result.html", order=order, title="Payment received", message="Your payment was received, but inventory could not be confirmed. Our team will review your order. Please contact STEPZONE support.")
     except PaytmGatewayError as error:
         db.session.rollback()
         return render_template("payment_result.html", order=order, title="Payment failed", message=str(error)), 400
     except Exception:
+        current_app.logger.exception("Paytm callback processing needs review for order %s.", order_number)
         db.session.rollback()
-        return render_template("payment_result.html", title="Payment failed", message="Payment verification is temporarily unavailable."), 503
+        return render_template("payment_result.html", order=order, title="Payment status under review", message="We could not finish verifying your payment. If your account was charged, your order is being reviewed; please contact STEPZONE support before trying payment again."), 200
 
     return render_template("payment_result.html", order=order, title="Payment confirmed", message="Your Paytm payment has been confirmed.")

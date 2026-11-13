@@ -5,7 +5,7 @@
 {% block content %}
 <main class="admin-dashboard-page"><div class="container-fluid content-shell">
     <div class="admin-dashboard-header"><div><p class="eyebrow">STEPZONE / ADMIN</p><h1>Dashboard</h1></div><form method="post" action="{{ url_for('admin.logout') }}"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><button class="button button-dark" type="submit">Sign out</button></form></div>
-    <nav class="admin-dashboard-nav" aria-label="Admin sections"><a class="is-current" href="{{ url_for('admin.dashboard') }}">Dashboard</a><a href="{{ url_for('admin_products.listing') }}">Products</a><a href="{{ url_for('admin_inventory.listing') }}">Inventory</a><a href="{{ url_for('admin_orders.listing') }}">Orders</a></nav>
+    <nav class="admin-dashboard-nav" aria-label="Admin sections"><a class="is-current" href="{{ url_for('admin.dashboard') }}">Dashboard</a><a href="{{ url_for('admin_products.listing') }}">Products</a><a href="{{ url_for('admin_inventory.listing') }}">Inventory</a><a href="{{ url_for('admin_orders.listing') }}">Orders</a><a href="{{ url_for('admin_customers.listing') }}">Customers</a></nav>
     <section class="admin-stat-grid" aria-label="Store statistics">
         <div class="admin-stat-card"><span>Total products</span><strong>{{ stats.products }}</strong><a href="{{ url_for('admin_products.listing') }}">View catalogue</a></div>
         <div class="admin-stat-card"><span>Product variants</span><strong>{{ stats.variants }}</strong><a href="{{ url_for('admin_inventory.listing') }}">View inventory</a></div>

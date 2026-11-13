@@ -19,9 +19,9 @@ def _settings():
     settings = {key: current_app.config.get(key) for key in required}
     missing = [key for key, value in settings.items() if not value]
     if missing:
-        raise PaytmConfigurationError("Paytm staging configuration is incomplete.")
-    if settings["PAYTM_ENVIRONMENT"] != "staging":
-        raise PaytmConfigurationError("Only Paytm staging is enabled.")
+        raise PaytmConfigurationError(f"Paytm {settings['PAYTM_ENVIRONMENT']} configuration is incomplete.")
+    if settings["PAYTM_ENVIRONMENT"] not in {"staging", "production"}:
+        raise PaytmConfigurationError("PAYTM_ENVIRONMENT must be either staging or production.")
     return settings
 
 

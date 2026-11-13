@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Customers | STEPZONE Admin{% endblock %}
+
+{% block content %}
+<main class="admin-dashboard-page"><div class="container-fluid content-shell">
+  <div class="admin-dashboard-header"><div><p class="eyebrow">STEPZONE / ADMIN</p><h1>Customers</h1></div></div>
+  <nav class="admin-dashboard-nav" aria-label="Admin sections"><a href="{{ url_for('admin.dashboard') }}">Dashboard</a><a href="{{ url_for('admin_products.listing') }}">Products</a><a href="{{ url_for('admin_inventory.listing') }}">Inventory</a><a href="{{ url_for('admin_orders.listing') }}">Orders</a><a class="is-current" href="{{ url_for('admin_customers.listing') }}">Customers</a></nav>
+  <form class="inventory-filters" method="get"><label>Search customers<input name="search" value="{{ search }}" type="search" placeholder="Name or email" autocomplete="off"></label><button class="button button-dark" type="submit">Search</button></form>
+  <div class="admin-product-table-wrap"><table class="admin-product-table"><thead><tr><th>Customer</th><th>Email</th><th>Phone</th><th>Registered</th><th>Orders</th><th></th></tr></thead><tbody>
+    {% for customer, order_count in customers %}<tr><td><strong>{{ customer.first_name }} {{ customer.last_name }}</strong></td><td>{{ customer.email }}</td><td>{{ customer.phone or '—' }}</td><td>{{ customer.created_at.strftime('%d %b %Y, %H:%M') }}</td><td>{{ order_count }}</td><td><a class="admin-edit-link" href="{{ url_for('admin_customers.detail', customer_id=customer.id) }}">View</a></td></tr>{% else %}<tr><td class="admin-table-empty" colspan="6">No customers found.</td></tr>{% endfor %}
+  </tbody></table></div>
+  {% if pagination.pages > 1 %}<nav class="brand-pagination" aria-label="Customer pages">{% if pagination.has_prev %}<a href="{{ url_for('admin_customers.listing', page=pagination.prev_num, search=search) }}" aria-label="Previous page">&larr;</a>{% endif %}<span>Page {{ pagination.page }} of {{ pagination.pages }}</span>{% if pagination.has_next %}<a href="{{ url_for('admin_customers.listing', page=pagination.next_num, search=search) }}" aria-label="Next page">&rarr;</a>{% endif %}</nav>{% endif %}
+</div></main>
+{% endblock %}

@@ -31,6 +31,11 @@
                 </tbody>
             </table>
         </div>
+        {% if pagination.pages > 1 %}<nav class="brand-pagination" aria-label="Inventory pages">
+            {% if pagination.has_prev %}<a href="{{ url_for('admin_inventory.listing', page=pagination.prev_num, product_id=product_filter, size=size_filter, stock_status=stock_filter) }}" aria-label="Previous page">&larr;</a>{% endif %}
+            <span>Page {{ pagination.page }} of {{ pagination.pages }}</span>
+            {% if pagination.has_next %}<a href="{{ url_for('admin_inventory.listing', page=pagination.next_num, product_id=product_filter, size=size_filter, stock_status=stock_filter) }}" aria-label="Next page">&rarr;</a>{% endif %}
+        </nav>{% endif %}
     </div>
 </main>
 {% endblock %}

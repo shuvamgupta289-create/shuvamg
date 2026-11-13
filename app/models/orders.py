@@ -1,6 +1,5 @@
-from datetime import datetime
-
 from ..extensions import db
+from ..utils.time import utc_now
 
 
 class Order(db.Model):
@@ -17,6 +16,8 @@ class Order(db.Model):
     status = db.Column(db.String(30), nullable=False, default="pending", server_default="pending")
     payment_method = db.Column(db.String(20), nullable=False)
     payment_status = db.Column(db.String(30), nullable=False, default="pending", server_default="pending")
+    stock_reserved = db.Column(db.Boolean, nullable=False, default=False, server_default=db.false())
+    stock_deducted = db.Column(db.Boolean, nullable=False, default=False, server_default=db.false())
     subtotal = db.Column(db.Numeric(12, 2), nullable=False)
     shipping_fee = db.Column(db.Numeric(12, 2), nullable=False, default=0, server_default="0")
     total_amount = db.Column(db.Numeric(12, 2), nullable=False)
@@ -28,8 +29,8 @@ class Order(db.Model):
     shipping_city = db.Column(db.String(100), nullable=False)
     shipping_state = db.Column(db.String(100), nullable=False)
     shipping_postal_code = db.Column(db.String(20), nullable=False)
-    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.utcnow)
-    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now, onupdate=utc_now)
 
     user = db.relationship("User", backref=db.backref("orders", lazy=True))
     items = db.relationship("OrderItem", back_populates="order", cascade="all, delete-orphan")
@@ -50,7 +51,7 @@ class OrderItem(db.Model):
     unit_price = db.Column(db.Numeric(12, 2), nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
     line_total = db.Column(db.Numeric(12, 2), nullable=False)
-    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
 
     order = db.relationship("Order", back_populates="items")
     product = db.relationship("Product")
@@ -77,7 +78,7 @@ class Payment(db.Model):
     email_error = db.Column(db.Text)
     email_sent_at = db.Column(db.DateTime(timezone=True))
     paid_at = db.Column(db.DateTime(timezone=True))
-    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.utcnow)
-    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=datetime.utcnow, onupdate=datetime.utcnow)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now, onupdate=utc_now)
 
     order = db.relationship("Order", back_populates="payment")

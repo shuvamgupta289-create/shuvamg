@@ -50,6 +50,12 @@ class AdminInventoryTests(unittest.TestCase):
         cls.context.pop()
 
     def setUp(self):
+        ProductVariant.query.filter(ProductVariant.id != self.variant.id).delete(synchronize_session=False)
+        self.variant.sku = "INV-LOW-08"
+        self.variant.size = "8"
+        self.variant.stock_quantity = 3
+        self.variant.is_active = True
+        db.session.commit()
         self.client = self.app.test_client()
         login = self.client.get("/admin/login")
         csrf = re.search(r'name="csrf_token" value="([^"]+)"', login.get_data(as_text=True)).group(1)
@@ -66,6 +72,25 @@ class AdminInventoryTests(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn("INV-LOW-08", response.get_data(as_text=True))
         self.assertIn("Low stock", response.get_data(as_text=True))
+
+    def test_inventory_search_escapes_wildcards_and_paginates_25_rows(self):
+        self.variant.size = "9%"
+        self.variant.sku = "INV-LITERAL-PERCENT"
+        variants = [
+            ProductVariant(product_id=self.product.id, sku=f"INV-PAGE-{index:02d}", size=f"{index:02d}", stock_quantity=2)
+            for index in range(26)
+        ]
+        variants.append(ProductVariant(product_id=self.product.id, sku="INV-DECOY-90", size="90", stock_quantity=2))
+        db.session.add_all(variants)
+        db.session.commit()
+
+        literal = self.client.get(f"/admin/inventory?product_id={self.product.id}&size=%25")
+        self.assertIn("INV-LITERAL-PERCENT", literal.get_data(as_text=True))
+        self.assertNotIn("INV-DECOY-90", literal.get_data(as_text=True))
+        first = self.client.get(f"/admin/inventory?product_id={self.product.id}")
+        self.assertIn("Page 1 of 2", first.get_data(as_text=True))
+        second = self.client.get(f"/admin/inventory?product_id={self.product.id}&page=2")
+        self.assertIn("Page 2 of 2", second.get_data(as_text=True))
 
     def test_stock_update_and_negative_validation(self):
         response = self.client.post(f"/admin/inventory/{self.variant.id}/stock", data={"csrf_token": self.csrf, "stock_quantity": "12"})

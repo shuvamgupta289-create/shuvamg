@@ -108,7 +108,7 @@
                 <a href="{{ url_for('main.brand_detail', slug=brand.slug) }}" class="brand-wordmark" aria-label="Shop {{ brand.name }}">
                     {% set logo_path = brand_logos.get(brand.slug) %}
                     {% if logo_path %}<img class="brand-logo-image" src="{{ logo_path }}" alt="{{ brand.name }} logo" loading="lazy" decoding="async" data-brand-logo><span class="brand-logo-fallback" data-brand-logo-fallback hidden>{{ brand.name }}</span>
-                    {% elif brand.logo_url and brand.logo_url.startswith('/static/images/brands/') and brand.logo_url.endswith(('.svg', '.png')) %}<img class="brand-logo-image" src="{{ brand.logo_url }}" alt="{{ brand.name }} logo" loading="lazy" decoding="async" data-brand-logo><span class="brand-logo-fallback" data-brand-logo-fallback hidden>{{ brand.name }}</span>
+                    {% elif brand.logo_url and brand.logo_url.startswith('/static/images/brands/') and brand.logo_url.endswith(('.svg', '.png')) %}<img class="brand-logo-image" src="{{ url_for('static', filename=brand.logo_url[8:]) }}" alt="{{ brand.name }} logo" loading="lazy" decoding="async" data-brand-logo><span class="brand-logo-fallback" data-brand-logo-fallback hidden>{{ brand.name }}</span>
                     {% else %}<span class="brand-logo-fallback">{{ brand.name }}</span>{% endif %}
                 </a>
                 {% else %}<p class="empty-products-message">New brands are on the way. Check back soon.</p>{% endfor %}
